@@ -127,7 +127,40 @@ window.ENGINE = {
       "url": "https://youtu.be/zFw7XHiF7ZA"
      }
     ]
-   }
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Creative loadout",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "High"
+   },
+   "learn": {
+    "hypothesis": "If we repeat the named creator loadout format with NEONGUTZYT, we expect a result closer to the Sanguine video than to the channel baseline, because the format not the creator is what carried it.",
+    "measure": "Beat 300 views in 14 days, which is above every non Sanguine upload. Click through rate from Home is the tiebreak.",
+    "result": "",
+    "insight": ""
+   },
+   "thumbs": [
+    {
+     "label": "A",
+     "strategy": "Name carrying",
+     "title": "Can a 60+ Hr Noob play NEONGUTZYT's Loadout? | THE FINALS",
+     "thumb": "His loadout on the left, your masked contestant on the right, split by the arena diagonal. Three words: HIS LOADOUT."
+    },
+    {
+     "label": "B",
+     "strategy": "Question first",
+     "title": "I played a 7k creator's loadout with 60 hours | THE FINALS",
+     "thumb": "Your contestant mid whiff, the loadout icons floating. Two words: 60 HOURS."
+    },
+    {
+     "label": "C",
+     "strategy": "Receipt",
+     "title": "NEONGUTZYT's loadout, played badly (60 hours) | THE FINALS",
+     "thumb": "End scoreboard cropped huge with your row circled in crimson."
+    }
+   ]
   },
   {
    "id": "dagger",
@@ -191,7 +224,40 @@ window.ENGINE = {
       "url": "https://youtu.be/S85li9HrTVY"
      }
     ]
-   }
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Weapon I hate",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "High"
+   },
+   "learn": {
+    "hypothesis": "If a noob plays the weapon the community complains about, we expect a higher click through than a build video, because the premise carries it instead of authority.",
+    "measure": "Click through rate above 4% from Home in 14 days, against 3.3% on the Sanguine video.",
+    "result": "",
+    "insight": ""
+   },
+   "thumbs": [
+    {
+     "label": "A",
+     "strategy": "Villain",
+     "title": "I played the weapon everyone hates | THE FINALS",
+     "thumb": "The dagger held to camera, your red mesh mask behind it, gold arena wall."
+    },
+    {
+     "label": "B",
+     "strategy": "Question",
+     "title": "Can a noob use the dagger? | THE FINALS",
+     "thumb": "Mid backstab, victim bursting into coins."
+    },
+    {
+     "label": "C",
+     "strategy": "Prop",
+     "title": "The dagger is not skill, it is patience | THE FINALS",
+     "thumb": "A real kitchen knife held in frame like the ERYSS scissors shot. Physical prop, not a render."
+    }
+   ]
   },
   {
    "id": "bow",
@@ -255,6 +321,19 @@ window.ENGINE = {
       "url": "https://youtu.be/Z60WLW4NGbI"
      }
     ]
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Angle",
+    "format": "Long form",
+    "persona": "Medium main",
+    "priority": "High"
+   },
+   "learn": {
+    "hypothesis": "If we make the bow video from the receiving end rather than as a patch reaction, we expect it to age past the patch window, because the frustration is evergreen and the buff is not.",
+    "measure": "Still earning views at day 30, which no upload has managed except Sanguine.",
+    "result": "",
+    "insight": ""
    }
   },
   {
@@ -319,7 +398,40 @@ window.ENGINE = {
       "url": "https://youtu.be/rhnxZf3QuF0"
      }
     ]
-   }
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Loss aversion title",
+    "format": "Long form",
+    "persona": "Medium main",
+    "priority": "High"
+   },
+   "learn": {
+    "hypothesis": "If we carry the STOP title format from Rocket League into FINALS, we expect the same loss aversion lift, because the mechanism is the viewer's fear of doing it wrong, not the game.",
+    "measure": "Click through rate above the channel's 3.3% average, and higher than the same week's non STOP upload.",
+    "result": "",
+    "insight": ""
+   },
+   "thumbs": [
+    {
+     "label": "A",
+     "strategy": "Loss aversion",
+     "title": "Stop using defibs | THE FINALS",
+     "thumb": "Defib in hand with a crimson X through it. Two words: STOP THIS."
+    },
+    {
+     "label": "B",
+     "strategy": "Consequence",
+     "title": "Your defib is why you keep losing | THE FINALS",
+     "thumb": "A teammate re-killed the instant they stand up, blur on the revive."
+    },
+    {
+     "label": "C",
+     "strategy": "Plain claim",
+     "title": "The defib is a trap | THE FINALS",
+     "thumb": "Defib alone on the arena yellow, no character, huge."
+    }
+   ]
   },
   {
    "id": "bottom1",
@@ -383,6 +495,13 @@ window.ENGINE = {
       "url": "https://youtu.be/mrOZN4oFeFU"
      }
     ]
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Validation angle",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "Medium"
    }
   },
   {
@@ -446,6 +565,13 @@ window.ENGINE = {
       "url": "https://youtu.be/zA5_nbyc0Ag"
      }
     ]
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Premise",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "Medium"
    }
   },
   {
@@ -508,6 +634,13 @@ window.ENGINE = {
       "url": "https://youtu.be/_m2DmZvRKik"
      }
     ]
+   },
+   "props": {
+    "lane": "Build",
+    "variable": "Build",
+    "format": "Long form",
+    "persona": "Medium main",
+    "priority": "Medium"
    }
   },
   {
@@ -525,7 +658,14 @@ window.ENGINE = {
    ],
    "thumb": "Crosshair on nothing, counter number huge, white border.",
    "script": "COLD OPEN  0:00 to 0:10\nThe single worst whiff in the footage. No setup, no title, no context. Full game audio, then one cartoon whiff sound layered under it. Freeze on the frame where the shot lands nowhere. A plain counter stamps on: MISSED 1.\n\nTITLE CARD  0:10 to 0:14\nBlack card, white condensed type: I COUNTED EVERY SHOT I MISSED. Cut straight out of it, no animation.\n\nACT 1, INSIDE FIVE METRES  0:14 to 1:20\nSix to eight whiffs, all from point blank. Hard cuts, no transitions, each one lands on the counter ticking up. Let the game audio carry it and add one sound per miss, varied so it does not get old.\nVO, two lines only:\n  \"Every shot I missed in one night. I actually counted them.\"\n  \"This is from inside five metres. Every one of these.\"\n\nACT 2, ALWAYS RELOADING  1:20 to 2:10\nThe reload gag. Every time he starts a reload and a fight arrives. Cut them back to back so the reload animation becomes the rhythm of the section.\nVO:\n  \"The Model 1887 holds two shots. I have never once counted them.\"\n  \"Reloading. Always reloading.\"\n\nACT 3, THE FULL MAG  2:10 to 2:55\nOne continuous whiff sequence, unbroken, a whole magazine with no hits. Do not cut it. The length is the joke. Counter runs the whole time.\nVO, one line at the end:\n  \"That is a full magazine. Zero hits. He did not even move.\"\n\nACT 4, SWINGING AT AIR  2:55 to 3:20\nMelee swings that connect with nothing. Short, three or four, quick.\nVO:\n  \"Swinging at air like it owes me money.\"\n\nTHE TURN  3:20 to 4:05\nStop the comedy. One real moment where a bad shot accidentally wins the fight, cut clean with full game audio and no sound effects at all. The silence after four minutes of noise is the whole trick.\nVO, quiet:\n  \"And then, once a night, this happens.\"\n\nCLOSE  4:05 to 4:30\nThe Citadel scoreboard, 13 eliminations, held long enough to read. Counter lands on its final number beside it.\nVO:\n  \"Thirteen eliminations that night. Imagine if I could actually aim.\"\nSpoken subscribe ask goes at roughly 1:00, inside Act 1, not at the end.\n\nSOUND DESIGN LIST\nCartoon whiff for ordinary misses. Air horn once, on the worst one only. Record scratch on the full mag. Total silence on the turn. The game's own coin sound on the final counter.\n\nSTATUS OF THE CLIPS\nThe whiff moments are not catalogued yet. The three Sep 8 and 9 recordings are on the drive and the kill feed has been read, but misses were never logged. Scanning for them is my job before this gets cut, and that scan is the only thing standing between this script and a finished video.",
-   "research": null
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Format",
+    "format": "Montage",
+    "persona": "Casual player",
+    "priority": "Medium"
+   }
   },
   {
    "id": "mediumparody",
@@ -587,6 +727,13 @@ window.ENGINE = {
       "url": "https://youtu.be/XFGE6LzAC3c"
      }
     ]
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Format",
+    "format": "Parody guide",
+    "persona": "Casual player",
+    "priority": "High"
    }
   },
   {
@@ -606,7 +753,40 @@ window.ENGINE = {
    ],
    "thumb": "Third place scoreboard, the 13 huge, 13 KILLS. LOST. White border.",
    "script": "Full timed voiceover script lives at D:\\VideoAgent\\plans\\finals_test_vo_script.md. Eight scenes, subscribe ask at 1:00, Brain Pause freeze at 6:16. Nothing left to do but record it.",
-   "research": null
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Objective score",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "High"
+   },
+   "learn": {
+    "hypothesis": "If the video argues one counterintuitive number instead of showing highlights, we expect retention past 2:00 to beat the channel's cliff, because there is a question the viewer wants answered.",
+    "measure": "Above 25% still watching at 2:00, against roughly 15% on the Sanguine video.",
+    "result": "",
+    "insight": ""
+   },
+   "thumbs": [
+    {
+     "label": "A",
+     "strategy": "Receipt",
+     "title": "I Got 13 Eliminations and We Still Lost | THE FINALS",
+     "thumb": "Third place scoreboard crop, the 13 enormous. Three words: 13 KILLS. LOST."
+    },
+    {
+     "label": "B",
+     "strategy": "Question",
+     "title": "Can a Noob Win THE FINALS With 3 Eliminations?",
+     "thumb": "The burning barrel doorway from the cold open. Three words: 3 KILLS. WON."
+    },
+    {
+     "label": "C",
+     "strategy": "Value",
+     "title": "Stop Chasing Kills. This Stat Wins Quick Cash | THE FINALS",
+     "thumb": "Split, crosshair with a crimson X against the cashout coins. Two words: IT WORKED."
+    }
+   ]
   },
   {
    "id": "akm",
@@ -666,6 +846,13 @@ window.ENGINE = {
       "url": "https://youtu.be/4pWG9KyTLv0"
      }
     ]
+   },
+   "props": {
+    "lane": "Build",
+    "variable": "Build",
+    "format": "Long form",
+    "persona": "Medium main",
+    "priority": "Low"
    }
   },
   {
@@ -725,6 +912,13 @@ window.ENGINE = {
       "url": "https://youtu.be/uudxrJG55Yg"
      }
     ]
+   },
+   "props": {
+    "lane": "Build",
+    "variable": "Build",
+    "format": "Long form",
+    "persona": "Medium main",
+    "priority": "Low"
    }
   },
   {
@@ -783,6 +977,13 @@ window.ENGINE = {
       "url": "https://youtu.be/OABRtKjEZZw"
      }
     ]
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Weapon I hate",
+    "format": "Series",
+    "persona": "Casual player",
+    "priority": "Low"
    }
   },
   {
@@ -841,6 +1042,13 @@ window.ENGINE = {
       "url": "https://youtu.be/UfLt8ZbLiYc"
      }
     ]
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Player I hate",
+    "format": "Long form",
+    "persona": "Medium main",
+    "priority": "Low"
    }
   },
   {
@@ -860,7 +1068,14 @@ window.ENGINE = {
     "Stop Losing Cashouts. Use This Setup"
    ],
    "thumb": "The setup laid out around one box, LOCKED DOWN.",
-   "research": null
+   "research": null,
+   "props": {
+    "lane": "Build",
+    "variable": "Objective play",
+    "format": "Long form",
+    "persona": "Medium main",
+    "priority": "Medium"
+   }
   },
   {
    "id": "pub_sanguine",
@@ -872,7 +1087,20 @@ window.ENGINE = {
    "clips": [],
    "titles": [],
    "thumb": "",
-   "research": null
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Creative loadout",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "Done"
+   },
+   "learn": {
+    "hypothesis": "A named creator's loadout played by a noob gives browsers a reason to click that does not need authority.",
+    "measure": "Beat the channel baseline of roughly 100 views.",
+    "result": "1,000 views against 51 to 101 on everything around it, but average view duration 1:20 on a 20:36 runtime, 6.5%. The click worked and the body did not hold.",
+    "insight": "The format is the win and the length is the loss. Repeat the format, cut the body to 7 or 8 minutes."
+   }
   },
   {
    "id": "pub_bfr",
@@ -884,7 +1112,20 @@ window.ENGINE = {
    "clips": [],
    "titles": [],
    "thumb": "",
-   "research": null
+   "research": null,
+   "props": {
+    "lane": "Build",
+    "variable": "Build",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "Done"
+   },
+   "learn": {
+    "hypothesis": "A build sandbox video would carry on the strength of the build alone.",
+    "measure": "Beat the channel baseline in the first week.",
+    "result": "66 unique viewers in five days. Click through was healthy at 6.1% from Home, and it was dead for 60 hours after a manual daytime upload.",
+    "insight": "Click through was never the problem, distribution timing and the build lane were. Schedule for US evening and stop leading with builds."
+   }
   },
   {
    "id": "pub_60hours",
@@ -896,7 +1137,20 @@ window.ENGINE = {
    "clips": [],
    "titles": [],
    "thumb": "",
-   "research": null
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Title case",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "Done"
+   },
+   "learn": {
+    "hypothesis": "Caps in the title would read as higher energy and pull more clicks.",
+    "measure": "Head to head against the plain sentence case variant.",
+    "result": "Plain sentence case took 56.2% against 8% for the caps variant.",
+    "insight": "Never use caps heavy titles on this channel. Sentence case, always."
+   }
   },
   {
    "id": "pub_kills",
@@ -908,7 +1162,146 @@ window.ENGINE = {
    "clips": [],
    "titles": [],
    "thumb": "",
-   "research": null
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Baseline",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "Done"
+   }
+  }
+ ],
+ "metrics": [
+  {
+   "id": "pub_sanguine",
+   "title": "Can a 60+ Hr NOOB play Sanguine's Loadout?",
+   "published": "22 Aug 2026",
+   "runtime": "20:36",
+   "read": "Day 18",
+   "views": 1000,
+   "unique": 267,
+   "engaged": 296,
+   "impressions": 6800,
+   "ctr": 3.3,
+   "avd": "1:20",
+   "avp": 6.5,
+   "subs": 1,
+   "note": "Still pulling roughly 55 views a day from Home at day 18. Retention cliff from 57% at 0:30 to about 15% by 2:00."
+  },
+  {
+   "id": "pub_bfr",
+   "title": "BFR Titan sandbox",
+   "published": "4 Sep 2026",
+   "runtime": "10:41",
+   "read": "Day 5",
+   "views": 103,
+   "unique": 66,
+   "engaged": 103,
+   "impressions": 1300,
+   "ctr": 6.1,
+   "avd": "1:45",
+   "avp": 16.5,
+   "subs": 0,
+   "note": "Dead for 60 hours after a manual daytime upload. Home wave started on the Sunday. 68% still watching at 0:30, 0% end screen clicks."
+  },
+  {
+   "id": "pub_60hours",
+   "title": "Winning with only 60 Hours",
+   "published": "About 1 month ago",
+   "runtime": "16:21",
+   "read": "Current",
+   "views": 101,
+   "unique": null,
+   "engaged": null,
+   "impressions": null,
+   "ctr": null,
+   "avd": null,
+   "avp": null,
+   "subs": null,
+   "note": "The title test that settled sentence case against caps, 56.2% to 8%."
+  },
+  {
+   "id": "pub_kills",
+   "title": "Even a noob like me can get kills",
+   "published": "About 3 weeks ago",
+   "runtime": "",
+   "read": "Current",
+   "views": 51,
+   "unique": null,
+   "engaged": null,
+   "impressions": null,
+   "ctr": null,
+   "avd": null,
+   "avp": null,
+   "subs": null,
+   "note": "Baseline for an ordinary upload on this channel."
+  }
+ ],
+ "channel28": {
+  "views": 1500,
+  "engaged": 335,
+  "regulars": 0,
+  "subs_from_videos": 2,
+  "subs_from_shorts": 0,
+  "shorts_swiped": 79
+ },
+ "thumbRules": [
+  "White border on every variant. It is the channel identifier and it is not optional.",
+  "Three words maximum, thick, readable at phone size.",
+  "Five to ten pixel outline stroke on character and weapon cutouts so they separate from dark backdrops.",
+  "No small rank boxes, no tiny info text. Dead space at phone size.",
+  "Test and Compare runs three title and thumbnail PAIRS, each a different pitch strategy, never three images against one title.",
+  "One variable at a time. Never change the title and the thumbnail together or the result cannot be attributed.",
+  "Physical props read louder than game renders in a feed of game renders. ERYSS did 7,300 views on 721 subscribers with scissors standing in for throwing knives."
+ ],
+ "titleTests": [
+  {
+   "t": "Winning with only 60 Hours",
+   "v": "56.2%",
+   "w": true
+  },
+  {
+   "t": "60 HOURS as SILVER",
+   "v": "8%",
+   "w": false
+  },
+  {
+   "t": "Can a 60+ Hr NOOB play Sanguine's Loadout?",
+   "v": "59.7%",
+   "w": true
+  },
+  {
+   "t": "Vague variant, no name",
+   "v": "11.7%",
+   "w": false
+  }
+ ],
+ "future": [
+  {
+   "t": "Performance reading",
+   "s": "Live",
+   "d": "Every published video carries its real read. The next step is pulling these automatically instead of typing them, the same way the DL monthly process pulls from Meta and Atria."
+  },
+  {
+   "t": "The learning loop",
+   "s": "Live",
+   "d": "Hypothesis, measure, result, insight on every card. Same four fields as the DL creative briefs, so a lesson learned here is written the same way as one learned at work."
+  },
+  {
+   "t": "Thumbnail engine",
+   "s": "Live",
+   "d": "Three title and thumbnail pairs per video, each a different pitch strategy, against the channel's own rules and the competitor wall."
+  },
+  {
+   "t": "BurgerCam FPV",
+   "s": "Slot open",
+   "d": "Second channel, opposite rules to HanneBurger. The board, week and playbook all take a channel switch when the content is ready."
+  },
+  {
+   "t": "Auto metrics",
+   "s": "Next",
+   "d": "The YouTube token on this machine is upload scope only. Adding readonly scope would let the numbers fill themselves."
   }
  ]
 };
