@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burger Content Engine</title>
+<meta name="description" content="Recording queue, week schedule and scripts for the HanneBurger FINALS channel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#14100D; --surface:#201A16; --surface2:#2A231D; --well:#171310;
+  --line:#3B322A; --text:#F2E9DC; --dim:#9A8B7B;
+  --gold:#E8B420; --crimson:#D0102E; --amber:#FF8A1F; --ok:#8FBF5A;
+  --shadow:0 10px 26px rgba(0,0,0,.45);
+  --f-display:"Anton","Arial Narrow",Impact,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#DCD0BB; --surface:#E9E0CF; --surface2:#F3ECDE; --well:#CFC2AA;
+    --line:#BCAC92; --text:#241C14; --dim:#6B5C4B;
+    --gold:#9C6B08; --crimson:#A80C24; --amber:#B2530B; --ok:#4E7A22;
+    --shadow:0 8px 20px rgba(90,70,45,.22);
+  }
+}
+:root[data-theme="light"]{
+  --bg:#DCD0BB; --surface:#E9E0CF; --surface2:#F3ECDE; --well:#CFC2AA;
+  --line:#BCAC92; --text:#241C14; --dim:#6B5C4B;
+  --gold:#9C6B08; --crimson:#A80C24; --amber:#B2530B; --ok:#4E7A22;
+  --shadow:0 8px 20px rgba(90,70,45,.22);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;letter-spacing:.02em;text-transform:uppercase;text-wrap:balance;margin:0}
+a{color:var(--amber)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.wrap{max-width:1500px;margin:0 auto;padding:0 20px}
+
+/* ---------- faceplate ---------- */
+.plate{background:var(--surface);border-bottom:3px solid var(--line);position:relative;overflow:hidden}
+.plate::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px);opacity:.5}
+.plate-in{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;padding:16px 20px;position:relative;z-index:1}
+.brand{display:flex;align-items:baseline;gap:12px;min-width:0}
+.brand b{font-family:var(--f-display);font-size:34px;letter-spacing:.06em;color:var(--gold);line-height:1;
+  text-shadow:2px 2px 0 var(--crimson)}
+.brand span{font-family:var(--f-mono);font-size:11px;letter-spacing:.34em;color:var(--dim);text-transform:uppercase}
+.readouts{display:flex;gap:8px;flex-wrap:wrap}
+.readout{background:var(--well);border:1px solid var(--line);padding:6px 11px;min-width:86px}
+.readout i{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.2em;color:var(--dim);font-style:normal;text-transform:uppercase}
+.readout b{display:block;font-family:var(--f-mono);font-size:17px;color:var(--amber);font-weight:500;font-variant-numeric:tabular-nums}
+
+/* ---------- channel + tabs ---------- */
+.bar{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid var(--line);background:var(--bg)}
+.chans,.tabs{display:flex;gap:6px}
+.chan,.tab{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--surface);color:var(--dim);border:1px solid var(--line);padding:8px 15px;cursor:pointer;
+  transform:skewX(-11deg)}
+.chan>*,.tab>*{display:inline-block;transform:skewX(11deg)}
+.chan[aria-pressed="true"],.tab[aria-selected="true"]{background:var(--gold);color:#14100D;border-color:var(--gold);font-weight:500}
+.chan:disabled{opacity:.45;cursor:not-allowed}
+.tab:hover:not([aria-selected="true"]),.chan:hover:not(:disabled):not([aria-pressed="true"]){color:var(--text);border-color:var(--amber)}
+.tools{display:flex;gap:6px;align-items:center}
+.btn{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:transparent;
+  color:var(--dim);border:1px solid var(--line);padding:7px 12px;cursor:pointer}
+.btn:hover{color:var(--amber);border-color:var(--amber)}
+
+/* ---------- views ---------- */
+.view{display:none;padding:22px 0 60px}
+.view.on{display:block}
+.lede{max-width:66ch;color:var(--dim);margin:0 0 20px;padding:0 20px}
+.lede b{color:var(--text);font-weight:600}
+
+/* ---------- board ---------- */
+.board{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(268px,1fr);gap:14px;overflow-x:auto;padding:0 20px 14px;align-items:start}
+.col{background:var(--surface);border:1px solid var(--line);min-height:120px;display:flex;flex-direction:column}
+.col.over{border-color:var(--amber);box-shadow:inset 0 0 0 1px var(--amber)}
+.col-h{padding:9px 12px;border-bottom:1px solid var(--line);background:var(--well)}
+.col-h h2{font-size:15px;letter-spacing:.08em;color:var(--gold)}
+.col-h p{margin:2px 0 0;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+.col-h .n{float:right;font-family:var(--f-mono);font-size:12px;color:var(--dim)}
+.stack{display:flex;flex-direction:column;gap:9px;padding:10px}
+.card{background:var(--surface2);border:1px solid var(--line);border-left:4px solid var(--gold);
+  padding:11px 12px;cursor:grab;text-align:left;color:inherit;font:inherit;width:100%;display:block}
+.card:hover{border-color:var(--amber);border-left-color:var(--amber);transform:translateY(-2px);box-shadow:var(--shadow)}
+.card.drag{opacity:.4}
+.card h3{font-size:16px;line-height:1.12;margin-bottom:6px}
+.card .meta{display:flex;gap:8px;flex-wrap:wrap;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--dim);text-transform:uppercase}
+.card .tag{border:1px solid var(--line);padding:1px 6px}
+.card .tag.hot{color:var(--crimson);border-color:var(--crimson)}
+.card .tag.script{color:var(--ok);border-color:var(--ok)}
+[data-col="capture"] .card{border-left-color:var(--crimson)}
+[data-col="edit"] .card{border-left-color:var(--amber)}
+[data-col="ready"] .card{border-left-color:var(--ok)}
+[data-col="published"] .card{border-left-color:var(--line)}
+[data-col="ideas"] .card{border-left-color:var(--dim)}
+
+/* ---------- week ---------- */
+.week{display:flex;flex-direction:column;gap:10px;padding:0 20px}
+.night{display:grid;grid-template-columns:112px 1fr;gap:16px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--crimson)}
+.night.free{border-left-color:var(--ok)}
+.night-d{background:var(--well);padding:14px 12px;border-right:1px solid var(--line)}
+.night-d b{display:block;font-family:var(--f-mono);font-size:13px;color:var(--amber)}
+.night-d i{display:block;font-family:var(--f-mono);font-size:10px;color:var(--dim);font-style:normal;letter-spacing:.08em;margin-top:3px}
+.night-b{padding:13px 16px 15px}
+.night-b h3{font-size:19px;margin-bottom:5px}
+.night-b p{margin:0 0 8px;color:var(--dim);max-width:70ch}
+.hunt{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0}
+.hunt li{font-family:var(--f-mono);font-size:10.5px;color:var(--text);background:var(--well);border:1px solid var(--line);padding:3px 8px}
+
+/* ---------- playbook ---------- */
+.pb{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;padding:0 20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);padding:16px 18px}
+.panel h2{font-size:17px;color:var(--gold);margin-bottom:10px}
+.panel ul{margin:0;padding-left:18px}
+.panel li{margin-bottom:7px}
+.panel p{margin:0 0 10px;color:var(--dim)}
+.ladder{list-style:none;padding:0;margin:0;counter-reset:s}
+.ladder li{counter-increment:s;display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:baseline;
+  padding:8px 0;border-bottom:1px dashed var(--line)}
+.ladder li:last-child{border-bottom:0}
+.ladder li::before{content:counter(s);font-family:var(--f-mono);color:var(--amber);font-size:13px}
+.pill{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:2px 7px;color:var(--dim);white-space:nowrap}
+.pill.done{color:var(--ok);border-color:var(--ok)}
+.pill.next{color:var(--crimson);border-color:var(--crimson)}
+
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(10,7,5,.62);opacity:0;pointer-events:none;transition:opacity .18s;z-index:40}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(640px,100%);background:var(--bg);border-left:3px solid var(--gold);
+  transform:translateX(102%);transition:transform .2s ease;z-index:41;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.d-head{background:var(--surface);border-bottom:1px solid var(--line);padding:15px 20px;position:relative;overflow:hidden;flex:0 0 auto}
+.d-head::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px);opacity:.45}
+.d-head h2{font-size:23px;color:var(--text);position:relative;z-index:1;padding-right:40px}
+.d-head .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px;position:relative;z-index:1}
+.close{position:absolute;top:12px;right:14px;z-index:2;background:transparent;border:1px solid var(--line);color:var(--dim);
+  font-family:var(--f-mono);font-size:15px;line-height:1;padding:5px 9px;cursor:pointer}
+.close:hover{color:var(--crimson);border-color:var(--crimson)}
+.d-body{overflow-y:auto;padding:18px 20px 40px;flex:1 1 auto}
+.d-body h4{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin:22px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.d-body h4:first-child{margin-top:0}
+.d-body p{margin:0 0 10px;max-width:68ch}
+.d-body ul{margin:0;padding-left:18px}
+.d-body li{margin-bottom:5px}
+.note{border-left:3px solid var(--crimson);background:var(--surface);padding:9px 12px;color:var(--dim);font-size:14px}
+pre.script{background:var(--well);border:1px solid var(--line);padding:14px;overflow-x:auto;white-space:pre-wrap;
+  font-family:var(--f-mono);font-size:12.5px;line-height:1.62;color:var(--text);margin:0}
+.strip{width:100%;border:1px solid var(--line);display:block;margin-bottom:10px}
+.comp{width:100%;border-collapse:collapse;font-size:13px}
+.comp th{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);
+  text-align:left;padding:5px 7px;border-bottom:1px solid var(--line)}
+.comp td{padding:6px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+.comp .x{font-family:var(--f-mono);color:var(--crimson);font-weight:500;white-space:nowrap}
+.comp .num{font-family:var(--f-mono);color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+.comp a{text-decoration:none}
+.comp a:hover{text-decoration:underline}
+.foot{padding:26px 20px 40px;color:var(--dim);font-family:var(--f-mono);font-size:11px;letter-spacing:.04em}
+@media (max-width:640px){
+  .brand b{font-size:26px}
+  .board{grid-auto-flow:row;grid-auto-columns:auto}
+  .night{grid-template-columns:1fr}
+  .night-d{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="plate">
+  <div class="plate-in">
+    <div class="brand"><b>BURGER</b><span>Content Engine</span></div>
+    <div class="readouts" id="readouts"></div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="chans">
+    <button class="chan" aria-pressed="true"><span>HanneBurger · FINALS</span></button>
+    <button class="chan" aria-pressed="false" disabled title="Not loaded yet"><span>BurgerCam · FPV</span></button>
+  </div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-view="board"><span>Board</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-view="week"><span>The week</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-view="playbook"><span>Playbook</span></button>
+  </div>
+  <div class="tools">
+    <button class="btn" id="theme">Theme</button>
+    <button class="btn" id="export">Copy board state</button>
+    <button class="btn" id="reset">Reset</button>
+  </div>
+</div>
+
+<main>
+  <section class="view on" id="view-board">
+    <p class="lede"><b>Drag a card to change its status.</b> Moves are saved in this browser. Click any card for the clip list, title options, competitor research and the full script where one exists.</p>
+    <div class="board" id="board"></div>
+  </section>
+
+  <section class="view" id="view-week">
+    <p class="lede"><b>One idea a night, read before you play, not after.</b> Night five is deliberately free. If another night stops being fun, drop it and take one of my edits instead.</p>
+    <div class="week" id="week"></div>
+  </section>
+
+  <section class="view" id="view-playbook">
+    <div class="pb" id="playbook"></div>
+  </section>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Card detail">
+  <div class="d-head">
+    <button class="close" id="close" aria-label="Close">✕</button>
+    <h2 id="d-title"></h2>
+    <div class="meta" id="d-meta"></div>
+  </div>
+  <div class="d-body" id="d-body"></div>
+</aside>
+
+<p class="foot" id="foot"></p>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  var D = window.ENGINE, KEY = "burger-engine-board-v1";
+  var moved = {};
+  try { moved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ moved = {}; }
+  var save = function(){ try { localStorage.setItem(KEY, JSON.stringify(moved)); } catch(e){} };
+  var colOf = function(c){ return moved[c.id] || c.col; };
+  var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(m){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]; }); };
+  var num = function(n){ return Number(n).toLocaleString("en-GB"); };
+
+  /* readouts */
+  var ch = D.channel;
+  document.getElementById("readouts").innerHTML =
+    [["Subs", num(ch.subs)], ["Videos", num(ch.videos)], ["Views", num(ch.views)], ["Cards", D.cards.length]]
+    .map(function(r){ return '<div class="readout"><i>' + r[0] + '</i><b>' + r[1] + '</b></div>'; }).join("");
+  document.getElementById("foot").textContent =
+    "Updated " + D.updated + " · " + ch.name + " · " + ch.note;
+
+  /* board */
+  function drawBoard(){
+    document.getElementById("board").innerHTML = D.columns.map(function(col){
+      var cards = D.cards.filter(function(c){ return colOf(c) === col.id; });
+      return '<div class="col" data-col="' + col.id + '">' +
+        '<div class="col-h"><span class="n mono">' + cards.length + '</span>' +
+        '<h2>' + esc(col.name) + '</h2><p>' + esc(col.hint) + '</p></div>' +
+        '<div class="stack">' + cards.map(cardHTML).join("") + '</div></div>';
+    }).join("");
+    wire();
+  }
+  function cardHTML(c){
+    var tags = [];
+    if (c.night && c.night !== "Unscheduled") tags.push('<span class="tag' +
+      (/^(Fri|Sat|Sun|Mon|Tue|Wed|Thu)/.test(c.night) ? ' hot' : '') + '">' + esc(c.night) + '</span>');
+    if (c.session) tags.push('<span class="tag">' + esc(c.session) + '</span>');
+    if (c.script) tags.push('<span class="tag script">Script</span>');
+    return '<button class="card" draggable="true" data-id="' + c.id + '">' +
+      '<h3>' + esc(c.title) + '</h3><div class="meta">' + tags.join("") + '</div></button>';
+  }
+  function wire(){
+    var dragId = null;
+    document.querySelectorAll(".card").forEach(function(el){
+      el.addEventListener("click", function(){ open(el.dataset.id); });
+      el.addEventListener("dragstart", function(e){
+        dragId = el.dataset.id; el.classList.add("drag");
+        try { e.dataTransfer.setData("text/plain", dragId); e.dataTransfer.effectAllowed = "move"; } catch(err){}
+      });
+      el.addEventListener("dragend", function(){ el.classList.remove("drag"); dragId = null; });
+    });
+    document.querySelectorAll(".col").forEach(function(col){
+      col.addEventListener("dragover", function(e){ e.preventDefault(); col.classList.add("over"); });
+      col.addEventListener("dragleave", function(){ col.classList.remove("over"); });
+      col.addEventListener("drop", function(e){
+        e.preventDefault(); col.classList.remove("over");
+        var id = dragId; try { id = e.dataTransfer.getData("text/plain") || dragId; } catch(err){}
+        if (!id) return;
+        moved[id] = col.dataset.col; save(); drawBoard();
+      });
+    });
+  }
+
+  /* drawer */
+  var drawer = document.getElementById("drawer"), scrim = document.getElementById("scrim");
+  function open(id){
+    var c = D.cards.filter(function(x){ return x.id === id; })[0];
+    if (!c) return;
+    document.getElementById("d-title").textContent = c.title;
+    document.getElementById("d-meta").innerHTML =
+      [c.night, c.session, "Status: " + colOf(c)].filter(Boolean)
+      .map(function(t){ return '<span class="tag mono" style="border:1px solid var(--line);padding:2px 7px;font-size:10px;letter-spacing:.06em;color:var(--dim);text-transform:uppercase">' + esc(t) + '</span>'; }).join("");
+    var h = "";
+    if (c.why) h += '<h4>Why this one</h4><p>' + esc(c.why) + '</p>';
+    if (c.note) h += '<div class="note">' + esc(c.note) + '</div>';
+    if (c.clips && c.clips.length) h += '<h4>Hunt these clips</h4><ul>' +
+      c.clips.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
+    if (c.titles && c.titles.length) h += '<h4>Title options</h4><ul>' +
+      c.titles.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
+    if (c.thumb) h += '<h4>Thumbnail</h4><p>' + esc(c.thumb) + '</p>';
+    if (c.research){
+      h += '<h4>Competitor research</h4><img class="strip" src="' + esc(c.research.strip) + '" alt="Competitor thumbnails" loading="lazy">' +
+        '<table class="comp"><thead><tr><th>x</th><th>Video</th><th>Channel</th><th>Views</th><th>Subs</th><th>Len</th></tr></thead><tbody>' +
+        c.research.rows.map(function(r){
+          return '<tr><td class="x">' + esc(r.mult) + 'x</td>' +
+                 '<td><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.t) + '</a></td>' +
+                 '<td class="num">' + esc(r.ch) + '</td>' +
+                 '<td class="num">' + num(r.views) + '</td>' +
+                 '<td class="num">' + num(r.subs) + '</td>' +
+                 '<td class="num">' + esc(r.dur) + '</td></tr>'; }).join("") +
+        '</tbody></table>';
+    }
+    if (c.script) h += '<h4>Full script</h4><pre class="script">' + esc(c.script) + '</pre>';
+    document.getElementById("d-body").innerHTML = h;
+    document.getElementById("d-body").scrollTop = 0;
+    drawer.classList.add("on"); drawer.setAttribute("aria-hidden", "false"); scrim.classList.add("on");
+  }
+  function shut(){ drawer.classList.remove("on"); drawer.setAttribute("aria-hidden", "true"); scrim.classList.remove("on"); }
+  document.getElementById("close").addEventListener("click", shut);
+  scrim.addEventListener("click", shut);
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") shut(); });
+
+  /* week */
+  document.getElementById("week").innerHTML = D.cards
+    .filter(function(c){ return c.col === "capture"; })
+    .map(function(c, i){
+      return '<article class="night' + (c.id === "bottom1" ? " free" : "") + '">' +
+        '<div class="night-d"><b>Night ' + (i + 1) + '</b><i>' + esc(c.night) + '</i><i>' + esc(c.session) + '</i></div>' +
+        '<div class="night-b"><h3>' + esc(c.title) + '</h3><p>' + esc(c.why) + '</p>' +
+        '<ul class="hunt">' + (c.clips || []).map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div></article>';
+    }).join("");
+
+  /* playbook */
+  var R = D.rules;
+  document.getElementById("playbook").innerHTML =
+    '<div class="panel"><h2>The one rule</h2><p>' + esc(R.one_thing) + '</p>' +
+      '<h2 style="margin-top:16px">Two lanes</h2><p>' + esc(R.lanes) + '</p></div>' +
+    '<div class="panel"><h2>Title rules</h2><ul>' + R.titles.map(function(t){ return '<li>' + esc(t) + '</li>'; }).join("") + '</ul>' +
+      '<p style="margin-top:10px;font-size:13px">From his own A/B results, not from anyone else.</p></div>' +
+    '<div class="panel"><h2>Tweak ladder</h2><p>One tweak per video, one number to watch.</p><ol class="ladder">' +
+      R.ladder.map(function(l){
+        var cls = l.s === "done" ? "done" : (l.s === "next video" ? "next" : "");
+        return '<li><span>' + esc(l.t) + '</span><span class="pill ' + cls + '">' + esc(l.s) + '</span></li>'; }).join("") +
+      '</ol></div>' +
+    '<div class="panel" style="border-left:4px solid var(--ok)"><h2>Guardrail</h2><p style="color:var(--text)">' + esc(R.guardrail) + '</p></div>';
+
+  /* tabs, theme, tools */
+  document.querySelectorAll(".tab").forEach(function(t){
+    t.addEventListener("click", function(){
+      document.querySelectorAll(".tab").forEach(function(x){ x.setAttribute("aria-selected", x === t ? "true" : "false"); });
+      document.querySelectorAll(".view").forEach(function(v){ v.classList.remove("on"); });
+      document.getElementById("view-" + t.dataset.view).classList.add("on");
+    });
+  });
+  document.getElementById("theme").addEventListener("click", function(){
+    var cur = document.documentElement.getAttribute("data-theme");
+    var next = cur === "dark" ? "light" : (cur === "light" ? "dark" :
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark"));
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("burger-engine-theme", next); } catch(e){}
+  });
+  try { var th = localStorage.getItem("burger-engine-theme"); if (th) document.documentElement.setAttribute("data-theme", th); } catch(e){}
+  document.getElementById("export").addEventListener("click", function(){
+    var state = {}; D.cards.forEach(function(c){ state[c.id] = colOf(c); });
+    var txt = JSON.stringify(state, null, 1);
+    var b = this;
+    var done = function(){ b.textContent = "Copied"; setTimeout(function(){ b.textContent = "Copy board state"; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, function(){ window.prompt("Copy this:", txt); });
+    else window.prompt("Copy this:", txt);
+  });
+  document.getElementById("reset").addEventListener("click", function(){
+    if (!window.confirm("Put every card back to its starting column?")) return;
+    moved = {}; save(); drawBoard();
+  });
+
+  drawBoard();
+})();
+</script>
+</body>
+</html>
