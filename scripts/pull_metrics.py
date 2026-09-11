@@ -57,9 +57,24 @@ def pull(key, prefix, today):
         print("skip %s, no %sREFRESH_TOKEN" % (key, prefix))
         return None
 
-    token = post("https://oauth2.googleapis.com/token", {
-        "client_id": cid, "client_secret": csec,
-        "refresh_token": rtok, "grant_type": "refresh_token"})["access_token"]
+    try:
+        token = post("https://oauth2.googleapis.com/token", {
+            "client_id": cid, "client_secret": csec,
+            "refresh_token": rtok, "grant_type": "refresh_token"})["access_token"]
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", "replace")
+        if "invalid_grant" in body:
+            print("\n" + "=" * 70)
+            print("%s: the refresh token no longer works." % key)
+            print("Almost always this one cause: the OAuth consent screen is still in")
+            print("Testing status, and Google revokes every token seven days after consent.")
+            print("Fix it once, not weekly: Google Cloud console, Google Auth Platform,")
+            print("Audience, Publish app. Then run the consent script again for this channel.")
+            print("Raw response: " + body[:200])
+            print("=" * 70 + "\n")
+        else:
+            print("%s: token exchange failed, HTTP %s %s" % (key, e.code, body[:200]))
+        return None
 
     start = today - datetime.timedelta(days=28)
     win = {"ids": "channel==MINE", "startDate": start.isoformat(), "endDate": today.isoformat()}
