@@ -1397,6 +1397,16 @@ window.ENGINE = {
    "t": "Burgercam",
    "s": "Slot open",
    "d": "Predominantly Shorts: a long FPV run on progress, kills and skill development, with an occasional raw gameplay upload. The Shorts tab is built for exactly that shape. Two subscribers and one video today."
+  },
+  {
+   "t": "Burgercam metrics",
+   "s": "Parked",
+   "d": "Its numbers need a second OAuth grant on a second Google account, and the Google Cloud console is a bad time. Everything on this side is already built and waiting: the pull takes one channel per token and skips any channel without one, so switching it on later is a paste of three secrets and nothing else changes."
+  },
+  {
+   "t": "Publish the Google project",
+   "s": "By 18 Sep",
+   "d": "The project sits in Testing status, which revokes every refresh token seven days after consent. The HanneBurger token was granted 11 Sep. One button, Google Auth Platform then Audience then Publish app, and the clock stops. Until then this page says Pull stalled rather than showing frozen numbers as current."
   }
  ],
  "channels": [

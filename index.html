@@ -902,6 +902,24 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     if (!g) return null;
     return (+(g[1] || 0)) * 3600 + (+(g[2] || 0)) * 60 + (+(g[3] || 0));
   }
+  function stampIt(m){
+    var st = document.getElementById("stamp");
+    var age = m.pulled ? Math.round((new Date(TODAY) - new Date(m.pulled)) / 86400000) : null;
+    if (age != null && age > 2){
+      /* the pull has stopped. Say so, do not pass frozen numbers off as current. */
+      st.textContent = "Pull stalled, last ran " + m.pulled;
+      st.style.color = "var(--yellow)";
+      st.title = "The daily pull has not run in " + age + " days. The usual cause is the OAuth "
+        + "refresh token being revoked, which happens seven days after consent while the Google "
+        + "project sits in Testing status. The numbers below are from " + m.pulled + ".";
+    } else {
+      st.textContent = m.dataThrough ? "API, complete to " + m.dataThrough : "API, pulled " + m.pulled;
+      st.style.color = "";
+      st.title = m.lagDays
+        ? "The Analytics API finalises about " + m.lagDays + " days behind. Studio is more current."
+        : "";
+    }
+  }
   function setStat(ch, k, v){ ch.stats.forEach(function(x){ if (x.k === k) x.v = v; }); }
   function applyLive(m){
     if (!m || !m.channels || !m.channels.length) return;
@@ -941,13 +959,10 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       if (t.estimatedMinutesWatched != null)
         setStat(ch, "Watch time", (Math.round(t.estimatedMinutesWatched / 6) / 10) + " h");
     });
-    document.getElementById("stamp").textContent = m.dataThrough
-      ? "API, complete to " + m.dataThrough : "API, pulled " + m.pulled;
+    stampIt(m);
     if (current === "metrics") show("metrics");
     drawChans(); drawNav();
-    document.getElementById("stamp").title = m.lagDays
-      ? "The Analytics API finalises about " + m.lagDays + " days behind. Studio is more current."
-      : "";
+
     drawHome(); drawPerf();
   }
   if (window.fetch) fetch("metrics.json", {cache: "no-store"})
