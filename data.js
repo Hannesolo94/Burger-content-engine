@@ -20,7 +20,7 @@ window.ENGINE = {
   },
   {
    "id": "edit",
-   "name": "My edit",
+   "name": "Claude Edits",
    "hint": "No capture needed, scripted"
   },
   {
@@ -160,7 +160,10 @@ window.ENGINE = {
      "title": "NEONGUTZYT's loadout, played badly (60 hours) | THE FINALS",
      "thumb": "End scoreboard cropped huge with your row circled in crimson."
     }
-   ]
+   ],
+   "channel": "hanneburger",
+   "date": "2026-09-11",
+   "kind": "capture"
   },
   {
    "id": "dagger",
@@ -257,7 +260,10 @@ window.ENGINE = {
      "title": "The dagger is not skill, it is patience | THE FINALS",
      "thumb": "A real kitchen knife held in frame like the ERYSS scissors shot. Physical prop, not a render."
     }
-   ]
+   ],
+   "channel": "hanneburger",
+   "date": "2026-09-12",
+   "kind": "capture"
   },
   {
    "id": "bow",
@@ -334,7 +340,10 @@ window.ENGINE = {
     "measure": "Still earning views at day 30, which no upload has managed except Sanguine.",
     "result": "",
     "insight": ""
-   }
+   },
+   "channel": "hanneburger",
+   "date": "2026-09-13",
+   "kind": "capture"
   },
   {
    "id": "defibs",
@@ -431,7 +440,10 @@ window.ENGINE = {
      "title": "The defib is a trap | THE FINALS",
      "thumb": "Defib alone on the arena yellow, no character, huge."
     }
-   ]
+   ],
+   "channel": "hanneburger",
+   "date": "2026-09-14",
+   "kind": "capture"
   },
   {
    "id": "bottom1",
@@ -502,7 +514,10 @@ window.ENGINE = {
     "format": "Long form",
     "persona": "Casual player",
     "priority": "Medium"
-   }
+   },
+   "channel": "hanneburger",
+   "date": "2026-09-15",
+   "kind": "capture"
   },
   {
    "id": "gadget",
@@ -572,7 +587,10 @@ window.ENGINE = {
     "format": "Long form",
     "persona": "Casual player",
     "priority": "Medium"
-   }
+   },
+   "channel": "hanneburger",
+   "date": "2026-09-16",
+   "kind": "capture"
   },
   {
    "id": "turret",
@@ -641,7 +659,10 @@ window.ENGINE = {
     "format": "Long form",
     "persona": "Medium main",
     "priority": "Medium"
-   }
+   },
+   "channel": "hanneburger",
+   "date": "2026-09-17",
+   "kind": "capture"
   },
   {
    "id": "missshots",
@@ -665,7 +686,10 @@ window.ENGINE = {
     "format": "Montage",
     "persona": "Casual player",
     "priority": "Medium"
-   }
+   },
+   "channel": "hanneburger",
+   "date": "2026-09-26",
+   "kind": "upload"
   },
   {
    "id": "mediumparody",
@@ -734,7 +758,10 @@ window.ENGINE = {
     "format": "Parody guide",
     "persona": "Casual player",
     "priority": "High"
-   }
+   },
+   "channel": "hanneburger",
+   "date": "2026-10-03",
+   "kind": "upload"
   },
   {
    "id": "statnobody",
@@ -786,7 +813,10 @@ window.ENGINE = {
      "title": "Stop Chasing Kills. This Stat Wins Quick Cash | THE FINALS",
      "thumb": "Split, crosshair with a crimson X against the cashout coins. Two words: IT WORKED."
     }
-   ]
+   ],
+   "channel": "hanneburger",
+   "date": "2026-09-19",
+   "kind": "upload"
   },
   {
    "id": "akm",
@@ -853,7 +883,10 @@ window.ENGINE = {
     "format": "Long form",
     "persona": "Medium main",
     "priority": "Low"
-   }
+   },
+   "channel": "hanneburger",
+   "date": null,
+   "kind": "backlog"
   },
   {
    "id": "ks23",
@@ -919,7 +952,10 @@ window.ENGINE = {
     "format": "Long form",
     "persona": "Medium main",
     "priority": "Low"
-   }
+   },
+   "channel": "hanneburger",
+   "date": null,
+   "kind": "backlog"
   },
   {
    "id": "melee",
@@ -984,7 +1020,10 @@ window.ENGINE = {
     "format": "Series",
     "persona": "Casual player",
     "priority": "Low"
-   }
+   },
+   "channel": "hanneburger",
+   "date": null,
+   "kind": "backlog"
   },
   {
    "id": "hatelight",
@@ -1049,7 +1088,10 @@ window.ENGINE = {
     "format": "Long form",
     "persona": "Medium main",
     "priority": "Low"
-   }
+   },
+   "channel": "hanneburger",
+   "date": null,
+   "kind": "backlog"
   },
   {
    "id": "cashout",
@@ -1075,7 +1117,10 @@ window.ENGINE = {
     "format": "Long form",
     "persona": "Medium main",
     "priority": "Medium"
-   }
+   },
+   "channel": "hanneburger",
+   "date": null,
+   "kind": "backlog"
   },
   {
    "id": "pub_sanguine",
@@ -1100,7 +1145,10 @@ window.ENGINE = {
     "measure": "Beat the channel baseline of roughly 100 views.",
     "result": "1,000 views against 51 to 101 on everything around it, but average view duration 1:20 on a 20:36 runtime, 6.5%. The click worked and the body did not hold.",
     "insight": "The format is the win and the length is the loss. Repeat the format, cut the body to 7 or 8 minutes."
-   }
+   },
+   "channel": "hanneburger",
+   "date": "2026-08-22",
+   "kind": "published"
   },
   {
    "id": "pub_bfr",
@@ -1125,7 +1173,10 @@ window.ENGINE = {
     "measure": "Beat the channel baseline in the first week.",
     "result": "66 unique viewers in five days. Click through was healthy at 6.1% from Home, and it was dead for 60 hours after a manual daytime upload.",
     "insight": "Click through was never the problem, distribution timing and the build lane were. Schedule for US evening and stop leading with builds."
-   }
+   },
+   "channel": "hanneburger",
+   "date": "2026-09-04",
+   "kind": "published"
   },
   {
    "id": "pub_60hours",
@@ -1150,7 +1201,10 @@ window.ENGINE = {
     "measure": "Head to head against the plain sentence case variant.",
     "result": "Plain sentence case took 56.2% against 8% for the caps variant.",
     "insight": "Never use caps heavy titles on this channel. Sentence case, always."
-   }
+   },
+   "channel": "hanneburger",
+   "date": null,
+   "kind": "backlog"
   },
   {
    "id": "pub_kills",
@@ -1169,7 +1223,10 @@ window.ENGINE = {
     "format": "Long form",
     "persona": "Casual player",
     "priority": "Done"
-   }
+   },
+   "channel": "hanneburger",
+   "date": null,
+   "kind": "backlog"
   }
  ],
  "metrics": [
@@ -1279,29 +1336,147 @@ window.ENGINE = {
  ],
  "future": [
   {
-   "t": "Performance reading",
+   "t": "Home dashboard",
    "s": "Live",
-   "d": "Every published video carries its real read. The next step is pulling these automatically instead of typing them, the same way the DL monthly process pulls from Meta and Atria."
+   "d": "Both channels in one place, metrics split per channel, one calendar across both."
   },
   {
    "t": "The learning loop",
    "s": "Live",
-   "d": "Hypothesis, measure, result, insight on every card. Same four fields as the DL creative briefs, so a lesson learned here is written the same way as one learned at work."
+   "d": "Hypothesis, measure, result, insight on every card. The same four fields as the DL creative briefs, so a lesson learned here is written like a lesson learned at work."
   },
   {
    "t": "Thumbnail engine",
    "s": "Live",
-   "d": "Three title and thumbnail pairs per video, each a different pitch strategy, against the channel's own rules and the competitor wall."
-  },
-  {
-   "t": "BurgerCam FPV",
-   "s": "Slot open",
-   "d": "Second channel, opposite rules to HanneBurger. The board, week and playbook all take a channel switch when the content is ready."
+   "d": "Three title and thumbnail pairs per video, each a different pitch strategy, against the channel rules and the competitor wall."
   },
   {
    "t": "Auto metrics",
    "s": "Next",
-   "d": "The YouTube token on this machine is upload scope only. Adding readonly scope would let the numbers fill themselves."
+   "d": "Seven of the nine numbers on this page can be pulled by script. Impressions and click through rate cannot, they stay manual from Studio."
+  },
+  {
+   "t": "BurgerCam FPV",
+   "s": "Slot open",
+   "d": "Second channel, opposite rules to HanneBurger. Board, calendar and dashboard already take the channel switch."
+  },
+  {
+   "t": "vidIQ connector",
+   "s": "Worth adding",
+   "d": "Official MCP with outlier and similar thumbnail tools, which is the competitor half of this page done automatically."
   }
- ]
+ ],
+ "channels": [
+  {
+   "id": "hanneburger",
+   "name": "HanneBurger",
+   "tag": "THE FINALS",
+   "active": true,
+   "tone": "lime",
+   "stats": [
+    {
+     "k": "Subscribers",
+     "v": "116",
+     "s": "+2 in 28 days, all from long form"
+    },
+    {
+     "k": "Videos",
+     "v": "293",
+     "s": "THE FINALS only from 11 Sep"
+    },
+    {
+     "k": "Views, 28d",
+     "v": "1,500",
+     "s": "335 engaged"
+    },
+    {
+     "k": "Regular viewers",
+     "v": "0",
+     "s": "the number to move"
+    },
+    {
+     "k": "Best video",
+     "v": "1,000",
+     "s": "Sanguine loadout, still earning from Home"
+    },
+    {
+     "k": "Shorts",
+     "v": "79%",
+     "s": "swiped away, 0 subs"
+    }
+   ]
+  },
+  {
+   "id": "burgercam",
+   "name": "BurgerCam",
+   "tag": "FPV",
+   "active": false,
+   "tone": "yellow",
+   "stats": [
+    {
+     "k": "Status",
+     "v": "Empty",
+     "s": "channel slot built, no content loaded"
+    },
+    {
+     "k": "Cards",
+     "v": "0",
+     "s": "add ideas when FPV starts"
+    },
+    {
+     "k": "Calendar",
+     "v": "Shared",
+     "s": "both channels share the home calendar"
+    }
+   ]
+  }
+ ],
+ "apiPlan": {
+  "verified": "Checked against Google's own YouTube Analytics API reference on 11 Sep 2026.",
+  "pullable": [
+   {
+    "n": "views",
+    "d": "Views per video per day"
+   },
+   {
+    "n": "estimatedMinutesWatched",
+    "d": "Watch time"
+   },
+   {
+    "n": "averageViewDuration",
+    "d": "Average view duration, the 1:20 and 1:45 numbers"
+   },
+   {
+    "n": "averageViewPercentage",
+    "d": "Average percentage viewed, the 6.5% and 16.5%"
+   },
+   {
+    "n": "subscribersGained / subscribersLost",
+    "d": "Subscribers per video"
+   },
+   {
+    "n": "insightTrafficSourceType",
+    "d": "Where views came from, Home against Suggested against Search"
+   },
+   {
+    "n": "elapsedVideoTimeRatio + audienceWatchRatio",
+    "d": "The full retention curve, so the 2:00 cliff can be measured not eyeballed"
+   }
+  ],
+  "manual": [
+   {
+    "n": "Impressions",
+    "d": "Not exposed by the API. adImpressions is monetisation, not thumbnail impressions."
+   },
+   {
+    "n": "Impression click through rate",
+    "d": "Studio only. The 3.3% and 6.1% stay a manual read for now."
+   }
+  ],
+  "scopes": [
+   "https://www.googleapis.com/auth/youtube.readonly",
+   "https://www.googleapis.com/auth/yt-analytics.readonly"
+  ],
+  "have": "A Google Cloud OAuth app already exists on this machine with a live refresh token, project 130348858289, testing mode. Its scope is youtube.upload only, so it needs one re-consent to add the two above."
+ }
 };
