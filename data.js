@@ -1366,32 +1366,32 @@ window.ENGINE = {
   {
    "t": "Home dashboard",
    "s": "Live",
-   "d": "Both channels in one place, metrics split per channel, one calendar across both."
+   "d": "Both channels in one place, metrics split per channel, one calendar across both, each channel one click from its page and its Studio."
+  },
+  {
+   "t": "Studio reading through Chrome",
+   "s": "Live",
+   "d": "Impressions and click through rate have no API, but Studio can be read directly in the logged-in browser. That is where today's 3.9% came from."
   },
   {
    "t": "The learning loop",
    "s": "Live",
-   "d": "Hypothesis, measure, result, insight on every card. The same four fields as the DL creative briefs, so a lesson learned here is written like a lesson learned at work."
+   "d": "Hypothesis, measure, result, insight on every card, the same four fields as the DL creative briefs."
   },
   {
    "t": "Thumbnail engine",
    "s": "Live",
-   "d": "Three title and thumbnail pairs per video, each a different pitch strategy, against the channel rules and the competitor wall."
+   "d": "Three title and thumbnail pairs per video, each a different pitch, against the channel rules and the competitor wall."
   },
   {
    "t": "Auto metrics",
    "s": "Next",
-   "d": "Seven of the nine numbers on this page can be pulled by script. Impressions and click through rate cannot, they stay manual from Studio."
+   "d": "Seven of the nine numbers can be pulled by a scheduled script. The two Studio-only ones get read through Chrome on the same schedule."
   },
   {
-   "t": "BurgerCam FPV",
+   "t": "Burgercam",
    "s": "Slot open",
-   "d": "Second channel, opposite rules to HanneBurger. Board, calendar and dashboard already take the channel switch."
-  },
-  {
-   "t": "vidIQ connector",
-   "s": "Worth adding",
-   "d": "Official MCP with outlier and similar thumbnail tools, which is the competitor half of this page done automatically."
+   "d": "Bodycam raw gameplay and drone footage, two subscribers, one video. The board, calendar and dashboard already take the channel switch."
   }
  ],
  "channels": [
@@ -1400,12 +1400,29 @@ window.ENGINE = {
    "name": "HanneBurger",
    "tag": "THE FINALS",
    "active": true,
-   "tone": "lime",
+   "url": "https://www.youtube.com/@HanneBurger",
+   "studio": "https://studio.youtube.com/channel/UCqSaRk2s51HNHr0XqAcBBlw/analytics",
+   "channelId": "UCqSaRk2s51HNHr0XqAcBBlw",
    "stats": [
     {
      "k": "Subscribers",
      "v": "116",
-     "s": "+2 in 28 days, all from long form"
+     "s": "+4 in the last 28 days"
+    },
+    {
+     "k": "Views, 28d",
+     "v": "3,380",
+     "s": "typical is 100 to 200"
+    },
+    {
+     "k": "Watch time",
+     "v": "17.4 h",
+     "s": "over 999% up on the previous 28 days"
+    },
+    {
+     "k": "Views, 48h",
+     "v": "462",
+     "s": "live count"
     },
     {
      "k": "Videos",
@@ -1413,48 +1430,40 @@ window.ENGINE = {
      "s": "THE FINALS only from 11 Sep"
     },
     {
-     "k": "Lifetime views",
+     "k": "Lifetime",
      "v": "131,382",
      "s": "joined Nov 2023"
-    },
-    {
-     "k": "Regular viewers",
-     "v": "0",
-     "s": "the number to move"
-    },
-    {
-     "k": "Best video",
-     "v": "1,000",
-     "s": "Sanguine loadout, still earning from Home"
-    },
-    {
-     "k": "Shorts",
-     "v": "79%",
-     "s": "swiped away, 0 subs"
     }
    ]
   },
   {
    "id": "burgercam",
-   "name": "BurgerCam",
-   "tag": "FPV",
+   "name": "Burgercam",
+   "tag": "BODYCAM · FPV",
    "active": false,
-   "tone": "yellow",
+   "url": "https://www.youtube.com/@burgercam",
+   "studio": "https://studio.youtube.com/channel/UC--McWnxQ8QpEYrcf297a-g/analytics",
+   "channelId": "UC--McWnxQ8QpEYrcf297a-g",
    "stats": [
     {
-     "k": "Status",
-     "v": "Empty",
-     "s": "channel slot built, no content loaded"
+     "k": "Subscribers",
+     "v": "2",
+     "s": "joined the same day as HanneBurger"
+    },
+    {
+     "k": "Videos",
+     "v": "1",
+     "s": "Bodycam raw gameplay, 43:29"
+    },
+    {
+     "k": "Lifetime views",
+     "v": "33",
+     "s": "published 3 Sep"
     },
     {
      "k": "Cards",
      "v": "0",
-     "s": "add ideas when FPV starts"
-    },
-    {
-     "k": "Calendar",
-     "v": "Shared",
-     "s": "both channels share the home calendar"
+     "s": "nothing planned yet"
     }
    ]
   }
@@ -1498,7 +1507,7 @@ window.ENGINE = {
    },
    {
     "n": "Impression click through rate",
-    "d": "Studio only. The 3.3% and 6.1% stay a manual read for now."
+    "d": "Studio only. Readable by driving Chrome, which is how the 3.9% on today's upload was captured."
    }
   ],
   "scopes": [
@@ -1513,29 +1522,36 @@ window.ENGINE = {
    "title": "Can a 60+ Hr NOOB play Sanguine's Loadout? | THE FINALS",
    "published": "2026-09-11",
    "runtime": "9:57",
-   "views": 8,
+   "views": 70,
    "channel": "hanneburger",
    "cardId": null,
-   "note": "The short re-cut, three hours old. Same title as the 1K video, so the two compete for the same impressions.",
-   "analytics": null,
+   "note": "The short re-cut. First three hours: 70 views, 3.9% click through, 1:48 average view duration. All three beat the original's lifetime numbers.",
+   "analytics": {
+    "read": "First 3h 23m",
+    "impressions": null,
+    "ctr": 3.9,
+    "avd": "1:48",
+    "avp": null,
+    "subs": null
+   },
    "url": "https://www.youtube.com/watch?v=t3HrInRuUd4",
    "thumb": "https://i.ytimg.com/vi/t3HrInRuUd4/mqdefault.jpg"
   },
   {
    "id": "lqdD8b17YZk",
-   "title": "Can a Noob Win With the BFR Titan? | THE FINALS",
+   "title": "Is the BFR Titan Actually Any Good? | THE FINALS",
    "published": "2026-09-05",
    "runtime": "10:42",
-   "views": 325,
+   "views": 328,
    "channel": "hanneburger",
    "cardId": "pub_bfr",
-   "note": "Grew from 66 unique viewers at day five to 325 views. The Home wave kept going after the slow start.",
+   "note": "Retitled since launch. Average view duration 1:50 at 17.2%, the best retention of any long form on the channel.",
    "analytics": {
-    "read": "Day 5",
+    "read": "impressions and CTR at day 5, duration over 28 days",
     "impressions": 1300,
     "ctr": 6.1,
-    "avd": "1:45",
-    "avp": 16.5,
+    "avd": "1:50",
+    "avp": 17.2,
     "subs": 0
    },
    "url": "https://www.youtube.com/watch?v=lqdD8b17YZk",
@@ -1559,16 +1575,16 @@ window.ENGINE = {
    "title": "Can a 60+ Hr NOOB play Sanguine's Loadout? | THE FINALS",
    "published": "2026-08-28",
    "runtime": "20:36",
-   "views": 1000,
+   "views": 1088,
    "channel": "hanneburger",
    "cardId": "pub_sanguine",
    "note": "The channel's best video by ten times. Still earning from Home. Click worked, the 20:36 body did not hold.",
    "analytics": {
-    "read": "Day 18",
+    "read": "impressions and CTR at day 18, duration over 28 days",
     "impressions": 6800,
     "ctr": 3.3,
-    "avd": "1:20",
-    "avp": 6.5,
+    "avd": "1:22",
+    "avp": 6.7,
     "subs": 1
    },
    "url": "https://www.youtube.com/watch?v=wf9J6AC4kyA",
@@ -1601,5 +1617,99 @@ window.ENGINE = {
    "thumb": "https://i.ytimg.com/vi/BRhp8HXEatQ/mqdefault.jpg"
   }
  ],
- "liveSource": "Pulled from TubeAlfred on 11 Sep 2026. View counts are live and public. Impressions, click through rate, average view duration and average percentage viewed are manual reads from Studio, because no API exposes them."
+ "liveSource": "Pulled from TubeAlfred on 11 Sep 2026. View counts are live and public. Impressions, click through rate, average view duration and average percentage viewed are manual reads from Studio, because no API exposes them.",
+ "studio": {
+  "window": "14 Aug to 10 Sep 2026, last 28 days",
+  "pulled": "Read from YouTube Studio in Chrome on 11 Sep 2026.",
+  "top": [
+   {
+    "t": "Can a 60+ Hr NOOB play Sanguine's Loadout? | THE FINALS",
+    "d": "22 Aug 2026",
+    "avd": "1:22",
+    "avp": "6.7%",
+    "v": 1088,
+    "kind": "Long form"
+   },
+   {
+    "t": "Is the BFR Titan Actually Any Good? | THE FINALS",
+    "d": "4 Sep 2026",
+    "avd": "1:50",
+    "avp": "17.2%",
+    "v": 328,
+    "kind": "Long form"
+   },
+   {
+    "t": "PERFECT CASHOUT TRAP IN THE FINALS",
+    "d": "30 Aug 2026",
+    "avd": "0:21",
+    "avp": "71.9%",
+    "v": 306,
+    "kind": "Short"
+   },
+   {
+    "t": "Even a noob like me can get kills with the CL-40 | The Finals",
+    "d": "9 Sep 2026",
+    "avd": "0:14",
+    "avp": "63.2%",
+    "v": 181,
+    "kind": "Short"
+   },
+   {
+    "t": "CAN THEY STEAL THE CASHOUT IN THE FINALS",
+    "d": "31 Aug 2026",
+    "avd": "0:12",
+    "avp": "43.1%",
+    "v": 155,
+    "kind": "Short"
+   },
+   {
+    "t": "PERFECT BARRICADE SETUP!",
+    "d": "26 Aug 2026",
+    "avd": "0:16",
+    "avp": "53.7%",
+    "v": 99,
+    "kind": "Short"
+   },
+   {
+    "t": "PULLING THE HEALER INTO THE FIRE!",
+    "d": "25 Aug 2026",
+    "avd": "0:11",
+    "avp": "37.9%",
+    "v": 95,
+    "kind": "Short"
+   },
+   {
+    "t": "PURE CHAOS IN THE FINALS ARENA!",
+    "d": "28 Aug 2026",
+    "avd": "0:08",
+    "avp": "29.7%",
+    "v": 82,
+    "kind": "Short"
+   },
+   {
+    "t": "HIT YOUR SHOTS IN THE FINALS",
+    "d": "29 Aug 2026",
+    "avd": "0:13",
+    "avp": "46.3%",
+    "v": 79,
+    "kind": "Short"
+   },
+   {
+    "t": "PURE CHAOS IN THE FINALS ARENA!",
+    "d": "5 Sep 2026",
+    "avd": "0:13",
+    "avp": "45.0%",
+    "v": 75,
+    "kind": "Short"
+   }
+  ],
+  "latest": {
+   "t": "Can a 60+ Hr NOOB play Sanguine's Loadout? | THE FINALS (the re-cut)",
+   "window": "First 3 hours 23 minutes",
+   "views": 70,
+   "ctr": "3.9%",
+   "avd": "1:48"
+  },
+  "finding": "Seven of the top ten are Shorts. They pulled 306, 181, 155, 99, 95, 82, 79 and 75 views in the window, which is most of the 3,380. The old note that Shorts get swiped away and convert nothing is wrong for this period. The re-cut is also opening at 3.9% click through against the original's 3.3%, on a 1:48 average view duration against 1:20."
+ }
 };

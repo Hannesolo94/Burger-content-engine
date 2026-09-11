@@ -65,8 +65,19 @@ a{color:var(--lime)}
 .logo{font-family:var(--f-display);font-size:22px;line-height:1;color:var(--lime);letter-spacing:.04em;text-shadow:0 0 18px rgba(134,255,77,.45)}
 .logo+span{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.26em;color:var(--faint);text-transform:uppercase;margin-top:4px}
 .rail h4{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.24em;color:var(--faint);text-transform:uppercase;padding:15px 16px 6px;font-weight:400;margin:0}
-.chan{display:flex;align-items:center;gap:9px;background:transparent;border:0;border-radius:10px;padding:8px 10px;margin:0 8px;
-  width:calc(100% - 16px);color:var(--dim);font:inherit;text-align:left;cursor:pointer}
+.chan-wrap{margin:0 8px 5px}
+.chan{display:flex;align-items:center;gap:9px;background:transparent;border:0;border-radius:10px;padding:8px 10px;margin:0;
+  width:100%;color:var(--dim);font:inherit;text-align:left;cursor:pointer}
+.chan-links{display:flex;gap:5px;padding:5px 0 0 10px}
+.clink{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;
+  color:var(--faint);border:1px solid var(--line);border-radius:7px;padding:4px 8px;transition:color .16s,border-color .16s,background .16s}
+.clink:hover{color:var(--lime);border-color:var(--line2);background:var(--glass2)}
+.dateset{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.dateset input,.dateset select{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--text);
+  background:var(--glass);border:1px solid var(--line);border-radius:8px;padding:5px 8px}
+.dateset input:focus,.dateset select:focus{outline:none;border-color:var(--line2)}
+.dateset .btn{padding:5px 9px;font-size:9px}
+.dateset em{font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-style:normal}
 .chan .led{width:7px;height:7px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 9px currentColor}
 .chan b{font-size:13px;font-weight:600;display:block}
 .chan i{font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;font-style:normal;color:var(--faint);text-transform:uppercase}
@@ -326,13 +337,15 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
 <script>
 (function(){
   var D = window.ENGINE;
-  var K_COL = "burger-engine-board-v1", K_DATE = "burger-engine-dates-v1", K_NEW = "burger-engine-custom-v1";
+  var K_COL = "burger-engine-board-v1", K_DATE = "burger-engine-dates-v1", K_NEW = "burger-engine-custom-v1",
+      K_KIND = "burger-engine-kinds-v1";
   function load(k, d){ try { return JSON.parse(localStorage.getItem(k) || "null") || d; } catch(e){ return d; } }
   function put(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
-  var moved = load(K_COL, {}), dates = load(K_DATE, {}), custom = load(K_NEW, []);
+  var moved = load(K_COL, {}), dates = load(K_DATE, {}), custom = load(K_NEW, []), kinds = load(K_KIND, {});
   function allCards(){ return D.cards.concat(custom); }
   var colOf = function(c){ return moved[c.id] || c.col; };
-  var dateOf = function(c){ return dates[c.id] || c.date; };
+  var dateOf = function(c){ return dates[c.id] !== undefined ? dates[c.id] : c.date; };
+  var kindOf = function(c){ return kinds[c.id] || c.kind; };
   var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(m){
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]; }); };
   var num = function(n){ return n == null ? "" : Number(n).toLocaleString("en-GB"); };
@@ -340,6 +353,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
 
   var TONE = {ideas:"var(--faint)", capture:"var(--red)", edit:"var(--yellow)", ready:"var(--lime)", published:"var(--limeD)"};
   var KINDTONE = {capture:"var(--red)", upload:"var(--yellow)", published:"var(--lime)", backlog:"var(--faint)"};
+  var KINDS = [["capture","Capture night"], ["upload","Upload target"], ["published","Published"], ["backlog","No date"]];
   var PRIO = {High:"red", Medium:"yellow", Low:"", Done:"lime"};
   var CHTONE = {hanneburger:"var(--lime)", burgercam:"var(--yellow)"};
   var TODAY = "2026-09-11";
@@ -356,10 +370,15 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   var sub = "board";
 
   /* ---------- rail ---------- */
+  function links(c){
+    return (c.url ? '<a class="clink" href="' + esc(c.url) + '" target="_blank" rel="noopener">Channel</a>' : "") +
+           (c.studio ? '<a class="clink" href="' + esc(c.studio) + '" target="_blank" rel="noopener">Studio</a>' : "");
+  }
   document.getElementById("chans").innerHTML = D.channels.map(function(c){
-    return '<button class="chan" aria-pressed="' + (c.active ? "true" : "false") + '"' + (c.active ? "" : " disabled") + '>' +
+    return '<div class="chan-wrap"><button class="chan" aria-pressed="' + (c.active ? "true" : "false") + '"' + (c.active ? "" : " disabled") + '>' +
       '<span class="led" style="color:' + CHTONE[c.id] + ';background:' + CHTONE[c.id] + '"></span>' +
-      '<span><b>' + esc(c.name) + '</b><i>' + esc(c.tag) + '</i></span></button>'; }).join("");
+      '<span><b>' + esc(c.name) + '</b><i>' + esc(c.tag) + '</i></span></button>' +
+      '<div class="chan-links">' + links(c) + '</div></div>'; }).join("");
   function drawNav(){
     document.getElementById("nav").innerHTML = VIEWS.map(function(v, i){
       var c = {board:allCards().length, metrics:D.live.length, thumbs:D.cards.filter(function(x){ return x.thumbs; }).length}[v.id] || "";
@@ -401,6 +420,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       '<div class="sect"><h2>Channels</h2><div class="grid2">' + D.channels.map(function(c){
         return '<div class="panel"><div class="ch-head"><span class="led" style="color:' + CHTONE[c.id] + ';background:' + CHTONE[c.id] + '"></span>' +
           '<h2>' + esc(c.name) + '</h2><span class="chip ' + (c.active ? "lime" : "yellow") + ' tag">' + esc(c.tag) + '</span></div>' +
+          '<div class="chan-links" style="padding:0 0 12px">' + links(c) + '</div>' +
           '<div class="tiles">' + c.stats.map(function(s){
             return '<div class="tile"><i>' + esc(s.k) + '</i><b>' + esc(s.v) + '</b><s>' + esc(s.s) + '</s></div>'; }).join("") +
           '</div></div>'; }).join("") + '</div></div>' +
@@ -437,7 +457,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
         return '<div class="day' + (c.out ? " out" : "") + (c.iso === TODAY ? " today" : "") + '"' +
           (c.iso ? ' data-iso="' + c.iso + '"' : '') + '><span class="dn">' + c.d + '</span>' +
           evs.map(function(e){
-            return '<button class="ev" draggable="true" data-id="' + e.id + '" style="--tone:' + (KINDTONE[e.kind] || "var(--faint)") + '">' +
+            return '<button class="ev" draggable="true" data-id="' + e.id + '" style="--tone:' + (KINDTONE[kindOf(e)] || "var(--faint)") + '">' +
               esc(e.title) + '</button>'; }).join("") +
           (c.out ? "" : '<span class="add">+ idea</span>') + '</div>'; }).join("");
     wireCal();
@@ -457,11 +477,32 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
         e.preventDefault(); cell.classList.remove("over");
         var id = dragId; try { id = e.dataTransfer.getData("text/plain") || dragId; } catch(err){}
         if (!id) return;
-        dates[id] = cell.dataset.iso; put(K_DATE, dates);
-        var c = byId(id); if (c) c.night = fmt(cell.dataset.iso);
-        drawCal(); drawTable();
+        setDate(id, cell.dataset.iso, null);
       });
       cell.addEventListener("click", function(){ newCard(cell.dataset.iso); });
+    });
+  }
+  function setDate(id, iso, kind){
+    dates[id] = iso || ""; put(K_DATE, dates);
+    if (kind){ kinds[id] = kind; put(K_KIND, kinds); }
+    else if (!iso){ kinds[id] = "backlog"; put(K_KIND, kinds); }
+    var c = byId(id);
+    if (c){
+      c.date = iso || null;
+      c.night = iso ? fmt(iso) : "Unscheduled";
+      c.kind = kindOf(c) || (iso ? "capture" : "backlog");
+      if (c.custom) put(K_NEW, custom);
+    }
+    drawCal(); drawBoard(); drawTable();
+    return c;
+  }
+  function applyStored(){
+    allCards().forEach(function(c){
+      if (dates[c.id] !== undefined){
+        c.date = dates[c.id] || null;
+        c.night = dates[c.id] ? fmt(dates[c.id]) : "Unscheduled";
+      }
+      if (kinds[c.id]) c.kind = kinds[c.id];
     });
   }
   function fmt(iso){
@@ -684,7 +725,11 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     var h = '<table class="props"><tbody>' +
       row("Status", '<span class="chip" style="color:' + TONE[colOf(c)] + ';border-color:' + TONE[colOf(c)] + '">' + esc(cn[colOf(c)]) + '</span>') +
       (chn ? row("Channel", '<span class="chip" style="color:' + CHTONE[chn.id] + ';border-color:' + CHTONE[chn.id] + '">' + esc(chn.name) + '</span>') : "") +
-      (c.night ? row("Date", esc(c.night)) : "") + (c.session ? row("Session", esc(c.session)) : "") +
+      row("Date", '<span class="dateset"><input type="date" id="d-date" value="' + esc(dateOf(c) || "") + '">' +
+        '<select id="d-kind">' + KINDS.map(function(k){
+          return '<option value="' + k[0] + '"' + (kindOf(c) === k[0] ? " selected" : "") + '>' + k[1] + '</option>'; }).join("") +
+        '</select><button class="btn" id="d-clear">Clear</button><em id="d-note"></em></span>') +
+      (c.session ? row("Session", esc(c.session)) : "") +
       (p.lane ? row("Lane", '<span class="chip' + (p.lane === "Identity" ? " lime" : "") + '">' + esc(p.lane) + '</span>') : "") +
       (p.variable ? row("Variable tested", esc(p.variable)) : "") + (p.format ? row("Format", esc(p.format)) : "") +
       (p.persona ? row("Persona", esc(p.persona)) : "") +
@@ -719,6 +764,18 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     if (c.custom) h += '<div class="formbar"><button class="btn" id="del">Delete this card</button></div>';
     document.getElementById("d-body").innerHTML = h;
     document.getElementById("d-body").scrollTop = 0;
+    var di = document.getElementById("d-date"), dk = document.getElementById("d-kind"),
+        dcl = document.getElementById("d-clear"), dnote = document.getElementById("d-note");
+    function saveDate(){
+      var iso = di.value;
+      setDate(c.id, iso, iso ? dk.value : "backlog");
+      if (!iso) dk.value = "backlog";
+      dnote.textContent = iso ? "Moved to " + fmt(iso) : "Off the calendar";
+      window.setTimeout(function(){ if (dnote) dnote.textContent = ""; }, 2600);
+    }
+    di.addEventListener("change", saveDate);
+    dk.addEventListener("change", saveDate);
+    dcl.addEventListener("click", function(){ di.value = ""; saveDate(); });
     var del = document.getElementById("del");
     if (del) del.addEventListener("click", function(){
       if (!window.confirm("Delete " + c.title + "?")) return;
@@ -737,7 +794,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   });
   try { var th = localStorage.getItem("burger-engine-theme"); if (th) document.documentElement.setAttribute("data-theme", th); } catch(e){}
   document.getElementById("export").addEventListener("click", function(){
-    var out = {statuses:{}, dates:dates, added:custom};
+    var out = {statuses:{}, dates:dates, kinds:kinds, added:custom};
     allCards().forEach(function(c){ out.statuses[c.id] = colOf(c); });
     var txt = JSON.stringify(out, null, 1), b = this;
     var done = function(){ b.textContent = "Copied"; setTimeout(function(){ b.textContent = "Copy board state"; }, 1600); };
@@ -746,11 +803,12 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   });
   document.getElementById("reset").addEventListener("click", function(){
     if (!window.confirm("Reset statuses and dates, and delete cards you added?")) return;
-    moved = {}; dates = {}; custom = [];
-    put(K_COL, moved); put(K_DATE, dates); put(K_NEW, custom);
-    drawCal(); drawBoard(); drawTable(); drawNav();
+    moved = {}; dates = {}; custom = []; kinds = {};
+    put(K_COL, moved); put(K_DATE, dates); put(K_NEW, custom); put(K_KIND, kinds);
+    window.location.reload();
   });
 
+  applyStored();
   drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); show("home");
 })();
 </script>
