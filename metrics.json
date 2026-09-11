@@ -741,5 +741,7 @@
  "missing": {
   "impressions": "Not exposed by the YouTube Analytics API. Read it in Studio.",
   "impressionClickThroughRate": "Not exposed by the YouTube Analytics API. Read it in Studio."
- }
+ },
+ "mode": "manual",
+ "source": "Pulled from the YouTube Analytics API on 11 Sep, complete to 2026-09-08. The automatic daily pull is off, so from here these numbers are updated by hand."
 }

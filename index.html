@@ -905,7 +905,12 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   function stampIt(m){
     var st = document.getElementById("stamp");
     var age = m.pulled ? Math.round((new Date(TODAY) - new Date(m.pulled)) / 86400000) : null;
-    if (age != null && age > 2){
+    if (m.mode === "manual"){
+      /* no automatic pull to stall. Say when it was read and leave it at that. */
+      st.textContent = "Numbers read " + m.pulled;
+      st.style.color = "";
+      st.title = m.source || "Read by hand from YouTube Studio.";
+    } else if (age != null && age > 2){
       /* the pull has stopped. Say so, do not pass frozen numbers off as current. */
       st.textContent = "Pull stalled, last ran " + m.pulled;
       st.style.color = "var(--yellow)";

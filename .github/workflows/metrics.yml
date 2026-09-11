@@ -8,9 +8,13 @@ name: Refresh metrics
 #   HanneBurger   YT_CLIENT_ID     YT_CLIENT_SECRET     YT_REFRESH_TOKEN
 #   Burgercam     YT_BC_CLIENT_ID  YT_BC_CLIENT_SECRET  YT_BC_REFRESH_TOKEN
 
+# The daily schedule is OFF. Hannes's call on 11 Sep: the Google Cloud console is not
+# worth the friction, so the numbers get updated by hand when he asks. Nothing here is
+# deleted, it just does not run on its own. Uncomment the two cron lines and add the
+# secrets to switch it back on.
 on:
-  schedule:
-    - cron: "0 5 * * *"   # 05:00 UTC, 07:00 in Cape Town
+  # schedule:
+  #   - cron: "0 5 * * *"   # 05:00 UTC, 07:00 in Cape Town
   workflow_dispatch:
 
 permissions:

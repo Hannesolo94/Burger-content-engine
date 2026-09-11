@@ -1384,11 +1384,6 @@ window.ENGINE = {
    "d": "Three title and thumbnail pairs per video, each a different pitch, against the channel rules and the competitor wall."
   },
   {
-   "t": "Auto metrics",
-   "s": "Next",
-   "d": "Seven of the nine numbers can be pulled by a scheduled script. The two Studio-only ones get read through Chrome on the same schedule."
-  },
-  {
    "t": "Shorts as a lane",
    "s": "Live",
    "d": "Performance splits long form from Shorts, because they are won on different things. Long form is won on the thumbnail and the first minute. A Short is won on the hold, so average percentage viewed is the number, not click through rate."
@@ -1399,14 +1394,14 @@ window.ENGINE = {
    "d": "Predominantly Shorts: a long FPV run on progress, kills and skill development, with an occasional raw gameplay upload. The Shorts tab is built for exactly that shape. Two subscribers and one video today."
   },
   {
-   "t": "Burgercam metrics",
-   "s": "Parked",
-   "d": "Its numbers need a second OAuth grant on a second Google account, and the Google Cloud console is a bad time. Everything on this side is already built and waiting: the pull takes one channel per token and skips any channel without one, so switching it on later is a paste of three secrets and nothing else changes."
+   "t": "Numbers, how they get here",
+   "s": "By hand",
+   "d": "The automatic daily pull is switched off. Google's consent screen wants a project published, a client of the right type and a token that expires every seven days until it is, and that is not worth an evening. The numbers on this page were pulled from the API once and are updated by hand from Studio from here. The Action still exists and still works, it just does not run on a schedule."
   },
   {
-   "t": "Publish the Google project",
-   "s": "By 18 Sep",
-   "d": "The project sits in Testing status, which revokes every refresh token seven days after consent. The HanneBurger token was granted 11 Sep. One button, Google Auth Platform then Audience then Publish app, and the clock stops. Until then this page says Pull stalled rather than showing frozen numbers as current."
+   "t": "Burgercam metrics",
+   "s": "On request",
+   "d": "Read from Studio and written in when asked. Nothing on this side is blocking, the board, calendar, dashboard and the Shorts tab all already take the channel."
   }
  ],
  "channels": [
