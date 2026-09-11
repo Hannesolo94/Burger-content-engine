@@ -739,7 +739,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     if (c.why) h += '<h4>Why this one</h4><p>' + esc(c.why) + '</p>';
     if (c.note) h += '<div class="note">' + esc(c.note) + '</div>';
     if (c.learn) h += '<h4>The loop</h4>' + loopHTML(c).replace(/<h3[\s\S]*?<\/h3>/, "");
-    if (v && v.analytics) h += '<h4>Studio read, ' + esc(v.analytics.read) + '</h4><div class="tiles">' +
+    if (v && v.analytics) h += '<h4>Numbers, ' + esc(v.analytics.read) + '</h4><div class="tiles">' +
       [["Views", num(v.views)], ["Impressions", num(v.analytics.impressions)], ["CTR", v.analytics.ctr + "%"],
        ["Avg duration", v.analytics.avd], ["Avg viewed", v.analytics.avp + "%"], ["Subs", "+" + v.analytics.subs]]
       .map(function(t){ return '<div class="tile"><i>' + t[0] + '</i><b>' + t[1] + '</b></div>'; }).join("") + '</div>';
@@ -810,6 +810,48 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
 
   applyStored();
   drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); show("home");
+
+  /* ---------- live numbers ----------
+     metrics.json is written every morning by .github/workflows/metrics.yml.
+     If it is not there yet, or the pull failed, the page keeps the numbers in data.js. */
+  function mmss(n){ var m = Math.floor(n / 60); return m + ":" + String(n % 60).padStart(2, "0"); }
+  function setStat(ch, k, v){ ch.stats.forEach(function(x){ if (x.k === k) x.v = v; }); }
+  function applyLive(m){
+    if (!m || !m.channels || !m.channels.length) return;
+    var rows = {};
+    (m.videos || []).forEach(function(v){ rows[v.video] = v; });
+    D.live.forEach(function(v){
+      var r = rows[v.id]; if (!r) return;
+      v.views = r.views;
+      v.analytics = v.analytics || {};
+      if (r.averageViewDuration != null) v.analytics.avd = mmss(r.averageViewDuration);
+      if (r.averageViewPercentage != null) v.analytics.avp = Math.round(r.averageViewPercentage * 10) / 10;
+      if (r.subscribersGained != null) v.analytics.subs = r.subscribersGained;
+      v.analytics.read = "API, " + m.window.start + " to " + (m.dataThrough || m.window.end);
+    });
+    m.channels.forEach(function(c){
+      var ch = D.channels.filter(function(x){ return x.channelId === c.id; })[0];
+      if (!ch) return;
+      setStat(ch, "Subscribers", num(c.subs));
+      setStat(ch, "Videos", num(c.videos));
+      setStat(ch, "Lifetime", num(c.views));
+      setStat(ch, "Lifetime views", num(c.views));
+      var t = m.totals || {};
+      if (t.views != null) setStat(ch, "Views, 28d", num(t.views));
+      if (t.estimatedMinutesWatched != null)
+        setStat(ch, "Watch time", (Math.round(t.estimatedMinutesWatched / 6) / 10) + " h");
+    });
+    document.getElementById("stamp").textContent = m.dataThrough
+      ? "API, complete to " + m.dataThrough : "API, pulled " + m.pulled;
+    document.getElementById("stamp").title = m.lagDays
+      ? "The Analytics API finalises about " + m.lagDays + " days behind. Studio is more current."
+      : "";
+    drawHome(); drawPerf();
+  }
+  if (window.fetch) fetch("metrics.json", {cache: "no-store"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(applyLive)
+    .catch(function(){});
 })();
 </script>
 </body>

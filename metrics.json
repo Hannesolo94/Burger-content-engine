@@ -1,0 +1,683 @@
+{
+ "pulled": "2026-09-11",
+ "window": {
+  "start": "2026-08-14",
+  "end": "2026-09-11"
+ },
+ "channels": [
+  {
+   "id": "UCqSaRk2s51HNHr0XqAcBBlw",
+   "title": "BURGER",
+   "subs": 116,
+   "videos": 293,
+   "views": 131382
+  }
+ ],
+ "dataThrough": "2026-09-08",
+ "lagDays": 3,
+ "totals": {
+  "views": 2827,
+  "estimatedMinutesWatched": 874,
+  "averageViewDuration": 59,
+  "subscribersGained": 4,
+  "subscribersLost": 0
+ },
+ "videos": [
+  {
+   "video": "wf9J6AC4kyA",
+   "views": 843,
+   "estimatedMinutesWatched": 407,
+   "averageViewDuration": 80,
+   "averageViewPercentage": 6.509999999999999,
+   "subscribersGained": 1,
+   "subscribersLost": 0,
+   "title": "Can a 60+ Hr NOOB play Sanguine\u2019s Loadout? | THE FINALS",
+   "published": "2026-08-22",
+   "runtime": "PT20M36S"
+  },
+  {
+   "video": "lqdD8b17YZk",
+   "views": 313,
+   "estimatedMinutesWatched": 187,
+   "averageViewDuration": 105,
+   "averageViewPercentage": 16.47,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Is the BFR Titan Actually Any Good? | THE FINALS",
+   "published": "2026-09-04",
+   "runtime": "PT10M42S"
+  },
+  {
+   "video": "pBiYFbHUkeM",
+   "views": 306,
+   "estimatedMinutesWatched": 23,
+   "averageViewDuration": 21,
+   "averageViewPercentage": 71.94,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "PERFECT CASHOUT TRAP IN THE FINALS",
+   "published": "2026-08-30",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "6xLA6wUbHRE",
+   "views": 155,
+   "estimatedMinutesWatched": 8,
+   "averageViewDuration": 12,
+   "averageViewPercentage": 43.07,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "CAN THEY STEAL THE CASHOUT IN THE FINALS",
+   "published": "2026-08-31",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "WCDUNg0lSqY",
+   "views": 98,
+   "estimatedMinutesWatched": 5,
+   "averageViewDuration": 15,
+   "averageViewPercentage": 53.32,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "PERFECT BARRICADE SETUP! #thefinals #gaming",
+   "published": "2026-08-26",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "P_L5Nc9Adc4",
+   "views": 95,
+   "estimatedMinutesWatched": 6,
+   "averageViewDuration": 11,
+   "averageViewPercentage": 37.9,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "PULLING THE HEALER INTO THE FIRE! #thefinals #gaming",
+   "published": "2026-08-25",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "WwbkETFckYg",
+   "views": 82,
+   "estimatedMinutesWatched": 2,
+   "averageViewDuration": 8,
+   "averageViewPercentage": 29.659999999999997,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "PURE CHAOS IN THE FINALS ARENA!",
+   "published": "2026-08-28",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "i1ABv97KuEI",
+   "views": 79,
+   "estimatedMinutesWatched": 6,
+   "averageViewDuration": 13,
+   "averageViewPercentage": 46.34,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "HIT YOUR SHOTS IN THE FINALS",
+   "published": "2026-08-29",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "lecq8LtkDiY",
+   "views": 75,
+   "estimatedMinutesWatched": 2,
+   "averageViewDuration": 13,
+   "averageViewPercentage": 45.03,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "PURE CHAOS IN THE FINALS ARENA!",
+   "published": "2026-09-05",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "_eAm2NmNPRY",
+   "views": 63,
+   "estimatedMinutesWatched": 2,
+   "averageViewDuration": 10,
+   "averageViewPercentage": 34.51,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "WHY WAS HE SOLO IN THE FINALS",
+   "published": "2026-09-01",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "BRhp8HXEatQ",
+   "views": 58,
+   "estimatedMinutesWatched": 73,
+   "averageViewDuration": 76,
+   "averageViewPercentage": 7.780000000000001,
+   "subscribersGained": 1,
+   "subscribersLost": 0,
+   "title": "Winning with only 60 Hours | THE FINALS",
+   "published": "2026-08-10",
+   "runtime": "PT16M21S"
+  },
+  {
+   "video": "JfpLmx84qtU",
+   "views": 57,
+   "estimatedMinutesWatched": 2,
+   "averageViewDuration": 11,
+   "averageViewPercentage": 39.77,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "HIT YOUR SHOTS IN THE FINALS!",
+   "published": "2026-09-07",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "i6xxckUGl-k",
+   "views": 56,
+   "estimatedMinutesWatched": 2,
+   "averageViewDuration": 12,
+   "averageViewPercentage": 42.08,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "THE ULTIMATE SUPPORT IN THE FINALS",
+   "published": "2026-09-08",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "kFRfQgpUeQ0",
+   "views": 56,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 10,
+   "averageViewPercentage": 35.41,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "SECURING THE CASHOUT* IN THE FINALS",
+   "published": "2026-09-06",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "8WbVTXc4vU0",
+   "views": 55,
+   "estimatedMinutesWatched": 2,
+   "averageViewDuration": 13,
+   "averageViewPercentage": 44.68,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "CAN WE HOLD THIS POSITION",
+   "published": "2026-08-27",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "sGbAMZJKpbE",
+   "views": 52,
+   "estimatedMinutesWatched": 8,
+   "averageViewDuration": 19,
+   "averageViewPercentage": 80.24,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Almost face to face with jeff | Half Life Alyx",
+   "published": "2024-03-09",
+   "runtime": "PT24S"
+  },
+  {
+   "video": "hFrBB2J_TeE",
+   "views": 50,
+   "estimatedMinutesWatched": 72,
+   "averageViewDuration": 100,
+   "averageViewPercentage": 10.4,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Even a noob like me can get kills with the CL-40 | The Finals",
+   "published": "2026-08-15",
+   "runtime": "PT16M7S"
+  },
+  {
+   "video": "RPX8DP0q4KQ",
+   "views": 40,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 6,
+   "averageViewPercentage": 23.3,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "SAVE THE CASHOUT JUST IN TIME!",
+   "published": "2026-09-02",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "hTMQVAcTsZA",
+   "views": 32,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 21,
+   "averageViewPercentage": 70.88,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "CAN WE WIN THIS CASHOUT",
+   "published": "2026-09-03",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "qVYTbrTccqg",
+   "views": 30,
+   "estimatedMinutesWatched": 9,
+   "averageViewDuration": 63,
+   "averageViewPercentage": 210.46999999999997,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "CAN WE ACTUALLY STEAL THIS? \ud83d\ude31 #thefinalsgameplay #gaming #shorts",
+   "published": "2026-08-24",
+   "runtime": "PT30S"
+  },
+  {
+   "video": "qY3IDVliTWg",
+   "views": 26,
+   "estimatedMinutesWatched": 16,
+   "averageViewDuration": 64,
+   "averageViewPercentage": 12.04,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Everyone Says the Cerberus Is Buffed. I Switched Anyway | THE FINALS",
+   "published": "2026-08-28",
+   "runtime": "PT8M58S"
+  },
+  {
+   "video": "gx9cyBoC1-Q",
+   "views": 20,
+   "estimatedMinutesWatched": 2,
+   "averageViewDuration": 12,
+   "averageViewPercentage": 61.64000000000001,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "How to Retrieve a Lost Gun | Into the Radius",
+   "published": "2024-03-15",
+   "runtime": "PT21S"
+  },
+  {
+   "video": "ldeKaZvxIG0",
+   "views": 19,
+   "estimatedMinutesWatched": 2,
+   "averageViewDuration": 17,
+   "averageViewPercentage": 91.19,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Seeing Jeff | Half Life Alyx",
+   "published": "2024-03-12",
+   "runtime": "PT19S"
+  },
+  {
+   "video": "A_qYeBO9zGI",
+   "views": 18,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 11,
+   "averageViewPercentage": 87.41,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "STOP Doing Multiple Resets it won't RANK you up in ROCKET LEAGUE",
+   "published": "2025-02-21",
+   "runtime": "PT13S"
+  },
+  {
+   "video": "jzEik1CdPUs",
+   "views": 16,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 16,
+   "averageViewPercentage": 77.05,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Tunneling with jeff | Half Life Alyx",
+   "published": "2024-03-13",
+   "runtime": "PT21S"
+  },
+  {
+   "video": "0Q8UR027eVs",
+   "views": 16,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 7,
+   "averageViewPercentage": 43.52,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "ASMR reading lore in into the radius",
+   "published": "2024-02-28",
+   "runtime": "PT18S"
+  },
+  {
+   "video": "MVKhFmKMDN0",
+   "views": 10,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 17,
+   "averageViewPercentage": 72.22,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Stop Ball Chasing (here's what to do instead) #Shorts",
+   "published": "2026-03-26",
+   "runtime": "PT24S"
+  },
+  {
+   "video": "wwwA4U7NHfk",
+   "views": 7,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 24,
+   "averageViewPercentage": 98.32,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "How to Destroy the Kade on Secure Area in Rainbow Six Siege",
+   "published": "2024-03-07",
+   "runtime": "PT25S"
+  },
+  {
+   "video": "LSVPeQoG86I",
+   "views": 7,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 15,
+   "averageViewPercentage": 79.39,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Tiger Claws den | Cyberpunk 2077",
+   "published": "2024-03-20",
+   "runtime": "PT19S"
+  },
+  {
+   "video": "N6JvkfbFM3o",
+   "views": 6,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 15,
+   "averageViewPercentage": 62.12,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "How to score an open net in ROCKET LEAGUE #rocketleague #rl #gaming",
+   "published": "2025-03-13",
+   "runtime": "PT25S"
+  },
+  {
+   "video": "59ihHAhTW_0",
+   "views": 6,
+   "estimatedMinutesWatched": 2,
+   "averageViewDuration": 27,
+   "averageViewPercentage": 48.49,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "how to loot while lying down",
+   "published": "2024-03-24",
+   "runtime": "PT56S"
+  },
+  {
+   "video": "zeOLn4vtjy4",
+   "views": 6,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 13,
+   "averageViewPercentage": 71.5,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "My first night mission | into the radius",
+   "published": "2024-03-05",
+   "runtime": "PT19S"
+  },
+  {
+   "video": "nt2V7KtKySs",
+   "views": 5,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 15,
+   "averageViewPercentage": 99.52,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "How to control the ball in ROCKET LEAGUE #rocketleague #rl #gaming",
+   "published": "2025-03-11",
+   "runtime": "PT16S"
+  },
+  {
+   "video": "sX1fTzQssUk",
+   "views": 5,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 32,
+   "averageViewPercentage": 203.51,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Fundamentals on defence in ROCKET LEAGUE is key #rocketleague #rl #gaming #gameplay",
+   "published": "2025-03-09",
+   "runtime": "PT16S"
+  },
+  {
+   "video": "zc4oq1DsCGY",
+   "views": 5,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 113,
+   "averageViewPercentage": 594.88,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "The Hidden Secrets | Cyberpunk 2077",
+   "published": "2024-03-18",
+   "runtime": "PT19S"
+  },
+  {
+   "video": "84SlMmAME-M",
+   "views": 5,
+   "estimatedMinutesWatched": 1,
+   "averageViewDuration": 29,
+   "averageViewPercentage": 109.31,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "controversial loot rules in #tarkov",
+   "published": "2024-02-16",
+   "runtime": "PT27S"
+  },
+  {
+   "video": "TXSKAFFEB-U",
+   "views": 4,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 7,
+   "averageViewPercentage": 36.75,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "3 Camera Settings That Changed My Game #Shorts",
+   "published": "2026-04-06",
+   "runtime": "PT21S"
+  },
+  {
+   "video": "Bjs363K0j0o",
+   "views": 3,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 13,
+   "averageViewPercentage": 72.8,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "He is stuck in the wall | Half Life Alyx",
+   "published": "2024-03-11",
+   "runtime": "PT19S"
+  },
+  {
+   "video": "-N3ECn8Fx3o",
+   "views": 3,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 8,
+   "averageViewPercentage": 47.31,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "The #1 Mistake in Every Gold Lobby #Shorts",
+   "published": "2026-03-30",
+   "runtime": "PT17S"
+  },
+  {
+   "video": "LJXknHeMfRk",
+   "views": 3,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 0,
+   "averageViewPercentage": 0,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "the SMG 11 is so CLEAN!",
+   "published": "2023-12-23",
+   "runtime": "PT9S"
+  },
+  {
+   "video": "NHQoXrrBIvo",
+   "views": 2,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 14,
+   "averageViewPercentage": 1.86,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Tubarao Nerfed this Season in Rainbow Six Siege, NOT BAD!",
+   "published": "2024-01-29",
+   "runtime": "PT12M55S"
+  },
+  {
+   "video": "tHo_juFdhvc",
+   "views": 2,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 4,
+   "averageViewPercentage": 26.93,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "I had to save this gun | Into the Radius",
+   "published": "2024-03-16",
+   "runtime": "PT15S"
+  },
+  {
+   "video": "SLrEO_c8-1s",
+   "views": 2,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 39,
+   "averageViewPercentage": 158.03,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "ROCKET LEAGUE fundamentals to how Pros WIN more MATCHES!",
+   "published": "2025-01-29",
+   "runtime": "PT25S"
+  },
+  {
+   "video": "rDQZiVXbWso",
+   "views": 2,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 12,
+   "averageViewPercentage": 93.77,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "YOU need Flip Resets in Diamond.. WRONG! | ROCKET LEAGUE #rocketleague #rl #gaming #rlclips",
+   "published": "2025-02-24",
+   "runtime": "PT13S"
+  },
+  {
+   "video": "k4Zl_drqhoU",
+   "views": 2,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 6,
+   "averageViewPercentage": 24.24,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "ROCKET LEAGUE fundamentals to how Pros WIN more MATCHES!",
+   "published": "2025-01-24",
+   "runtime": "PT25S"
+  },
+  {
+   "video": "ejGFRb2ABX0",
+   "views": 2,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 0,
+   "averageViewPercentage": 0,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "A night raid gone wrong in Into the Radius | Lost Footage Episode 1",
+   "published": "2024-07-24",
+   "runtime": "PT6M30S"
+  },
+  {
+   "video": "x-wM5cxJ5D4",
+   "views": 2,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 12,
+   "averageViewPercentage": 97.74,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "STOP sweating in ROCKET LEAGUE #rocketleague #gaming #rl",
+   "published": "2025-03-07",
+   "runtime": "PT13S"
+  },
+  {
+   "video": "uEzsn0POCgI",
+   "views": 2,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 18,
+   "averageViewPercentage": 97.57,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "keeping the pressure on in ROCKET LEAGUE #rocketleague #gaming",
+   "published": "2025-03-06",
+   "runtime": "PT19S"
+  },
+  {
+   "video": "Pivdj05o96E",
+   "views": 2,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 10,
+   "averageViewPercentage": 64.34,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "The Comeback is easy with Fundamentals in ROCKET LEAGUE #rocketleague #gaming #rl",
+   "published": "2025-03-08",
+   "runtime": "PT17S"
+  },
+  {
+   "video": "lLj7fM7m-sM",
+   "views": 1,
+   "estimatedMinutesWatched": 0,
+   "averageViewDuration": 0,
+   "averageViewPercentage": 0,
+   "subscribersGained": 0,
+   "subscribersLost": 0,
+   "title": "Prelude to a Survival story | Into The Radius - cinematic",
+   "published": "2024-07-22",
+   "runtime": "PT4M1S"
+  }
+ ],
+ "traffic": [
+  {
+   "insightTrafficSourceType": "SHORTS",
+   "views": 1141,
+   "estimatedMinutesWatched": 58
+  },
+  {
+   "insightTrafficSourceType": "SUBSCRIBER",
+   "views": 1093,
+   "estimatedMinutesWatched": 560
+  },
+  {
+   "insightTrafficSourceType": "YT_SEARCH",
+   "views": 370,
+   "estimatedMinutesWatched": 99
+  },
+  {
+   "insightTrafficSourceType": "RELATED_VIDEO",
+   "views": 90,
+   "estimatedMinutesWatched": 108
+  },
+  {
+   "insightTrafficSourceType": "YT_OTHER_PAGE",
+   "views": 73,
+   "estimatedMinutesWatched": 16
+  },
+  {
+   "insightTrafficSourceType": "YT_CHANNEL",
+   "views": 26,
+   "estimatedMinutesWatched": 7
+  },
+  {
+   "insightTrafficSourceType": "NO_LINK_OTHER",
+   "views": 9,
+   "estimatedMinutesWatched": 4
+  },
+  {
+   "insightTrafficSourceType": "EXT_URL",
+   "views": 8,
+   "estimatedMinutesWatched": 14
+  },
+  {
+   "insightTrafficSourceType": "PLAYLIST",
+   "views": 2,
+   "estimatedMinutesWatched": 3
+  },
+  {
+   "insightTrafficSourceType": "NOTIFICATION",
+   "views": 2,
+   "estimatedMinutesWatched": 0
+  }
+ ],
+ "missing": {
+  "impressions": "Not exposed by the YouTube Analytics API. Read it in Studio.",
+  "impressionClickThroughRate": "Not exposed by the YouTube Analytics API. Read it in Studio."
+ }
+}

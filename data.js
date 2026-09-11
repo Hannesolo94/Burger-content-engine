@@ -1412,17 +1412,17 @@ window.ENGINE = {
     {
      "k": "Views, 28d",
      "v": "3,380",
-     "s": "typical is 100 to 200"
+     "s": "Studio said 3,380 to 10 Sep, the API lags 3 days"
     },
     {
      "k": "Watch time",
      "v": "17.4 h",
-     "s": "over 999% up on the previous 28 days"
+     "s": "Studio said 17.4 h to 10 Sep"
     },
     {
      "k": "Views, 48h",
      "v": "462",
-     "s": "live count"
+     "s": "Studio read, 11 Sep"
     },
     {
      "k": "Videos",
@@ -1514,7 +1514,8 @@ window.ENGINE = {
    "https://www.googleapis.com/auth/youtube.readonly",
    "https://www.googleapis.com/auth/yt-analytics.readonly"
   ],
-  "have": "A Google Cloud OAuth app already exists on this machine with a live refresh token, project 130348858289, testing mode. Its scope is youtube.upload only, so it needs one re-consent to add the two above."
+  "have": "A Google Cloud OAuth app already exists on this machine with a live refresh token, project 130348858289, testing mode. Its scope is youtube.upload only, so it needs one re-consent to add the two above.",
+  "lag": "The YouTube Analytics API only finalises data to about three days back. Measured 11 Sep: the API was complete to 8 Sep while Studio already showed 10 Sep. That is why an API number can sit below a Studio number for the same window. It is lag, not a bug."
  },
  "live": [
   {
@@ -1710,6 +1711,7 @@ window.ENGINE = {
    "ctr": "3.9%",
    "avd": "1:48"
   },
-  "finding": "Seven of the top ten are Shorts. They pulled 306, 181, 155, 99, 95, 82, 79 and 75 views in the window, which is most of the 3,380. The old note that Shorts get swiped away and convert nothing is wrong for this period. The re-cut is also opening at 3.9% click through against the original's 3.3%, on a 1:48 average view duration against 1:20."
+  "finding": "Seven of the top ten are Shorts. They pulled 306, 181, 155, 99, 95, 82, 79 and 75 views in the window, which is most of the 3,380. The old note that Shorts get swiped away and convert nothing is wrong for this period. The re-cut is also opening at 3.9% click through against the original's 3.3%, on a 1:48 average view duration against 1:20.",
+  "vsApi": "For 14 Aug to 11 Sep the API returns 2,827 views and Sanguine at 843, against Studio 3,380 and Sanguine 1,088 for 14 Aug to 10 Sep. The API had only finalised to 8 Sep. The Shorts rows match to the view between both sources."
  }
 };

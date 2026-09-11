@@ -1,0 +1,56 @@
+name: Refresh metrics
+
+# Pulls the YouTube numbers every morning and commits them into metrics.json,
+# which the site loads on top of data.js. Also runnable by hand from the
+# Actions tab. It exits quietly if the three secrets are not set yet.
+
+on:
+  schedule:
+    - cron: "0 5 * * *"   # 05:00 UTC, 07:00 in Cape Town
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check the secrets are set
+        id: gate
+        env:
+          RT: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          if [ -z "$RT" ]; then
+            echo "ready=no" >> "$GITHUB_OUTPUT"
+            echo "YT_REFRESH_TOKEN is not set yet. Nothing to pull."
+          else
+            echo "ready=yes" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Pull the numbers
+        if: steps.gate.outputs.ready == 'yes'
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python scripts/pull_metrics.py
+
+      - name: Commit if anything moved
+        if: steps.gate.outputs.ready == 'yes'
+        run: |
+          git config user.name "burger-bot"
+          git config user.email "burger-bot@users.noreply.github.com"
+          if [ -n "$(git status --porcelain metrics.json)" ]; then
+            git add metrics.json
+            git commit -m "metrics: $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No change."
+          fi
