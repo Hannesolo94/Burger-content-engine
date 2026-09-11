@@ -373,7 +373,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   ];
   var SUBS = [{id:"board", n:"Board"}, {id:"table", n:"Table"}, {id:"week", n:"Week"}];
   var sub = "board";
-  var fmt = "long";   /* which Performance tab is showing */
+  var pfmt = "long";   /* which Performance tab is showing. NOT fmt, that is the date formatter. */
   var chan = (D.channels[0] || {}).id || "hanneburger";   /* which channel the working views show */
   function mine(x){ return (x.channel || "hanneburger") === chan; }
   function chanName(){ var c = D.channels.filter(function(x){ return x.id === chan; })[0]; return c ? c.name : chan; }
@@ -428,7 +428,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     document.querySelectorAll("#nav button").forEach(function(b){ b.setAttribute("aria-current", b.dataset.v === id ? "true" : "false"); });
     document.getElementById("acts").innerHTML =
         id === "board"   ? segHTML(SUBS, sub, "sub")
-      : id === "metrics" ? segHTML(formatTabs(), fmt, "fmt")
+      : id === "metrics" ? segHTML(formatTabs(), pfmt, "fmt")
       : "";
     document.querySelectorAll("#acts .seg button[data-sub]").forEach(function(b){
       b.addEventListener("click", function(){
@@ -440,8 +440,8 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     });
     document.querySelectorAll("#acts .seg button[data-fmt]").forEach(function(b){
       b.addEventListener("click", function(){
-        fmt = b.dataset.fmt;
-        document.querySelectorAll("#acts .seg button[data-fmt]").forEach(function(x){ x.setAttribute("aria-selected", x.dataset.fmt === fmt); });
+        pfmt = b.dataset.fmt;
+        document.querySelectorAll("#acts .seg button[data-fmt]").forEach(function(x){ x.setAttribute("aria-selected", x.dataset.fmt === pfmt); });
         drawPerf();
       });
     });
@@ -622,9 +622,9 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     return {avg: Math.round(w / t * 10) / 10, med: Math.round(xs[Math.floor(xs.length / 2)] * 10) / 10};
   }
   function drawPerf(){
-    var F = (D.formats || []).filter(function(f){ return f.id === fmt; })[0] || {name: "Videos", hint: ""};
+    var F = (D.formats || []).filter(function(f){ return f.id === pfmt; })[0] || {name: "Videos", hint: ""};
     var list = D.live.filter(function(v){
-      return mine(v) && kindOfVid(v) === fmt && (!rFrom || v.published >= rFrom) && (!rTo || v.published <= rTo); })
+      return mine(v) && kindOfVid(v) === pfmt && (!rFrom || v.published >= rFrom) && (!rTo || v.published <= rTo); })
       .sort(function(a, b){ return a.published < b.published ? 1 : -1; });
     var tv = list.reduce(function(s, v){ return s + v.views; }, 0);
     var H = held(list);
@@ -641,7 +641,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
         '<div class="tile"><i>' + esc(F.name) + ' in range</i><b>' + list.length + '</b></div>' +
         '<div class="tile"><i>Views in range</i><b>' + num(tv) + '</b></div>' +
         '<div class="tile"><i>Best</i><b>' + num(list.length ? Math.max.apply(null, list.map(function(v){ return v.views; })) : 0) + '</b></div>' +
-        (fmt === "short"
+        (pfmt === "short"
           ? '<div class="tile"><i>Average held</i><b>' + (H ? H.avg + "%" : "n/a") + '</b><s>' +
             (H ? "weighted by views, median " + H.med + "%" : "a Short is judged on the hold") + '</s></div>'
           : '<div class="tile"><i>Studio reads</i><b>' + list.filter(function(v){ return v.analytics && v.analytics.ctr != null; }).length + '</b><s>of ' + list.length + ', for click through rate</s></div>') +
@@ -884,8 +884,24 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     window.location.reload();
   });
 
-  applyStored();
-  drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); show("home");
+  function boot(){
+    try { applyStored(); }
+    catch(e){ oops("Saved card dates could not be read", e); }
+    drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); show("home");
+  }
+  function oops(what, e){
+    /* a broken step must never take the whole page down silently */
+    if (window.console && console.error) console.error(what, e);
+    var b = document.createElement("div");
+    b.style.cssText = "position:fixed;left:12px;right:12px;bottom:12px;z-index:99;padding:11px 14px;" +
+      "border-radius:12px;border:1px solid var(--red);background:var(--glass2);backdrop-filter:blur(14px);" +
+      "color:var(--text);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em";
+    b.textContent = what + ". " + (e && e.message ? e.message : "") +
+      "  The rest of the page still works. Tell Claude what you were doing.";
+    document.body.appendChild(b);
+  }
+  try { boot(); }
+  catch(e){ oops("The page failed to start", e); }
 
   /* ---------- live numbers ----------
      metrics.json is written every morning by .github/workflows/metrics.yml.
