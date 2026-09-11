@@ -45,11 +45,9 @@
 html,body{height:100%}
 body{margin:0;color:var(--text);font-family:var(--f-body);font-size:14.5px;line-height:1.55;
   display:grid;grid-template-columns:242px 1fr;-webkit-font-smoothing:antialiased;
-  background:
-    radial-gradient(900px 600px at 12% -8%, rgba(134,255,77,.10), transparent 60%),
+  background:radial-gradient(900px 600px at 12% -8%, rgba(134,255,77,.10), transparent 60%),
     radial-gradient(760px 520px at 92% 4%, rgba(255,59,78,.08), transparent 62%),
-    linear-gradient(180deg, var(--bg2), var(--bg) 42%);
-  background-attachment:fixed}
+    linear-gradient(180deg, var(--bg2), var(--bg) 42%);background-attachment:fixed}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
   background-size:46px 46px;opacity:.5}
@@ -57,31 +55,26 @@ h1,h2,h3{font-family:var(--f-display);font-weight:400;letter-spacing:.02em;text-
 a{color:var(--lime)}
 :focus-visible{outline:2px solid var(--lime);outline-offset:2px}
 .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-.glass{background:var(--glass);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%)}
 
-/* ================= rail ================= */
+/* rail */
 .rail{position:sticky;top:0;height:100vh;z-index:5;display:flex;flex-direction:column;overflow-y:auto;
   margin:12px 0 12px 12px;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);
   background:var(--glass);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%)}
 .rail-top{padding:16px 16px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:11px}
 .rail-top img{width:38px;height:38px;border-radius:10px;border:1px solid var(--line2);flex:0 0 auto}
-.logo{font-family:var(--f-display);font-size:22px;line-height:1;color:var(--lime);letter-spacing:.04em;
-  text-shadow:0 0 18px rgba(134,255,77,.45)}
-.logo+span{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.26em;color:var(--faint);
-  text-transform:uppercase;margin-top:4px}
-.rail h4{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.24em;color:var(--faint);text-transform:uppercase;
-  padding:15px 16px 6px;font-weight:400;margin:0}
-.chan{display:flex;align-items:center;gap:9px;width:100%;background:transparent;border:0;border-radius:10px;
-  padding:8px 10px;margin:0 8px;width:calc(100% - 16px);color:var(--dim);font:inherit;text-align:left;cursor:pointer}
+.logo{font-family:var(--f-display);font-size:22px;line-height:1;color:var(--lime);letter-spacing:.04em;text-shadow:0 0 18px rgba(134,255,77,.45)}
+.logo+span{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.26em;color:var(--faint);text-transform:uppercase;margin-top:4px}
+.rail h4{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.24em;color:var(--faint);text-transform:uppercase;padding:15px 16px 6px;font-weight:400;margin:0}
+.chan{display:flex;align-items:center;gap:9px;background:transparent;border:0;border-radius:10px;padding:8px 10px;margin:0 8px;
+  width:calc(100% - 16px);color:var(--dim);font:inherit;text-align:left;cursor:pointer}
 .chan .led{width:7px;height:7px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 9px currentColor}
 .chan b{font-size:13px;font-weight:600;display:block}
 .chan i{font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;font-style:normal;color:var(--faint);text-transform:uppercase}
 .chan[aria-pressed="true"]{background:var(--glass2);color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
 .chan:disabled{opacity:.42;cursor:not-allowed}
-.chan:hover:not(:disabled):not([aria-pressed="true"]){background:var(--glass2)}
 .nav{display:flex;flex-direction:column;gap:2px;padding:0 8px 10px}
-.nav button{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:transparent;
-  border:0;border-radius:10px;padding:8px 11px;color:var(--dim);font:inherit;font-size:13.5px;text-align:left;cursor:pointer}
+.nav button{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:transparent;border:0;
+  border-radius:10px;padding:8px 11px;color:var(--dim);font:inherit;font-size:13.5px;text-align:left;cursor:pointer}
 .nav button span.c{font-family:var(--f-mono);font-size:10px;color:var(--faint)}
 .nav button[aria-current="true"]{background:var(--glass2);color:var(--text);font-weight:600;box-shadow:inset 0 0 0 1px var(--line2)}
 .nav button[aria-current="true"] span.c{color:var(--lime)}
@@ -90,29 +83,32 @@ a{color:var(--lime)}
 .railbtn{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;background:transparent;
   border:1px solid var(--line);color:var(--dim);padding:7px 10px;cursor:pointer;border-radius:9px;text-align:left}
 .railbtn:hover{border-color:var(--line2);color:var(--lime)}
-.mini{font-family:var(--f-mono);font-size:9px;letter-spacing:.05em;color:var(--faint)}
+.mini{font-family:var(--f-mono);font-size:9px;color:var(--faint)}
 
-/* ================= main ================= */
+/* main */
 .main{min-width:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;position:relative;z-index:1}
-.top{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:20px 24px 14px;flex:0 0 auto}
+.top{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:20px 24px 14px;flex:0 0 auto;flex-wrap:wrap}
 .top h1{font-size:23px}
 .top p{margin:4px 0 0;color:var(--dim);font-size:13px;max-width:78ch}
-.acts{display:flex;gap:6px;flex:0 0 auto}
+.acts{display:flex;gap:6px;flex:0 0 auto;align-items:center}
 .btn{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:var(--glass);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  color:var(--dim);border:1px solid var(--line);padding:8px 12px;cursor:pointer;border-radius:9px}
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--dim);border:1px solid var(--line);
+  padding:8px 12px;cursor:pointer;border-radius:9px}
 .btn:hover{color:var(--lime);border-color:var(--line2)}
+.btn.on{color:var(--lime);border-color:var(--line2);background:var(--glass2)}
+.seg{display:flex;gap:3px;background:var(--well);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:transparent;
+  border:0;color:var(--dim);padding:6px 12px;cursor:pointer;border-radius:7px}
+.seg button[aria-selected="true"]{background:var(--glass2);color:var(--lime);box-shadow:inset 0 0 0 1px var(--line2)}
 .scroll{overflow:auto;flex:1 1 auto;padding:0 24px 60px}
-.view{display:none}.view.on{display:block}
+.view,.sub{display:none}.view.on,.sub.on{display:block}
 .sect{margin-bottom:22px}
-.sect>h2{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.22em;color:var(--faint);text-transform:uppercase;
-  font-weight:400;margin-bottom:10px}
+.sect>h2{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.22em;color:var(--faint);text-transform:uppercase;font-weight:400;margin-bottom:10px}
 
-/* ================= panels ================= */
+/* panels */
 .panel{background:var(--glass);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
   border:1px solid var(--line);border-radius:var(--r);padding:17px 19px;box-shadow:var(--shadow-s)}
 .panel h2{font-size:15px;color:var(--lime);margin-bottom:10px}
-.panel h3{font-family:var(--f-body);font-weight:600;text-transform:none;letter-spacing:0;font-size:14px;margin-bottom:5px}
 .panel p{margin:0 0 9px;color:var(--dim)}
 .panel ul{margin:0;padding-left:17px}.panel li{margin-bottom:6px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:13px;align-items:start}
@@ -120,15 +116,15 @@ a{color:var(--lime)}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px}
 .tile{background:var(--well);border:1px solid var(--line);border-radius:var(--rs);padding:11px 12px}
 .tile i{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.16em;color:var(--faint);font-style:normal;text-transform:uppercase}
-.tile b{display:block;font-family:var(--f-mono);font-size:21px;color:var(--lime);font-weight:500;font-variant-numeric:tabular-nums;margin-top:3px;
-  text-shadow:0 0 14px rgba(134,255,77,.3)}
+.tile b{display:block;font-family:var(--f-mono);font-size:21px;color:var(--lime);font-weight:500;font-variant-numeric:tabular-nums;
+  margin-top:3px;text-shadow:0 0 14px rgba(134,255,77,.3)}
 .tile s{display:block;font-family:var(--f-mono);font-size:9px;color:var(--faint);text-decoration:none;margin-top:3px;line-height:1.4}
 .ch-head{display:flex;align-items:center;gap:9px;margin-bottom:13px}
 .ch-head .led{width:8px;height:8px;border-radius:50%;box-shadow:0 0 10px currentColor}
 .ch-head h2{margin:0;font-size:17px;color:var(--text)}
 .ch-head .tag{margin-left:auto}
 
-/* ================= chips ================= */
+/* chips */
 .chips{display:flex;gap:5px;flex-wrap:wrap}
 .chip{font-family:var(--f-mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);
   padding:2px 8px;border-radius:999px;color:var(--dim);white-space:nowrap;background:var(--well)}
@@ -136,16 +132,15 @@ a{color:var(--lime)}
 .chip.red{color:var(--red);border-color:var(--red)}
 .chip.yellow{color:var(--yellow);border-color:var(--yellow)}
 
-/* ================= board ================= */
+/* board */
 .board{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(262px,1fr);gap:12px;align-items:start}
-.col{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border:1px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;box-shadow:var(--shadow-s)}
+.col{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);
+  border-radius:var(--r);display:flex;flex-direction:column;box-shadow:var(--shadow-s)}
 .col.over{border-color:var(--lime);box-shadow:0 0 0 1px var(--lime),0 0 26px rgba(134,255,77,.16)}
 .col-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 14px;border-bottom:1px solid var(--line)}
 .dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 9px currentColor}
 .col-h h2{font-size:13px;letter-spacing:.07em;flex:1 1 auto}
-.col-h .n{font-family:var(--f-mono);font-size:10.5px;color:var(--dim);background:var(--well);border:1px solid var(--line);
-  padding:1px 8px;border-radius:999px}
+.col-h .n{font-family:var(--f-mono);font-size:10.5px;color:var(--dim);background:var(--well);border:1px solid var(--line);padding:1px 8px;border-radius:999px}
 .col-h p{width:100%;margin:2px 0 0;font-family:var(--f-mono);font-size:9px;letter-spacing:.07em;color:var(--faint);text-transform:uppercase}
 .stack{display:flex;flex-direction:column;gap:8px;padding:11px;min-height:58px}
 .card{background:var(--glass2);border:1px solid var(--line);border-radius:var(--rs);padding:11px 12px;cursor:grab;
@@ -156,10 +151,10 @@ a{color:var(--lime)}
 .card h3{font-family:var(--f-body);font-weight:600;text-transform:none;letter-spacing:0;font-size:13.8px;line-height:1.3;margin:0 0 8px 4px}
 .card .chips{margin-left:4px}
 
-/* ================= table ================= */
+/* tables */
 .wrapx{overflow-x:auto;border-radius:var(--r)}
-.tbl{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--glass);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--glass);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .tbl th{font-family:var(--f-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
   text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
 .tbl td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
@@ -169,28 +164,32 @@ a{color:var(--lime)}
 .tbl .nm:hover{color:var(--lime)}
 .tbl .num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--dim);white-space:nowrap}
 
-/* ================= calendar ================= */
+/* calendar */
 .cal-h{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
 .cal-h h2{font-size:17px;color:var(--text)}
 .cal-h .sp{flex:1 1 auto}
 .cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
-.cal .dow{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;
-  text-align:center;padding-bottom:3px}
-.day{background:var(--well);border:1px solid var(--line);border-radius:var(--rs);min-height:96px;padding:7px 7px 8px;
-  display:flex;flex-direction:column;gap:4px}
-.day.out{opacity:.32}
+.cal .dow{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;text-align:center;padding-bottom:3px}
+.day{background:var(--well);border:1px solid var(--line);border-radius:var(--rs);min-height:100px;padding:7px 7px 8px;
+  display:flex;flex-direction:column;gap:4px;cursor:copy;transition:border-color .12s}
+.day.out{opacity:.3;cursor:default}
 .day.today{border-color:var(--lime);box-shadow:0 0 0 1px var(--lime),0 0 22px rgba(134,255,77,.14)}
-.day .dn{font-family:var(--f-mono);font-size:10.5px;color:var(--faint);font-variant-numeric:tabular-nums}
+.day.over{border-color:var(--lime);background:var(--glass2);box-shadow:0 0 0 1px var(--lime)}
+.day .dn{font-family:var(--f-mono);font-size:10.5px;color:var(--faint);font-variant-numeric:tabular-nums;pointer-events:none}
 .day.today .dn{color:var(--lime)}
+.day .add{font-family:var(--f-mono);font-size:9px;color:var(--faint);opacity:0;text-align:center;padding:3px 0;
+  border:1px dashed var(--line);border-radius:7px;margin-top:auto;pointer-events:none}
+.day:not(.out):hover .add{opacity:.7}
 .ev{display:block;width:100%;text-align:left;font:inherit;font-size:11px;line-height:1.28;padding:4px 6px;border-radius:7px;
-  border:1px solid var(--line);background:var(--glass2);color:var(--text);cursor:pointer;position:relative;padding-left:12px}
+  border:1px solid var(--line);background:var(--glass2);color:var(--text);cursor:grab;position:relative;padding-left:12px}
 .ev::before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:2px;border-radius:2px;background:var(--tone)}
 .ev:hover{border-color:var(--line2);color:var(--lime)}
+.ev.drag{opacity:.35}
 .legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:11px}
 .legend span{font-family:var(--f-mono);font-size:9.5px;color:var(--faint);display:flex;align-items:center;gap:5px}
 .legend i{width:8px;height:8px;border-radius:2px;display:inline-block}
 
-/* ================= week ================= */
+/* week */
 .week{display:flex;flex-direction:column;gap:9px}
 .night{display:grid;grid-template-columns:126px 1fr;background:var(--glass);backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-s)}
@@ -201,12 +200,27 @@ a{color:var(--lime)}
 .night-b h3{font-family:var(--f-body);font-weight:600;text-transform:none;letter-spacing:0;font-size:16px;margin-bottom:4px}
 .night-b p{margin:0 0 9px;color:var(--dim);max-width:80ch;font-size:13.5px}
 .hunt{display:flex;flex-wrap:wrap;gap:5px;list-style:none;padding:0;margin:0}
-.hunt li{font-family:var(--f-mono);font-size:10px;color:var(--text);background:var(--well);border:1px solid var(--line);
-  padding:3px 8px;border-radius:999px}
+.hunt li{font-family:var(--f-mono);font-size:10px;color:var(--text);background:var(--well);border:1px solid var(--line);padding:3px 8px;border-radius:999px}
 
-/* ================= loop / pairs / ladder ================= */
-.loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));border:1px solid var(--line);
-  border-radius:var(--r);overflow:hidden;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+/* performance */
+.vid{display:grid;grid-template-columns:160px 1fr;gap:14px;background:var(--glass);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--r);padding:13px;margin-bottom:10px;box-shadow:var(--shadow-s)}
+.vid img{width:100%;border-radius:var(--rs);border:1px solid var(--line);display:block}
+.vid h3{font-family:var(--f-body);font-weight:600;text-transform:none;letter-spacing:0;font-size:15.5px;margin-bottom:6px}
+.vid h3 a{color:var(--text);text-decoration:none}
+.vid h3 a:hover{color:var(--lime)}
+.vid .sub{display:flex!important;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.vid p{margin:0 0 9px;color:var(--dim);font-size:13px;max-width:74ch}
+.pend{font-family:var(--f-mono);font-size:10.5px;color:var(--faint);border:1px dashed var(--line);border-radius:var(--rs);padding:8px 11px}
+.range{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.range input[type="date"]{font-family:var(--f-mono);font-size:11px;background:var(--well);border:1px solid var(--line);
+  color:var(--text);padding:7px 9px;border-radius:9px;color-scheme:dark}
+:root[data-theme="light"] .range input[type="date"]{color-scheme:light}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .range input[type="date"]{color-scheme:light}}
+
+/* loop / pairs / ladder */
+.loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .loop>div{padding:13px 15px;border-right:1px solid var(--line)}
 .loop>div:last-child{border-right:0}
 .loop h5{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 6px;font-weight:400}
@@ -219,13 +233,12 @@ a{color:var(--lime)}
 .pair .ttl{font-weight:600;font-size:13.5px;margin-bottom:6px}
 .pair .th{color:var(--dim);font-size:13px;margin:0}
 .ladder{list-style:none;padding:0;margin:0;counter-reset:s}
-.ladder li{counter-increment:s;display:grid;grid-template-columns:20px 1fr auto;gap:9px;align-items:baseline;
-  padding:8px 0;border-bottom:1px dashed var(--line)}
+.ladder li{counter-increment:s;display:grid;grid-template-columns:20px 1fr auto;gap:9px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--line)}
 .ladder li:last-child{border-bottom:0}
 .ladder li::before{content:counter(s);font-family:var(--f-mono);color:var(--lime);font-size:12px}
 .strip{width:100%;border:1px solid var(--line);border-radius:var(--rs);display:block;margin-bottom:9px}
 
-/* ================= drawer ================= */
+/* drawer */
 .scrim{position:fixed;inset:0;background:rgba(4,7,5,.58);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
   opacity:0;pointer-events:none;transition:opacity .16s;z-index:40}
 .scrim.on{opacity:1;pointer-events:auto}
@@ -251,13 +264,24 @@ a{color:var(--lime)}
 .note{border-left:2px solid var(--red);background:var(--well);padding:10px 13px;color:var(--dim);font-size:13.5px;border-radius:var(--rs)}
 pre.script{background:var(--well);border:1px solid var(--line);border-radius:var(--rs);padding:14px;overflow-x:auto;
   white-space:pre-wrap;font-family:var(--f-mono);font-size:12px;line-height:1.62;color:var(--text);margin:0}
+.form label{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--faint);margin:14px 0 5px}
+.form input,.form select,.form textarea{width:100%;background:var(--well);border:1px solid var(--line);color:var(--text);
+  font:inherit;font-size:14px;padding:9px 11px;border-radius:var(--rs)}
+.form textarea{min-height:88px;resize:vertical}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.formbar{display:flex;gap:8px;margin-top:18px}
+.primary{background:var(--lime);color:#0A0D0B;border:0;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;padding:10px 16px;border-radius:9px;cursor:pointer;font-weight:500}
+.primary:hover{filter:brightness(1.1)}
 @media (max-width:980px){
   body{grid-template-columns:1fr}
   .rail{position:static;height:auto;margin:12px}
   .main{height:auto;overflow:visible}.scroll{overflow:visible}
   .board{grid-auto-flow:row;grid-auto-columns:auto}
-  .night{grid-template-columns:1fr}.night-d{border-right:0;border-bottom:1px solid var(--line)}
-  .cal{gap:3px}.day{min-height:74px}
+  .night,.vid{grid-template-columns:1fr}
+  .night-d{border-right:0;border-bottom:1px solid var(--line)}
+  .cal{gap:3px}.day{min-height:76px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}.card:hover{transform:none}}
 </style>
@@ -265,14 +289,9 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
 <body>
 
 <nav class="rail">
-  <div class="rail-top">
-    <img src="icon-512.png" alt="">
-    <div><div class="logo">BURGER</div><span>Content Engine</span></div>
-  </div>
-  <h4>Channels</h4>
-  <div id="chans"></div>
-  <h4>Views</h4>
-  <div class="nav" id="nav"></div>
+  <div class="rail-top"><img src="icon-512.png" alt=""><div><div class="logo">BURGER</div><span>Content Engine</span></div></div>
+  <h4>Channels</h4><div id="chans"></div>
+  <h4>Views</h4><div class="nav" id="nav"></div>
   <div class="rail-foot">
     <button class="railbtn" id="export">Copy board state</button>
     <button class="railbtn" id="theme">Switch theme</button>
@@ -282,15 +301,14 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
 </nav>
 
 <div class="main">
-  <header class="top">
-    <div><h1 id="vt"></h1><p id="vs"></p></div>
-    <div class="acts" id="acts"></div>
-  </header>
+  <header class="top"><div><h1 id="vt"></h1><p id="vs"></p></div><div class="acts" id="acts"></div></header>
   <div class="scroll">
     <section class="view on" id="view-home"></section>
-    <section class="view" id="view-board"><div class="board" id="board"></div></section>
-    <section class="view" id="view-table"><div class="wrapx"><table class="tbl" id="table"></table></div></section>
-    <section class="view" id="view-week"><div class="week" id="week"></div></section>
+    <section class="view" id="view-board">
+      <div class="sub on" id="sub-board"><div class="board" id="board"></div></div>
+      <div class="sub" id="sub-table"><div class="wrapx"><table class="tbl" id="table"></table></div></div>
+      <div class="sub" id="sub-week"><div class="week" id="week"></div></div>
+    </section>
     <section class="view" id="view-metrics"></section>
     <section class="view" id="view-thumbs"></section>
     <section class="view" id="view-playbook"></section>
@@ -307,113 +325,151 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
 <script src="data.js"></script>
 <script>
 (function(){
-  var D = window.ENGINE, KEY = "burger-engine-board-v1";
-  var moved = {}; try { moved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ moved = {}; }
-  var save = function(){ try { localStorage.setItem(KEY, JSON.stringify(moved)); } catch(e){} };
+  var D = window.ENGINE;
+  var K_COL = "burger-engine-board-v1", K_DATE = "burger-engine-dates-v1", K_NEW = "burger-engine-custom-v1";
+  function load(k, d){ try { return JSON.parse(localStorage.getItem(k) || "null") || d; } catch(e){ return d; } }
+  function put(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  var moved = load(K_COL, {}), dates = load(K_DATE, {}), custom = load(K_NEW, []);
+  function allCards(){ return D.cards.concat(custom); }
   var colOf = function(c){ return moved[c.id] || c.col; };
+  var dateOf = function(c){ return dates[c.id] || c.date; };
   var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(m){
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]; }); };
   var num = function(n){ return n == null ? "" : Number(n).toLocaleString("en-GB"); };
-  var byId = function(id){ return D.cards.filter(function(c){ return c.id === id; })[0]; };
+  var byId = function(id){ return allCards().filter(function(c){ return c.id === id; })[0]; };
 
   var TONE = {ideas:"var(--faint)", capture:"var(--red)", edit:"var(--yellow)", ready:"var(--lime)", published:"var(--limeD)"};
   var KINDTONE = {capture:"var(--red)", upload:"var(--yellow)", published:"var(--lime)", backlog:"var(--faint)"};
   var PRIO = {High:"red", Medium:"yellow", Low:"", Done:"lime"};
   var CHTONE = {hanneburger:"var(--lime)", burgercam:"var(--yellow)"};
+  var TODAY = "2026-09-11";
 
   var VIEWS = [
-    {id:"home",     n:"Home",       t:"Dashboard",        s:"Both channels in one place. The calendar below carries every card that has a date."},
-    {id:"board",    n:"Board",      t:"Board",            s:"Drag a card to change its status. Moves save in this browser. Click a card for the clip list, research and script."},
-    {id:"table",    n:"Table",      t:"All cards",        s:"Every card with its properties, the way a Notion brief board reads."},
-    {id:"week",     n:"The week",   t:"Capture week",     s:"One idea a night, read before you play. Night five is deliberately free."},
-    {id:"metrics",  n:"Metrics",    t:"Performance",      s:"What each published video did, and the lesson written the way a DL brief writes one."},
+    {id:"home",     n:"Home",       t:"Dashboard",        s:"Both channels in one place. Drag anything on the calendar to move it, or click an empty day to add an idea."},
+    {id:"board",    n:"Board",      t:"Project",          s:"Board, table and week are three views of the same cards. Drag a card to change its status."},
+    {id:"metrics",  n:"Performance",t:"Performance",      s:"Only videos that are actually live. View counts are real, the deeper numbers appear once a Studio read is taken."},
     {id:"thumbs",   n:"Thumbnails", t:"Thumbnail engine", s:"Three title and thumbnail pairs per video, each a different pitch, against the channel's own rules."},
     {id:"playbook", n:"Playbook",   t:"Playbook",         s:"The rules this channel runs on, taken from its own results."},
     {id:"roadmap",  n:"Roadmap",    t:"What this becomes",s:"What the engine does now, and what can be automated next."}
   ];
+  var SUBS = [{id:"board", n:"Board"}, {id:"table", n:"Table"}, {id:"week", n:"Week"}];
+  var sub = "board";
 
   /* ---------- rail ---------- */
   document.getElementById("chans").innerHTML = D.channels.map(function(c){
     return '<button class="chan" aria-pressed="' + (c.active ? "true" : "false") + '"' + (c.active ? "" : " disabled") + '>' +
       '<span class="led" style="color:' + CHTONE[c.id] + ';background:' + CHTONE[c.id] + '"></span>' +
       '<span><b>' + esc(c.name) + '</b><i>' + esc(c.tag) + '</i></span></button>'; }).join("");
-  document.getElementById("nav").innerHTML = VIEWS.map(function(v, i){
-    var c = {board:D.cards.length, week:D.cards.filter(function(x){ return x.col === "capture"; }).length,
-             metrics:D.metrics.length, thumbs:D.cards.filter(function(x){ return x.thumbs; }).length}[v.id] || "";
-    return '<button data-v="' + v.id + '" aria-current="' + (i === 0) + '">' + esc(v.n) +
-           (c ? '<span class="c">' + c + '</span>' : '') + '</button>'; }).join("");
+  function drawNav(){
+    document.getElementById("nav").innerHTML = VIEWS.map(function(v, i){
+      var c = {board:allCards().length, metrics:D.live.length, thumbs:D.cards.filter(function(x){ return x.thumbs; }).length}[v.id] || "";
+      return '<button data-v="' + v.id + '" aria-current="' + (v.id === current) + '">' + esc(v.n) +
+             (c ? '<span class="c">' + c + '</span>' : '') + '</button>'; }).join("");
+    document.querySelectorAll("#nav button").forEach(function(b){ b.addEventListener("click", function(){ show(b.dataset.v); }); });
+  }
   document.getElementById("stamp").textContent = "Updated " + D.updated;
 
+  var current = "home";
   function show(id){
+    current = id;
     var v = VIEWS.filter(function(x){ return x.id === id; })[0];
     document.getElementById("vt").textContent = v.t;
     document.getElementById("vs").textContent = v.s;
     document.querySelectorAll(".view").forEach(function(s){ s.classList.remove("on"); });
     document.getElementById("view-" + id).classList.add("on");
     document.querySelectorAll("#nav button").forEach(function(b){ b.setAttribute("aria-current", b.dataset.v === id ? "true" : "false"); });
-    document.getElementById("acts").innerHTML = id === "board" ? '<button class="btn" id="collapse">' +
-      (filterWeek ? "Show everything" : "Only live work") + '</button>' : "";
-    var cb = document.getElementById("collapse");
-    if (cb) cb.addEventListener("click", function(){ filterWeek = !filterWeek;
-      cb.textContent = filterWeek ? "Show everything" : "Only live work"; drawBoard(); });
+    document.getElementById("acts").innerHTML = id === "board"
+      ? '<div class="seg">' + SUBS.map(function(s){
+          return '<button data-sub="' + s.id + '" aria-selected="' + (s.id === sub) + '">' + s.n + '</button>'; }).join("") + '</div>'
+      : "";
+    document.querySelectorAll(".seg button").forEach(function(b){
+      b.addEventListener("click", function(){
+        sub = b.dataset.sub;
+        document.querySelectorAll(".sub").forEach(function(s){ s.classList.remove("on"); });
+        document.getElementById("sub-" + sub).classList.add("on");
+        document.querySelectorAll(".seg button").forEach(function(x){ x.setAttribute("aria-selected", x.dataset.sub === sub); });
+      });
+    });
     document.querySelector(".scroll").scrollTop = 0;
   }
-  document.querySelectorAll("#nav button").forEach(function(b){ b.addEventListener("click", function(){ show(b.dataset.v); }); });
 
-  /* ---------- home: dashboards + calendar ---------- */
-  var calYear = 2026, calMonth = 8; /* September 2026 */
+  /* ---------- home ---------- */
+  var calYear = 2026, calMonth = 8;
   var MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   function drawHome(){
-    var dash = '<div class="sect"><h2>Channels</h2><div class="grid2">' + D.channels.map(function(c){
-      return '<div class="panel"><div class="ch-head"><span class="led" style="color:' + CHTONE[c.id] + ';background:' + CHTONE[c.id] + '"></span>' +
-        '<h2>' + esc(c.name) + '</h2><span class="chip ' + (c.active ? "lime" : "yellow") + ' tag">' + esc(c.tag) + '</span></div>' +
-        '<div class="tiles">' + c.stats.map(function(s){
-          return '<div class="tile"><i>' + esc(s.k) + '</i><b>' + esc(s.v) + '</b><s>' + esc(s.s) + '</s></div>'; }).join("") +
-        '</div></div>'; }).join("") + '</div></div>';
-    document.getElementById("view-home").innerHTML = dash +
+    document.getElementById("view-home").innerHTML =
+      '<div class="sect"><h2>Channels</h2><div class="grid2">' + D.channels.map(function(c){
+        return '<div class="panel"><div class="ch-head"><span class="led" style="color:' + CHTONE[c.id] + ';background:' + CHTONE[c.id] + '"></span>' +
+          '<h2>' + esc(c.name) + '</h2><span class="chip ' + (c.active ? "lime" : "yellow") + ' tag">' + esc(c.tag) + '</span></div>' +
+          '<div class="tiles">' + c.stats.map(function(s){
+            return '<div class="tile"><i>' + esc(s.k) + '</i><b>' + esc(s.v) + '</b><s>' + esc(s.s) + '</s></div>'; }).join("") +
+          '</div></div>'; }).join("") + '</div></div>' +
       '<div class="sect"><div class="panel"><div class="cal-h"><h2 id="calT"></h2><span class="sp"></span>' +
-      '<button class="btn" id="prev">Prev</button><button class="btn" id="next">Next</button></div>' +
-      '<div class="cal" id="cal"></div>' +
-      '<div class="legend">' +
-        '<span><i style="background:var(--red)"></i>Capture night</span>' +
-        '<span><i style="background:var(--yellow)"></i>Upload target</span>' +
-        '<span><i style="background:var(--lime)"></i>Published</span>' +
-        '<span><i style="background:var(--lime);border-radius:50%"></i>HanneBurger</span>' +
-        '<span><i style="background:var(--yellow);border-radius:50%"></i>BurgerCam</span>' +
-      '</div></div></div>';
-    document.getElementById("prev").addEventListener("click", function(){
-      calMonth--; if (calMonth < 0){ calMonth = 11; calYear--; } drawCal(); });
-    document.getElementById("next").addEventListener("click", function(){
-      calMonth++; if (calMonth > 11){ calMonth = 0; calYear++; } drawCal(); });
+        '<button class="btn" id="prev">Prev</button><button class="btn" id="today">Today</button><button class="btn" id="next">Next</button></div>' +
+        '<div class="cal" id="cal"></div>' +
+        '<div class="legend">' +
+          '<span><i style="background:var(--red)"></i>Capture night</span>' +
+          '<span><i style="background:var(--yellow)"></i>Upload target</span>' +
+          '<span><i style="background:var(--lime)"></i>Published</span>' +
+          '<span><i style="background:var(--faint)"></i>No date set</span>' +
+          '<span style="margin-left:auto">Drag to move · click an empty day to add</span>' +
+        '</div></div></div>';
+    document.getElementById("prev").addEventListener("click", function(){ calMonth--; if (calMonth < 0){ calMonth = 11; calYear--; } drawCal(); });
+    document.getElementById("next").addEventListener("click", function(){ calMonth++; if (calMonth > 11){ calMonth = 0; calYear++; } drawCal(); });
+    document.getElementById("today").addEventListener("click", function(){ calYear = 2026; calMonth = 8; drawCal(); });
     drawCal();
   }
   function drawCal(){
     document.getElementById("calT").textContent = MON[calMonth] + " " + calYear;
     var first = new Date(calYear, calMonth, 1);
-    var start = (first.getDay() + 6) % 7;                 /* Monday first */
+    var start = (first.getDay() + 6) % 7;
     var days = new Date(calYear, calMonth + 1, 0).getDate();
     var prevDays = new Date(calYear, calMonth, 0).getDate();
-    var todayISO = "2026-09-11";
     var cells = [];
-    for (var i = 0; i < start; i++) cells.push({d: prevDays - start + 1 + i, out: true, iso: null});
-    for (var d = 1; d <= days; d++){
-      var iso = calYear + "-" + String(calMonth + 1).padStart(2, "0") + "-" + String(d).padStart(2, "0");
-      cells.push({d: d, out: false, iso: iso});
-    }
-    while (cells.length % 7) cells.push({d: cells.length - start - days + 1, out: true, iso: null});
-    var dow = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(function(x){ return '<div class="dow">' + x + '</div>'; }).join("");
-    document.getElementById("cal").innerHTML = dow + cells.map(function(c){
-      var evs = c.iso ? D.cards.filter(function(x){ return x.date === c.iso; }) : [];
-      return '<div class="day' + (c.out ? " out" : "") + (c.iso === todayISO ? " today" : "") + '">' +
-        '<span class="dn">' + c.d + '</span>' +
-        evs.map(function(e){
-          return '<button class="ev" data-id="' + e.id + '" style="--tone:' + KINDTONE[e.kind] + '">' + esc(e.title) + '</button>'; }).join("") +
-        '</div>'; }).join("");
-    document.querySelectorAll(".ev").forEach(function(b){ b.addEventListener("click", function(){ open(b.dataset.id); }); });
+    for (var i = 0; i < start; i++) cells.push({d: prevDays - start + 1 + i, out: true});
+    for (var d = 1; d <= days; d++)
+      cells.push({d: d, out: false, iso: calYear + "-" + String(calMonth + 1).padStart(2,"0") + "-" + String(d).padStart(2,"0")});
+    var tail = 1; while (cells.length % 7) cells.push({d: tail++, out: true});
+    document.getElementById("cal").innerHTML =
+      ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(function(x){ return '<div class="dow">' + x + '</div>'; }).join("") +
+      cells.map(function(c){
+        var evs = c.iso ? allCards().filter(function(x){ return dateOf(x) === c.iso; }) : [];
+        return '<div class="day' + (c.out ? " out" : "") + (c.iso === TODAY ? " today" : "") + '"' +
+          (c.iso ? ' data-iso="' + c.iso + '"' : '') + '><span class="dn">' + c.d + '</span>' +
+          evs.map(function(e){
+            return '<button class="ev" draggable="true" data-id="' + e.id + '" style="--tone:' + (KINDTONE[e.kind] || "var(--faint)") + '">' +
+              esc(e.title) + '</button>'; }).join("") +
+          (c.out ? "" : '<span class="add">+ idea</span>') + '</div>'; }).join("");
+    wireCal();
+  }
+  function wireCal(){
+    var dragId = null;
+    document.querySelectorAll(".ev").forEach(function(el){
+      el.addEventListener("click", function(e){ e.stopPropagation(); open(el.dataset.id); });
+      el.addEventListener("dragstart", function(e){ dragId = el.dataset.id; el.classList.add("drag");
+        try { e.dataTransfer.setData("text/plain", dragId); e.dataTransfer.effectAllowed = "move"; } catch(err){} });
+      el.addEventListener("dragend", function(){ el.classList.remove("drag"); dragId = null; });
+    });
+    document.querySelectorAll(".day[data-iso]").forEach(function(cell){
+      cell.addEventListener("dragover", function(e){ e.preventDefault(); cell.classList.add("over"); });
+      cell.addEventListener("dragleave", function(){ cell.classList.remove("over"); });
+      cell.addEventListener("drop", function(e){
+        e.preventDefault(); cell.classList.remove("over");
+        var id = dragId; try { id = e.dataTransfer.getData("text/plain") || dragId; } catch(err){}
+        if (!id) return;
+        dates[id] = cell.dataset.iso; put(K_DATE, dates);
+        var c = byId(id); if (c) c.night = fmt(cell.dataset.iso);
+        drawCal(); drawTable();
+      });
+      cell.addEventListener("click", function(){ newCard(cell.dataset.iso); });
+    });
+  }
+  function fmt(iso){
+    var p = iso.split("-"), dt = new Date(+p[0], +p[1] - 1, +p[2]);
+    return ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][dt.getDay()] + " " + (+p[2]) + " " + MON[+p[1] - 1].slice(0,3);
   }
 
-  /* ---------- board ---------- */
-  var filterWeek = false;
+  /* ---------- board / table / week ---------- */
   function chips(c){
     var out = [], p = c.props || {};
     if (c.night && c.night !== "Unscheduled") out.push('<span class="chip' +
@@ -422,23 +478,19 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     if (p.priority) out.push('<span class="chip ' + (PRIO[p.priority] || "") + '">' + esc(p.priority) + '</span>');
     if (c.script) out.push('<span class="chip lime">Script</span>');
     if (c.thumbs) out.push('<span class="chip yellow">Thumbs</span>');
+    if (c.custom) out.push('<span class="chip yellow">Added by you</span>');
     return out.join("");
   }
   function drawBoard(){
     document.getElementById("board").innerHTML = D.columns.map(function(col){
-      var cards = D.cards.filter(function(c){ return colOf(c) === col.id; })
-        .filter(function(){ return !filterWeek || ["capture","edit","ready"].indexOf(col.id) > -1; });
+      var cards = allCards().filter(function(c){ return colOf(c) === col.id; });
       return '<div class="col" data-col="' + col.id + '"><div class="col-h">' +
         '<span class="dot" style="color:' + TONE[col.id] + ';background:' + TONE[col.id] + '"></span>' +
-        '<h2>' + esc(col.name) + '</h2><span class="n">' + cards.length + '</span>' +
-        '<p>' + esc(col.hint) + '</p></div><div class="stack">' +
-        cards.map(function(c){
+        '<h2>' + esc(col.name) + '</h2><span class="n">' + cards.length + '</span><p>' + esc(col.hint) + '</p></div>' +
+        '<div class="stack">' + cards.map(function(c){
           return '<button class="card" draggable="true" data-id="' + c.id + '" style="--tone:' + TONE[col.id] + '">' +
             '<h3>' + esc(c.title) + '</h3><div class="chips">' + chips(c) + '</div></button>'; }).join("") +
         '</div></div>'; }).join("");
-    wire();
-  }
-  function wire(){
     var dragId = null;
     document.querySelectorAll(".card").forEach(function(el){
       el.addEventListener("click", function(){ open(el.dataset.id); });
@@ -451,27 +503,23 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       col.addEventListener("dragleave", function(){ col.classList.remove("over"); });
       col.addEventListener("drop", function(e){ e.preventDefault(); col.classList.remove("over");
         var id = dragId; try { id = e.dataTransfer.getData("text/plain") || dragId; } catch(err){}
-        if (!id) return; moved[id] = col.dataset.col; save(); drawBoard(); drawTable(); });
+        if (!id) return; moved[id] = col.dataset.col; put(K_COL, moved); drawBoard(); drawTable(); });
     });
   }
-
-  /* ---------- table ---------- */
   function drawTable(){
     var cn = {}; D.columns.forEach(function(c){ cn[c.id] = c.name; });
     document.getElementById("table").innerHTML =
-      '<thead><tr><th>Card</th><th>Status</th><th>Date</th><th>Session</th><th>Lane</th><th>Variable tested</th><th>Format</th><th>Priority</th></tr></thead><tbody>' +
-      D.cards.map(function(c){
+      '<thead><tr><th>Card</th><th>Status</th><th>Date</th><th>Session</th><th>Lane</th><th>Variable tested</th><th>Priority</th></tr></thead><tbody>' +
+      allCards().map(function(c){
         var p = c.props || {};
         return '<tr><td class="nm" data-id="' + c.id + '">' + esc(c.title) + '</td>' +
           '<td><span class="chip" style="color:' + TONE[colOf(c)] + ';border-color:' + TONE[colOf(c)] + '">' + esc(cn[colOf(c)]) + '</span></td>' +
           '<td class="num">' + esc(c.night || "") + '</td><td class="num">' + esc(c.session || "") + '</td>' +
           '<td><span class="chip' + (p.lane === "Identity" ? " lime" : "") + '">' + esc(p.lane || "") + '</span></td>' +
-          '<td class="num">' + esc(p.variable || "") + '</td><td class="num">' + esc(p.format || "") + '</td>' +
+          '<td class="num">' + esc(p.variable || "") + '</td>' +
           '<td><span class="chip ' + (PRIO[p.priority] || "") + '">' + esc(p.priority || "") + '</span></td></tr>'; }).join("") + '</tbody>';
     document.querySelectorAll(".tbl .nm").forEach(function(td){ td.addEventListener("click", function(){ open(td.dataset.id); }); });
   }
-
-  /* ---------- week ---------- */
   document.getElementById("week").innerHTML = D.cards.filter(function(c){ return c.col === "capture"; })
     .map(function(c, i){
       return '<article class="night"><div class="night-d" style="border-left:2px solid ' + (c.id === "bottom1" ? "var(--lime)" : "var(--red)") + '">' +
@@ -479,7 +527,59 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
         '<div class="night-b"><h3>' + esc(c.title) + '</h3><p>' + esc(c.why) + '</p><ul class="hunt">' +
         (c.clips || []).map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div></article>'; }).join("");
 
-  /* ---------- metrics ---------- */
+  /* ---------- performance ---------- */
+  var rFrom = "", rTo = "";
+  function drawPerf(){
+    var list = D.live.filter(function(v){
+      return (!rFrom || v.published >= rFrom) && (!rTo || v.published <= rTo); })
+      .sort(function(a, b){ return a.published < b.published ? 1 : -1; });
+    var tv = list.reduce(function(s, v){ return s + v.views; }, 0);
+    document.getElementById("view-metrics").innerHTML =
+      '<div class="range">' +
+        '<button class="btn" data-p="all">All time</button><button class="btn" data-p="28">Last 28 days</button>' +
+        '<button class="btn" data-p="90">Last 90 days</button><button class="btn" data-p="month">This month</button>' +
+        '<span style="color:var(--faint);font-family:var(--f-mono);font-size:10px;margin:0 4px">from</span>' +
+        '<input type="date" id="rf" value="' + rFrom + '"><span style="color:var(--faint);font-family:var(--f-mono);font-size:10px">to</span>' +
+        '<input type="date" id="rt" value="' + rTo + '">' +
+      '</div>' +
+      '<div class="tiles" style="margin-bottom:18px">' +
+        '<div class="tile"><i>Videos in range</i><b>' + list.length + '</b></div>' +
+        '<div class="tile"><i>Views in range</i><b>' + num(tv) + '</b></div>' +
+        '<div class="tile"><i>Best</i><b>' + num(list.length ? Math.max.apply(null, list.map(function(v){ return v.views; })) : 0) + '</b></div>' +
+        '<div class="tile"><i>Studio reads</i><b>' + list.filter(function(v){ return v.analytics; }).length + '</b><s>of ' + list.length + '</s></div>' +
+      '</div>' +
+      (list.length ? list.map(vidHTML).join("") : '<p style="color:var(--faint)">No videos published in that range.</p>') +
+      '<p style="color:var(--faint);font-size:12.5px;margin-top:16px;max-width:80ch">' + esc(D.liveSource) + '</p>';
+    document.querySelectorAll("#view-metrics .range .btn").forEach(function(b){
+      b.addEventListener("click", function(){
+        var p = b.dataset.p, now = new Date(TODAY);
+        if (p === "all"){ rFrom = ""; rTo = ""; }
+        else if (p === "month"){ rFrom = "2026-09-01"; rTo = "2026-09-30"; }
+        else { var d = new Date(now.getTime() - (+p) * 86400000);
+               rFrom = d.toISOString().slice(0,10); rTo = TODAY; }
+        drawPerf(); });
+    });
+    document.getElementById("rf").addEventListener("change", function(){ rFrom = this.value; drawPerf(); });
+    document.getElementById("rt").addEventListener("change", function(){ rTo = this.value; drawPerf(); });
+    document.querySelectorAll("#view-metrics .nm").forEach(function(el){ el.addEventListener("click", function(){ open(el.dataset.id); }); });
+  }
+  function vidHTML(v){
+    var a = v.analytics;
+    return '<div class="vid"><a href="' + esc(v.url) + '" target="_blank" rel="noopener"><img src="' + esc(v.thumb) + '" alt="" loading="lazy"></a>' +
+      '<div><h3><a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + esc(v.title) + '</a></h3>' +
+      '<div class="sub chips"><span class="chip lime">' + num(v.views) + ' views</span>' +
+        '<span class="chip">' + esc(v.published) + '</span><span class="chip">' + esc(v.runtime) + '</span>' +
+        (v.cardId ? '<span class="chip yellow nm" data-id="' + v.cardId + '" style="cursor:pointer">Open card</span>' : '') + '</div>' +
+      '<p>' + esc(v.note) + '</p>' +
+      (a ? '<div class="tiles">' +
+            [["Impressions", num(a.impressions)], ["CTR", a.ctr + "%"], ["Avg duration", a.avd],
+             ["Avg viewed", a.avp + "%"], ["Subs", "+" + a.subs], ["Read", a.read]]
+            .map(function(t){ return '<div class="tile"><i>' + t[0] + '</i><b>' + t[1] + '</b></div>'; }).join("") + '</div>'
+          : '<div class="pend">No Studio read taken yet. Impressions, click through rate and retention appear here once one is.</div>') +
+      '</div></div>';
+  }
+
+  /* ---------- thumbnails, playbook, roadmap ---------- */
   function loopHTML(c){
     var l = c.learn;
     return '<div style="margin-bottom:11px"><h3 style="font-family:var(--f-body);font-weight:600;text-transform:none;letter-spacing:0;font-size:14.5px;margin-bottom:7px">' +
@@ -489,45 +589,20 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       '<div><h5>Result</h5><p' + (l.result ? '' : ' class="empty"') + '>' + esc(l.result || "Not run yet") + '</p></div>' +
       '<div><h5>Insight</h5><p' + (l.insight ? '' : ' class="empty"') + '>' + esc(l.insight || "Written when the result lands") + '</p></div></div></div>';
   }
-  (function(){
-    var closed = D.cards.filter(function(c){ return c.learn && c.learn.result; });
-    var open_ = D.cards.filter(function(c){ return c.learn && !c.learn.result; });
-    document.getElementById("view-metrics").innerHTML =
-      '<div class="sect"><h2>Published video reads</h2><div class="wrapx"><table class="tbl">' +
-        '<thead><tr><th>Video</th><th>Read</th><th>Views</th><th>Impressions</th><th>CTR</th><th>Avg duration</th><th>Avg viewed</th><th>Subs</th></tr></thead><tbody>' +
-        D.metrics.map(function(m){
-          return '<tr><td class="nm" data-id="' + m.id + '">' + esc(m.title) + '<div class="chips" style="margin-top:5px">' +
-            '<span class="chip">' + esc(m.published) + '</span>' + (m.runtime ? '<span class="chip">' + esc(m.runtime) + '</span>' : '') + '</div>' +
-            '<div style="color:var(--dim);font-size:12.5px;margin-top:6px;max-width:60ch">' + esc(m.note) + '</div></td>' +
-            '<td class="num">' + esc(m.read) + '</td><td class="num">' + num(m.views) + '</td>' +
-            '<td class="num">' + (m.impressions ? num(m.impressions) : "—") + '</td>' +
-            '<td class="num">' + (m.ctr ? m.ctr + "%" : "—") + '</td><td class="num">' + (m.avd || "—") + '</td>' +
-            '<td class="num">' + (m.avp ? m.avp + "%" : "—") + '</td><td class="num">' + (m.subs == null ? "—" : "+" + m.subs) + '</td></tr>'; }).join("") +
+  document.getElementById("view-thumbs").innerHTML =
+    '<div class="grid" style="margin-bottom:22px">' +
+      '<div class="panel"><h2>The rules</h2><ul>' + D.thumbRules.map(function(r){ return '<li>' + esc(r) + '</li>'; }).join("") + '</ul></div>' +
+      '<div class="panel"><h2>Title tests, settled</h2><table class="tbl" style="border:0;background:transparent;backdrop-filter:none"><tbody>' +
+        D.titleTests.map(function(t){
+          return '<tr><td>' + esc(t.t) + '</td><td class="num" style="color:' + (t.w ? "var(--lime)" : "var(--red)") + '">' + esc(t.v) + '</td></tr>'; }).join("") +
         '</tbody></table></div></div>' +
-      '<div class="sect"><h2>The loop, closed</h2>' + closed.map(loopHTML).join("") + '</div>' +
-      '<div class="sect"><h2>Open, waiting on a result</h2>' + open_.map(loopHTML).join("") + '</div>';
-    document.querySelectorAll("#view-metrics .nm").forEach(function(td){ td.addEventListener("click", function(){ open(td.dataset.id); }); });
-  })();
-
-  /* ---------- thumbnails ---------- */
-  (function(){
-    document.getElementById("view-thumbs").innerHTML =
-      '<div class="grid" style="margin-bottom:22px">' +
-        '<div class="panel"><h2>The rules</h2><ul>' + D.thumbRules.map(function(r){ return '<li>' + esc(r) + '</li>'; }).join("") + '</ul></div>' +
-        '<div class="panel"><h2>Title tests, settled</h2><table class="tbl" style="border:0;background:transparent;backdrop-filter:none"><tbody>' +
-          D.titleTests.map(function(t){
-            return '<tr><td>' + esc(t.t) + '</td><td class="num" style="color:' + (t.w ? "var(--lime)" : "var(--red)") + '">' + esc(t.v) + '</td></tr>'; }).join("") +
-          '</tbody></table></div></div>' +
-      D.cards.filter(function(c){ return c.thumbs; }).map(function(c){
-        return '<div class="sect"><h2>' + esc(c.title) + '</h2><div class="pairs">' +
-          c.thumbs.map(function(p){
-            return '<div class="pair"><div class="lab"><b>' + esc(p.label) + '</b><span class="chip lime">' + esc(p.strategy) + '</span></div>' +
-              '<div class="ttl">' + esc(p.title) + '</div><p class="th">' + esc(p.thumb) + '</p></div>'; }).join("") + '</div>' +
-          (c.research ? '<img class="strip" style="margin-top:10px" src="' + esc(c.research.strip) + '" alt="Competitor thumbnails" loading="lazy">' : '') +
-          '</div>'; }).join("");
-  })();
-
-  /* ---------- playbook ---------- */
+    D.cards.filter(function(c){ return c.thumbs; }).map(function(c){
+      return '<div class="sect"><h2>' + esc(c.title) + '</h2><div class="pairs">' +
+        c.thumbs.map(function(p){
+          return '<div class="pair"><div class="lab"><b>' + esc(p.label) + '</b><span class="chip lime">' + esc(p.strategy) + '</span></div>' +
+            '<div class="ttl">' + esc(p.title) + '</div><p class="th">' + esc(p.thumb) + '</p></div>'; }).join("") + '</div>' +
+        (c.research ? '<img class="strip" style="margin-top:10px" src="' + esc(c.research.strip) + '" alt="Competitor thumbnails" loading="lazy">' : '') +
+        '</div>'; }).join("");
   (function(){
     var R = D.rules;
     document.getElementById("view-playbook").innerHTML = '<div class="grid">' +
@@ -537,10 +612,10 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       '<div class="panel"><h2>Tweak ladder</h2><p>One tweak per video, one number to watch.</p><ol class="ladder">' +
         R.ladder.map(function(l){ var cls = l.s === "done" ? "lime" : (l.s === "next video" ? "red" : "");
           return '<li><span>' + esc(l.t) + '</span><span class="chip ' + cls + '">' + esc(l.s) + '</span></li>'; }).join("") + '</ol></div>' +
-      '<div class="panel" style="border-left:2px solid var(--lime)"><h2>Guardrail</h2><p style="color:var(--text)">' + esc(R.guardrail) + '</p></div></div>';
+      '<div class="panel" style="border-left:2px solid var(--lime)"><h2>Guardrail</h2><p style="color:var(--text)">' + esc(R.guardrail) + '</p></div></div>' +
+      '<div class="sect" style="margin-top:22px"><h2>The loop</h2>' +
+        D.cards.filter(function(c){ return c.learn; }).map(loopHTML).join("") + '</div>';
   })();
-
-  /* ---------- roadmap ---------- */
   (function(){
     var A = D.apiPlan;
     document.getElementById("view-roadmap").innerHTML =
@@ -555,17 +630,55 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
           return '<li><b>' + esc(x.n) + '</b><br>' + esc(x.d) + '</li>'; }).join("") + '</ul></div>' +
         '<div class="panel"><h2>What it needs</h2><p>' + esc(A.have) + '</p><ul>' + A.scopes.map(function(s){
           return '<li><code style="font-family:var(--f-mono);font-size:11.5px;color:var(--lime);word-break:break-all">' + esc(s) + '</code></li>'; }).join("") +
-          '</ul><p style="margin-top:9px;font-size:12.5px">' + esc(A.verified) + '</p></div>' +
-      '</div></div>';
+          '</ul><p style="margin-top:9px;font-size:12.5px">' + esc(A.verified) + '</p></div></div></div>';
   })();
 
   /* ---------- drawer ---------- */
   var drawer = document.getElementById("drawer"), scrim = document.getElementById("scrim");
   function row(k, v){ return '<tr><th>' + k + '</th><td>' + v + '</td></tr>'; }
+  function openDrawer(){ drawer.classList.add("on"); drawer.setAttribute("aria-hidden","false"); scrim.classList.add("on"); }
+  function shut(){ drawer.classList.remove("on"); drawer.setAttribute("aria-hidden","true"); scrim.classList.remove("on"); }
+  document.getElementById("close").addEventListener("click", shut);
+  scrim.addEventListener("click", shut);
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") shut(); });
+
+  function newCard(iso){
+    document.getElementById("d-title").textContent = "New idea, " + fmt(iso);
+    document.getElementById("d-body").innerHTML =
+      '<div class="form"><label for="f-title">Title</label><input id="f-title" placeholder="What is the video?">' +
+      '<div class="row"><div><label for="f-col">Status</label><select id="f-col">' +
+        D.columns.map(function(c){ return '<option value="' + c.id + '"' + (c.id === "ideas" ? " selected" : "") + '>' + esc(c.name) + '</option>'; }).join("") +
+      '</select></div><div><label for="f-kind">Type</label><select id="f-kind">' +
+        '<option value="capture">Capture night</option><option value="upload">Upload target</option><option value="backlog">No date</option>' +
+      '</select></div></div>' +
+      '<div class="row"><div><label for="f-sess">Session</label><input id="f-sess" placeholder="Medium, Light, any"></div>' +
+      '<div><label for="f-date">Date</label><input type="date" id="f-date" value="' + iso + '"></div></div>' +
+      '<label for="f-why">Why this one</label><textarea id="f-why" placeholder="What is the idea, and why is it worth a night?"></textarea>' +
+      '<label for="f-clips">Clips to hunt, one per line</label><textarea id="f-clips" placeholder="The first kill&#10;The moment it goes wrong"></textarea>' +
+      '<div class="formbar"><button class="primary" id="f-save">Add idea</button><button class="btn" id="f-cancel">Cancel</button></div>' +
+      '<p style="color:var(--faint);font-size:12.5px;margin-top:14px">Saved in this browser. Hit Copy board state in the sidebar and paste it to Claude to make it permanent.</p></div>';
+    openDrawer();
+    document.getElementById("f-title").focus();
+    document.getElementById("f-cancel").addEventListener("click", shut);
+    document.getElementById("f-save").addEventListener("click", function(){
+      var t = document.getElementById("f-title").value.trim();
+      if (!t){ document.getElementById("f-title").focus(); return; }
+      var dt = document.getElementById("f-date").value || iso;
+      var c = {id:"custom_" + Date.now(), custom:true, title:t, col:document.getElementById("f-col").value,
+        kind:document.getElementById("f-kind").value, date:dt, night:fmt(dt), channel:"hanneburger",
+        session:document.getElementById("f-sess").value.trim(),
+        why:document.getElementById("f-why").value.trim(),
+        clips:document.getElementById("f-clips").value.split("\n").map(function(s){ return s.trim(); }).filter(Boolean),
+        titles:[], props:{}};
+      custom.push(c); put(K_NEW, custom);
+      shut(); drawCal(); drawBoard(); drawTable(); drawNav();
+    });
+  }
+
   function open(id){
     var c = byId(id); if (!c) return;
     var cn = {}; D.columns.forEach(function(x){ cn[x.id] = x.name; });
-    var p = c.props || {}, m = D.metrics.filter(function(x){ return x.id === id; })[0];
+    var p = c.props || {}, v = D.live.filter(function(x){ return x.cardId === id; })[0];
     var chn = D.channels.filter(function(x){ return x.id === c.channel; })[0];
     document.getElementById("d-title").textContent = c.title;
     var h = '<table class="props"><tbody>' +
@@ -576,13 +689,14 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       (p.variable ? row("Variable tested", esc(p.variable)) : "") + (p.format ? row("Format", esc(p.format)) : "") +
       (p.persona ? row("Persona", esc(p.persona)) : "") +
       (p.priority ? row("Priority", '<span class="chip ' + (PRIO[p.priority] || "") + '">' + esc(p.priority) + '</span>') : "") +
+      (v ? row("Live", '<a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + num(v.views) + ' views on YouTube</a>') : "") +
       '</tbody></table>';
     if (c.why) h += '<h4>Why this one</h4><p>' + esc(c.why) + '</p>';
     if (c.note) h += '<div class="note">' + esc(c.note) + '</div>';
     if (c.learn) h += '<h4>The loop</h4>' + loopHTML(c).replace(/<h3[\s\S]*?<\/h3>/, "");
-    if (m) h += '<h4>Performance</h4><div class="tiles">' +
-      [["Views", num(m.views)], ["Impressions", m.impressions ? num(m.impressions) : "—"], ["CTR", m.ctr ? m.ctr + "%" : "—"],
-       ["Avg duration", m.avd || "—"], ["Avg viewed", m.avp ? m.avp + "%" : "—"], ["Subs", m.subs == null ? "—" : "+" + m.subs]]
+    if (v && v.analytics) h += '<h4>Studio read, ' + esc(v.analytics.read) + '</h4><div class="tiles">' +
+      [["Views", num(v.views)], ["Impressions", num(v.analytics.impressions)], ["CTR", v.analytics.ctr + "%"],
+       ["Avg duration", v.analytics.avd], ["Avg viewed", v.analytics.avp + "%"], ["Subs", "+" + v.analytics.subs]]
       .map(function(t){ return '<div class="tile"><i>' + t[0] + '</i><b>' + t[1] + '</b></div>'; }).join("") + '</div>';
     if (c.clips && c.clips.length) h += '<h4>Hunt these clips</h4><ul>' + c.clips.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
     if (c.thumbs) h += '<h4>Thumbnail pairs</h4><div class="pairs">' + c.thumbs.map(function(t){
@@ -599,18 +713,19 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
           return '<tr><td class="num" style="color:var(--red)">' + esc(r.mult) + 'x</td>' +
             '<td><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.t) + '</a></td>' +
             '<td class="num">' + esc(r.ch) + '</td><td class="num">' + num(r.views) + '</td>' +
-            '<td class="num">' + num(r.subs) + '</td><td class="num">' + esc(r.dur) + '</td></tr>'; }).join("") +
-        '</tbody></table></div>';
+            '<td class="num">' + num(r.subs) + '</td><td class="num">' + esc(r.dur) + '</td></tr>'; }).join("") + '</tbody></table></div>';
     }
     if (c.script) h += '<h4>Full script</h4><pre class="script">' + esc(c.script) + '</pre>';
+    if (c.custom) h += '<div class="formbar"><button class="btn" id="del">Delete this card</button></div>';
     document.getElementById("d-body").innerHTML = h;
     document.getElementById("d-body").scrollTop = 0;
-    drawer.classList.add("on"); drawer.setAttribute("aria-hidden", "false"); scrim.classList.add("on");
+    var del = document.getElementById("del");
+    if (del) del.addEventListener("click", function(){
+      if (!window.confirm("Delete " + c.title + "?")) return;
+      custom = custom.filter(function(x){ return x.id !== c.id; }); put(K_NEW, custom);
+      shut(); drawCal(); drawBoard(); drawTable(); drawNav(); });
+    openDrawer();
   }
-  function shut(){ drawer.classList.remove("on"); drawer.setAttribute("aria-hidden", "true"); scrim.classList.remove("on"); }
-  document.getElementById("close").addEventListener("click", shut);
-  scrim.addEventListener("click", shut);
-  document.addEventListener("keydown", function(e){ if (e.key === "Escape") shut(); });
 
   /* ---------- tools ---------- */
   document.getElementById("theme").addEventListener("click", function(){
@@ -622,18 +737,21 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   });
   try { var th = localStorage.getItem("burger-engine-theme"); if (th) document.documentElement.setAttribute("data-theme", th); } catch(e){}
   document.getElementById("export").addEventListener("click", function(){
-    var state = {}; D.cards.forEach(function(c){ state[c.id] = colOf(c); });
-    var txt = JSON.stringify(state, null, 1), b = this;
+    var out = {statuses:{}, dates:dates, added:custom};
+    allCards().forEach(function(c){ out.statuses[c.id] = colOf(c); });
+    var txt = JSON.stringify(out, null, 1), b = this;
     var done = function(){ b.textContent = "Copied"; setTimeout(function(){ b.textContent = "Copy board state"; }, 1600); };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, function(){ window.prompt("Copy this:", txt); });
     else window.prompt("Copy this:", txt);
   });
   document.getElementById("reset").addEventListener("click", function(){
-    if (!window.confirm("Put every card back to its starting column?")) return;
-    moved = {}; save(); drawBoard(); drawTable();
+    if (!window.confirm("Reset statuses and dates, and delete cards you added?")) return;
+    moved = {}; dates = {}; custom = [];
+    put(K_COL, moved); put(K_DATE, dates); put(K_NEW, custom);
+    drawCal(); drawBoard(); drawTable(); drawNav();
   });
 
-  drawHome(); drawBoard(); drawTable(); show("home");
+  drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); show("home");
 })();
 </script>
 </body>

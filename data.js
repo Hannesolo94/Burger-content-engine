@@ -1227,12 +1227,40 @@ window.ENGINE = {
    "channel": "hanneburger",
    "date": null,
    "kind": "backlog"
+  },
+  {
+   "id": "pub_cerberus",
+   "col": "published",
+   "night": "29 Aug 2026",
+   "session": "31 views",
+   "title": "Can a Noob Actually Use the Buffed Cerberus?",
+   "channel": "hanneburger",
+   "date": "2026-08-29",
+   "kind": "published",
+   "why": "The counter-take, posted a week after the buffed-Cerberus consensus so there was something to push against. It did 31 views, the weakest of the FINALS run, which is the honest read on counter-takes at this channel size.",
+   "clips": [],
+   "titles": [],
+   "thumb": "",
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Counter take",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "Done"
+   },
+   "learn": {
+    "hypothesis": "A counter-take only works once a consensus exists, so posting after the hype wave should find the people the hype let down.",
+    "measure": "Beat the channel baseline of roughly 100 views.",
+    "result": "31 views, below baseline and far below the Sanguine video published the day before it.",
+    "insight": "Counter-takes need an audience that already trusts you. At 116 subscribers there is nobody waiting for your dissent, so lead with the format that earns the click instead."
+   }
   }
  ],
  "metrics": [
   {
    "id": "pub_sanguine",
-   "title": "Can a 60+ Hr NOOB play Sanguine's Loadout?",
+   "title": "Can a 60+ Hr NOOB play Sanguine's Loadout? | THE FINALS",
    "published": "22 Aug 2026",
    "runtime": "20:36",
    "read": "Day 18",
@@ -1248,11 +1276,11 @@ window.ENGINE = {
   },
   {
    "id": "pub_bfr",
-   "title": "BFR Titan sandbox",
+   "title": "Can a Noob Win With the BFR Titan? | THE FINALS",
    "published": "4 Sep 2026",
    "runtime": "10:41",
    "read": "Day 5",
-   "views": 103,
+   "views": 325,
    "unique": 66,
    "engaged": 103,
    "impressions": 1300,
@@ -1280,7 +1308,7 @@ window.ENGINE = {
   },
   {
    "id": "pub_kills",
-   "title": "Even a noob like me can get kills",
+   "title": "Even a noob like me can get kills with the CL-40 | The Finals",
    "published": "About 3 weeks ago",
    "runtime": "",
    "read": "Current",
@@ -1385,9 +1413,9 @@ window.ENGINE = {
      "s": "THE FINALS only from 11 Sep"
     },
     {
-     "k": "Views, 28d",
-     "v": "1,500",
-     "s": "335 engaged"
+     "k": "Lifetime views",
+     "v": "131,382",
+     "s": "joined Nov 2023"
     },
     {
      "k": "Regular viewers",
@@ -1478,5 +1506,100 @@ window.ENGINE = {
    "https://www.googleapis.com/auth/yt-analytics.readonly"
   ],
   "have": "A Google Cloud OAuth app already exists on this machine with a live refresh token, project 130348858289, testing mode. Its scope is youtube.upload only, so it needs one re-consent to add the two above."
- }
+ },
+ "live": [
+  {
+   "id": "t3HrInRuUd4",
+   "title": "Can a 60+ Hr NOOB play Sanguine's Loadout? | THE FINALS",
+   "published": "2026-09-11",
+   "runtime": "9:57",
+   "views": 8,
+   "channel": "hanneburger",
+   "cardId": null,
+   "note": "The short re-cut, three hours old. Same title as the 1K video, so the two compete for the same impressions.",
+   "analytics": null,
+   "url": "https://www.youtube.com/watch?v=t3HrInRuUd4",
+   "thumb": "https://i.ytimg.com/vi/t3HrInRuUd4/mqdefault.jpg"
+  },
+  {
+   "id": "lqdD8b17YZk",
+   "title": "Can a Noob Win With the BFR Titan? | THE FINALS",
+   "published": "2026-09-05",
+   "runtime": "10:42",
+   "views": 325,
+   "channel": "hanneburger",
+   "cardId": "pub_bfr",
+   "note": "Grew from 66 unique viewers at day five to 325 views. The Home wave kept going after the slow start.",
+   "analytics": {
+    "read": "Day 5",
+    "impressions": 1300,
+    "ctr": 6.1,
+    "avd": "1:45",
+    "avp": 16.5,
+    "subs": 0
+   },
+   "url": "https://www.youtube.com/watch?v=lqdD8b17YZk",
+   "thumb": "https://i.ytimg.com/vi/lqdD8b17YZk/mqdefault.jpg"
+  },
+  {
+   "id": "qY3IDVliTWg",
+   "title": "Can a Noob Actually Use the Buffed Cerberus? | THE FINALS",
+   "published": "2026-08-29",
+   "runtime": "8:58",
+   "views": 31,
+   "channel": "hanneburger",
+   "cardId": "pub_cerberus",
+   "note": "The counter-take, posted deliberately after the buffed-Cerberus consensus had run. Lowest performer of the FINALS run.",
+   "analytics": null,
+   "url": "https://www.youtube.com/watch?v=qY3IDVliTWg",
+   "thumb": "https://i.ytimg.com/vi/qY3IDVliTWg/mqdefault.jpg"
+  },
+  {
+   "id": "wf9J6AC4kyA",
+   "title": "Can a 60+ Hr NOOB play Sanguine's Loadout? | THE FINALS",
+   "published": "2026-08-28",
+   "runtime": "20:36",
+   "views": 1000,
+   "channel": "hanneburger",
+   "cardId": "pub_sanguine",
+   "note": "The channel's best video by ten times. Still earning from Home. Click worked, the 20:36 body did not hold.",
+   "analytics": {
+    "read": "Day 18",
+    "impressions": 6800,
+    "ctr": 3.3,
+    "avd": "1:20",
+    "avp": 6.5,
+    "subs": 1
+   },
+   "url": "https://www.youtube.com/watch?v=wf9J6AC4kyA",
+   "thumb": "https://i.ytimg.com/vi/wf9J6AC4kyA/mqdefault.jpg"
+  },
+  {
+   "id": "hFrBB2J_TeE",
+   "title": "Even a noob like me can get kills with the CL-40 | The Finals",
+   "published": "2026-08-21",
+   "runtime": "16:07",
+   "views": 51,
+   "channel": "hanneburger",
+   "cardId": "pub_kills",
+   "note": "Baseline for an ordinary upload on this channel.",
+   "analytics": null,
+   "url": "https://www.youtube.com/watch?v=hFrBB2J_TeE",
+   "thumb": "https://i.ytimg.com/vi/hFrBB2J_TeE/mqdefault.jpg"
+  },
+  {
+   "id": "BRhp8HXEatQ",
+   "title": "Winning with only 60 Hours | THE FINALS",
+   "published": "2026-08-11",
+   "runtime": "16:21",
+   "views": 101,
+   "channel": "hanneburger",
+   "cardId": "pub_60hours",
+   "note": "The title test that settled sentence case against caps, 56.2% to 8%.",
+   "analytics": null,
+   "url": "https://www.youtube.com/watch?v=BRhp8HXEatQ",
+   "thumb": "https://i.ytimg.com/vi/BRhp8HXEatQ/mqdefault.jpg"
+  }
+ ],
+ "liveSource": "Pulled from TubeAlfred on 11 Sep 2026. View counts are live and public. Impressions, click through rate, average view duration and average percentage viewed are manual reads from Studio, because no API exposes them."
 };
