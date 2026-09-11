@@ -1,8 +1,12 @@
 name: Refresh metrics
 
 # Pulls the YouTube numbers every morning and commits them into metrics.json,
-# which the site loads on top of data.js. Also runnable by hand from the
-# Actions tab. It exits quietly if the three secrets are not set yet.
+# which the site loads on top of data.js. Also runnable by hand from the Actions tab.
+#
+# Secrets, one set per channel. Either set alone is enough, the script skips
+# a channel whose token is missing.
+#   HanneBurger   YT_CLIENT_ID     YT_CLIENT_SECRET     YT_REFRESH_TOKEN
+#   Burgercam     YT_BC_CLIENT_ID  YT_BC_CLIENT_SECRET  YT_BC_REFRESH_TOKEN
 
 on:
   schedule:
@@ -22,16 +26,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Check the secrets are set
+      - name: Check at least one channel has a token
         id: gate
         env:
           RT: ${{ secrets.YT_REFRESH_TOKEN }}
+          RT_BC: ${{ secrets.YT_BC_REFRESH_TOKEN }}
         run: |
-          if [ -z "$RT" ]; then
+          if [ -z "$RT" ] && [ -z "$RT_BC" ]; then
             echo "ready=no" >> "$GITHUB_OUTPUT"
-            echo "YT_REFRESH_TOKEN is not set yet. Nothing to pull."
+            echo "No channel token is set yet. Nothing to pull."
           else
             echo "ready=yes" >> "$GITHUB_OUTPUT"
+            [ -n "$RT" ]    && echo "HanneBurger token present." || echo "HanneBurger token missing, will skip."
+            [ -n "$RT_BC" ] && echo "Burgercam token present."   || echo "Burgercam token missing, will skip."
           fi
 
       - name: Pull the numbers
@@ -40,6 +47,9 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YT_BC_CLIENT_ID: ${{ secrets.YT_BC_CLIENT_ID }}
+          YT_BC_CLIENT_SECRET: ${{ secrets.YT_BC_CLIENT_SECRET }}
+          YT_BC_REFRESH_TOKEN: ${{ secrets.YT_BC_REFRESH_TOKEN }}
         run: python scripts/pull_metrics.py
 
       - name: Commit if anything moved

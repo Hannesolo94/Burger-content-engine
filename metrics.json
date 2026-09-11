@@ -1,11 +1,8 @@
 {
  "pulled": "2026-09-11",
- "window": {
-  "start": "2026-08-14",
-  "end": "2026-09-11"
- },
  "channels": [
   {
+   "key": "hanneburger",
    "id": "UCqSaRk2s51HNHr0XqAcBBlw",
    "title": "BURGER",
    "subs": 116,
@@ -13,27 +10,19 @@
    "views": 131382
   }
  ],
- "dataThrough": "2026-09-08",
- "lagDays": 3,
- "totals": {
-  "views": 2827,
-  "estimatedMinutesWatched": 874,
-  "averageViewDuration": 59,
-  "subscribersGained": 4,
-  "subscribersLost": 0
- },
  "videos": [
   {
    "video": "wf9J6AC4kyA",
-   "views": 843,
-   "estimatedMinutesWatched": 407,
+   "views": 842,
+   "estimatedMinutesWatched": 406,
    "averageViewDuration": 80,
    "averageViewPercentage": 6.509999999999999,
    "subscribersGained": 1,
    "subscribersLost": 0,
    "title": "Can a 60+ Hr NOOB play Sanguine\u2019s Loadout? | THE FINALS",
    "published": "2026-08-22",
-   "runtime": "PT20M36S"
+   "runtime": "PT20M36S",
+   "channel": "hanneburger"
   },
   {
    "video": "lqdD8b17YZk",
@@ -45,7 +34,8 @@
    "subscribersLost": 0,
    "title": "Is the BFR Titan Actually Any Good? | THE FINALS",
    "published": "2026-09-04",
-   "runtime": "PT10M42S"
+   "runtime": "PT10M42S",
+   "channel": "hanneburger"
   },
   {
    "video": "pBiYFbHUkeM",
@@ -57,7 +47,8 @@
    "subscribersLost": 0,
    "title": "PERFECT CASHOUT TRAP IN THE FINALS",
    "published": "2026-08-30",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "6xLA6wUbHRE",
@@ -69,7 +60,8 @@
    "subscribersLost": 0,
    "title": "CAN THEY STEAL THE CASHOUT IN THE FINALS",
    "published": "2026-08-31",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "WCDUNg0lSqY",
@@ -81,7 +73,8 @@
    "subscribersLost": 0,
    "title": "PERFECT BARRICADE SETUP! #thefinals #gaming",
    "published": "2026-08-26",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "P_L5Nc9Adc4",
@@ -93,7 +86,8 @@
    "subscribersLost": 0,
    "title": "PULLING THE HEALER INTO THE FIRE! #thefinals #gaming",
    "published": "2026-08-25",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "WwbkETFckYg",
@@ -105,7 +99,8 @@
    "subscribersLost": 0,
    "title": "PURE CHAOS IN THE FINALS ARENA!",
    "published": "2026-08-28",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "i1ABv97KuEI",
@@ -117,7 +112,8 @@
    "subscribersLost": 0,
    "title": "HIT YOUR SHOTS IN THE FINALS",
    "published": "2026-08-29",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "lecq8LtkDiY",
@@ -129,7 +125,8 @@
    "subscribersLost": 0,
    "title": "PURE CHAOS IN THE FINALS ARENA!",
    "published": "2026-09-05",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "_eAm2NmNPRY",
@@ -141,7 +138,8 @@
    "subscribersLost": 0,
    "title": "WHY WAS HE SOLO IN THE FINALS",
    "published": "2026-09-01",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "BRhp8HXEatQ",
@@ -153,7 +151,8 @@
    "subscribersLost": 0,
    "title": "Winning with only 60 Hours | THE FINALS",
    "published": "2026-08-10",
-   "runtime": "PT16M21S"
+   "runtime": "PT16M21S",
+   "channel": "hanneburger"
   },
   {
    "video": "JfpLmx84qtU",
@@ -165,7 +164,8 @@
    "subscribersLost": 0,
    "title": "HIT YOUR SHOTS IN THE FINALS!",
    "published": "2026-09-07",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "i6xxckUGl-k",
@@ -177,7 +177,8 @@
    "subscribersLost": 0,
    "title": "THE ULTIMATE SUPPORT IN THE FINALS",
    "published": "2026-09-08",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "kFRfQgpUeQ0",
@@ -189,7 +190,8 @@
    "subscribersLost": 0,
    "title": "SECURING THE CASHOUT* IN THE FINALS",
    "published": "2026-09-06",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "8WbVTXc4vU0",
@@ -201,7 +203,8 @@
    "subscribersLost": 0,
    "title": "CAN WE HOLD THIS POSITION",
    "published": "2026-08-27",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "sGbAMZJKpbE",
@@ -213,7 +216,8 @@
    "subscribersLost": 0,
    "title": "Almost face to face with jeff | Half Life Alyx",
    "published": "2024-03-09",
-   "runtime": "PT24S"
+   "runtime": "PT24S",
+   "channel": "hanneburger"
   },
   {
    "video": "hFrBB2J_TeE",
@@ -225,11 +229,12 @@
    "subscribersLost": 0,
    "title": "Even a noob like me can get kills with the CL-40 | The Finals",
    "published": "2026-08-15",
-   "runtime": "PT16M7S"
+   "runtime": "PT16M7S",
+   "channel": "hanneburger"
   },
   {
    "video": "RPX8DP0q4KQ",
-   "views": 40,
+   "views": 45,
    "estimatedMinutesWatched": 1,
    "averageViewDuration": 6,
    "averageViewPercentage": 23.3,
@@ -237,7 +242,8 @@
    "subscribersLost": 0,
    "title": "SAVE THE CASHOUT JUST IN TIME!",
    "published": "2026-09-02",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "hTMQVAcTsZA",
@@ -249,7 +255,8 @@
    "subscribersLost": 0,
    "title": "CAN WE WIN THIS CASHOUT",
    "published": "2026-09-03",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "qVYTbrTccqg",
@@ -261,7 +268,8 @@
    "subscribersLost": 0,
    "title": "CAN WE ACTUALLY STEAL THIS? \ud83d\ude31 #thefinalsgameplay #gaming #shorts",
    "published": "2026-08-24",
-   "runtime": "PT30S"
+   "runtime": "PT30S",
+   "channel": "hanneburger"
   },
   {
    "video": "qY3IDVliTWg",
@@ -273,7 +281,8 @@
    "subscribersLost": 0,
    "title": "Everyone Says the Cerberus Is Buffed. I Switched Anyway | THE FINALS",
    "published": "2026-08-28",
-   "runtime": "PT8M58S"
+   "runtime": "PT8M58S",
+   "channel": "hanneburger"
   },
   {
    "video": "gx9cyBoC1-Q",
@@ -285,7 +294,8 @@
    "subscribersLost": 0,
    "title": "How to Retrieve a Lost Gun | Into the Radius",
    "published": "2024-03-15",
-   "runtime": "PT21S"
+   "runtime": "PT21S",
+   "channel": "hanneburger"
   },
   {
    "video": "ldeKaZvxIG0",
@@ -297,7 +307,8 @@
    "subscribersLost": 0,
    "title": "Seeing Jeff | Half Life Alyx",
    "published": "2024-03-12",
-   "runtime": "PT19S"
+   "runtime": "PT19S",
+   "channel": "hanneburger"
   },
   {
    "video": "A_qYeBO9zGI",
@@ -309,7 +320,8 @@
    "subscribersLost": 0,
    "title": "STOP Doing Multiple Resets it won't RANK you up in ROCKET LEAGUE",
    "published": "2025-02-21",
-   "runtime": "PT13S"
+   "runtime": "PT13S",
+   "channel": "hanneburger"
   },
   {
    "video": "jzEik1CdPUs",
@@ -321,7 +333,8 @@
    "subscribersLost": 0,
    "title": "Tunneling with jeff | Half Life Alyx",
    "published": "2024-03-13",
-   "runtime": "PT21S"
+   "runtime": "PT21S",
+   "channel": "hanneburger"
   },
   {
    "video": "0Q8UR027eVs",
@@ -333,7 +346,8 @@
    "subscribersLost": 0,
    "title": "ASMR reading lore in into the radius",
    "published": "2024-02-28",
-   "runtime": "PT18S"
+   "runtime": "PT18S",
+   "channel": "hanneburger"
   },
   {
    "video": "MVKhFmKMDN0",
@@ -345,7 +359,8 @@
    "subscribersLost": 0,
    "title": "Stop Ball Chasing (here's what to do instead) #Shorts",
    "published": "2026-03-26",
-   "runtime": "PT24S"
+   "runtime": "PT24S",
+   "channel": "hanneburger"
   },
   {
    "video": "wwwA4U7NHfk",
@@ -357,7 +372,8 @@
    "subscribersLost": 0,
    "title": "How to Destroy the Kade on Secure Area in Rainbow Six Siege",
    "published": "2024-03-07",
-   "runtime": "PT25S"
+   "runtime": "PT25S",
+   "channel": "hanneburger"
   },
   {
    "video": "LSVPeQoG86I",
@@ -369,7 +385,8 @@
    "subscribersLost": 0,
    "title": "Tiger Claws den | Cyberpunk 2077",
    "published": "2024-03-20",
-   "runtime": "PT19S"
+   "runtime": "PT19S",
+   "channel": "hanneburger"
   },
   {
    "video": "N6JvkfbFM3o",
@@ -381,7 +398,8 @@
    "subscribersLost": 0,
    "title": "How to score an open net in ROCKET LEAGUE #rocketleague #rl #gaming",
    "published": "2025-03-13",
-   "runtime": "PT25S"
+   "runtime": "PT25S",
+   "channel": "hanneburger"
   },
   {
    "video": "59ihHAhTW_0",
@@ -393,7 +411,8 @@
    "subscribersLost": 0,
    "title": "how to loot while lying down",
    "published": "2024-03-24",
-   "runtime": "PT56S"
+   "runtime": "PT56S",
+   "channel": "hanneburger"
   },
   {
    "video": "zeOLn4vtjy4",
@@ -405,7 +424,8 @@
    "subscribersLost": 0,
    "title": "My first night mission | into the radius",
    "published": "2024-03-05",
-   "runtime": "PT19S"
+   "runtime": "PT19S",
+   "channel": "hanneburger"
   },
   {
    "video": "nt2V7KtKySs",
@@ -417,7 +437,8 @@
    "subscribersLost": 0,
    "title": "How to control the ball in ROCKET LEAGUE #rocketleague #rl #gaming",
    "published": "2025-03-11",
-   "runtime": "PT16S"
+   "runtime": "PT16S",
+   "channel": "hanneburger"
   },
   {
    "video": "sX1fTzQssUk",
@@ -429,7 +450,8 @@
    "subscribersLost": 0,
    "title": "Fundamentals on defence in ROCKET LEAGUE is key #rocketleague #rl #gaming #gameplay",
    "published": "2025-03-09",
-   "runtime": "PT16S"
+   "runtime": "PT16S",
+   "channel": "hanneburger"
   },
   {
    "video": "zc4oq1DsCGY",
@@ -441,7 +463,8 @@
    "subscribersLost": 0,
    "title": "The Hidden Secrets | Cyberpunk 2077",
    "published": "2024-03-18",
-   "runtime": "PT19S"
+   "runtime": "PT19S",
+   "channel": "hanneburger"
   },
   {
    "video": "84SlMmAME-M",
@@ -453,7 +476,8 @@
    "subscribersLost": 0,
    "title": "controversial loot rules in #tarkov",
    "published": "2024-02-16",
-   "runtime": "PT27S"
+   "runtime": "PT27S",
+   "channel": "hanneburger"
   },
   {
    "video": "TXSKAFFEB-U",
@@ -465,7 +489,8 @@
    "subscribersLost": 0,
    "title": "3 Camera Settings That Changed My Game #Shorts",
    "published": "2026-04-06",
-   "runtime": "PT21S"
+   "runtime": "PT21S",
+   "channel": "hanneburger"
   },
   {
    "video": "Bjs363K0j0o",
@@ -477,7 +502,8 @@
    "subscribersLost": 0,
    "title": "He is stuck in the wall | Half Life Alyx",
    "published": "2024-03-11",
-   "runtime": "PT19S"
+   "runtime": "PT19S",
+   "channel": "hanneburger"
   },
   {
    "video": "-N3ECn8Fx3o",
@@ -489,7 +515,8 @@
    "subscribersLost": 0,
    "title": "The #1 Mistake in Every Gold Lobby #Shorts",
    "published": "2026-03-30",
-   "runtime": "PT17S"
+   "runtime": "PT17S",
+   "channel": "hanneburger"
   },
   {
    "video": "LJXknHeMfRk",
@@ -501,7 +528,8 @@
    "subscribersLost": 0,
    "title": "the SMG 11 is so CLEAN!",
    "published": "2023-12-23",
-   "runtime": "PT9S"
+   "runtime": "PT9S",
+   "channel": "hanneburger"
   },
   {
    "video": "NHQoXrrBIvo",
@@ -513,7 +541,8 @@
    "subscribersLost": 0,
    "title": "Tubarao Nerfed this Season in Rainbow Six Siege, NOT BAD!",
    "published": "2024-01-29",
-   "runtime": "PT12M55S"
+   "runtime": "PT12M55S",
+   "channel": "hanneburger"
   },
   {
    "video": "tHo_juFdhvc",
@@ -525,7 +554,8 @@
    "subscribersLost": 0,
    "title": "I had to save this gun | Into the Radius",
    "published": "2024-03-16",
-   "runtime": "PT15S"
+   "runtime": "PT15S",
+   "channel": "hanneburger"
   },
   {
    "video": "SLrEO_c8-1s",
@@ -537,7 +567,8 @@
    "subscribersLost": 0,
    "title": "ROCKET LEAGUE fundamentals to how Pros WIN more MATCHES!",
    "published": "2025-01-29",
-   "runtime": "PT25S"
+   "runtime": "PT25S",
+   "channel": "hanneburger"
   },
   {
    "video": "rDQZiVXbWso",
@@ -549,7 +580,8 @@
    "subscribersLost": 0,
    "title": "YOU need Flip Resets in Diamond.. WRONG! | ROCKET LEAGUE #rocketleague #rl #gaming #rlclips",
    "published": "2025-02-24",
-   "runtime": "PT13S"
+   "runtime": "PT13S",
+   "channel": "hanneburger"
   },
   {
    "video": "k4Zl_drqhoU",
@@ -561,7 +593,8 @@
    "subscribersLost": 0,
    "title": "ROCKET LEAGUE fundamentals to how Pros WIN more MATCHES!",
    "published": "2025-01-24",
-   "runtime": "PT25S"
+   "runtime": "PT25S",
+   "channel": "hanneburger"
   },
   {
    "video": "ejGFRb2ABX0",
@@ -573,7 +606,8 @@
    "subscribersLost": 0,
    "title": "A night raid gone wrong in Into the Radius | Lost Footage Episode 1",
    "published": "2024-07-24",
-   "runtime": "PT6M30S"
+   "runtime": "PT6M30S",
+   "channel": "hanneburger"
   },
   {
    "video": "x-wM5cxJ5D4",
@@ -585,7 +619,8 @@
    "subscribersLost": 0,
    "title": "STOP sweating in ROCKET LEAGUE #rocketleague #gaming #rl",
    "published": "2025-03-07",
-   "runtime": "PT13S"
+   "runtime": "PT13S",
+   "channel": "hanneburger"
   },
   {
    "video": "uEzsn0POCgI",
@@ -597,7 +632,8 @@
    "subscribersLost": 0,
    "title": "keeping the pressure on in ROCKET LEAGUE #rocketleague #gaming",
    "published": "2025-03-06",
-   "runtime": "PT19S"
+   "runtime": "PT19S",
+   "channel": "hanneburger"
   },
   {
    "video": "Pivdj05o96E",
@@ -609,7 +645,8 @@
    "subscribersLost": 0,
    "title": "The Comeback is easy with Fundamentals in ROCKET LEAGUE #rocketleague #gaming #rl",
    "published": "2025-03-08",
-   "runtime": "PT17S"
+   "runtime": "PT17S",
+   "channel": "hanneburger"
   },
   {
    "video": "lLj7fM7m-sM",
@@ -621,61 +658,86 @@
    "subscribersLost": 0,
    "title": "Prelude to a Survival story | Into The Radius - cinematic",
    "published": "2024-07-22",
-   "runtime": "PT4M1S"
+   "runtime": "PT4M1S",
+   "channel": "hanneburger"
   }
  ],
- "traffic": [
-  {
-   "insightTrafficSourceType": "SHORTS",
-   "views": 1141,
-   "estimatedMinutesWatched": 58
-  },
-  {
-   "insightTrafficSourceType": "SUBSCRIBER",
-   "views": 1093,
-   "estimatedMinutesWatched": 560
-  },
-  {
-   "insightTrafficSourceType": "YT_SEARCH",
-   "views": 370,
-   "estimatedMinutesWatched": 99
-  },
-  {
-   "insightTrafficSourceType": "RELATED_VIDEO",
-   "views": 90,
-   "estimatedMinutesWatched": 108
-  },
-  {
-   "insightTrafficSourceType": "YT_OTHER_PAGE",
-   "views": 73,
-   "estimatedMinutesWatched": 16
-  },
-  {
-   "insightTrafficSourceType": "YT_CHANNEL",
-   "views": 26,
-   "estimatedMinutesWatched": 7
-  },
-  {
-   "insightTrafficSourceType": "NO_LINK_OTHER",
-   "views": 9,
-   "estimatedMinutesWatched": 4
-  },
-  {
-   "insightTrafficSourceType": "EXT_URL",
-   "views": 8,
-   "estimatedMinutesWatched": 14
-  },
-  {
-   "insightTrafficSourceType": "PLAYLIST",
-   "views": 2,
-   "estimatedMinutesWatched": 3
-  },
-  {
-   "insightTrafficSourceType": "NOTIFICATION",
-   "views": 2,
-   "estimatedMinutesWatched": 0
+ "byChannel": {
+  "UCqSaRk2s51HNHr0XqAcBBlw": {
+   "key": "hanneburger",
+   "totals": {
+    "views": 2827,
+    "estimatedMinutesWatched": 874,
+    "averageViewDuration": 59,
+    "subscribersGained": 4,
+    "subscribersLost": 0
+   },
+   "traffic": [
+    {
+     "insightTrafficSourceType": "SHORTS",
+     "views": 1141,
+     "estimatedMinutesWatched": 58
+    },
+    {
+     "insightTrafficSourceType": "SUBSCRIBER",
+     "views": 1093,
+     "estimatedMinutesWatched": 560
+    },
+    {
+     "insightTrafficSourceType": "YT_SEARCH",
+     "views": 370,
+     "estimatedMinutesWatched": 99
+    },
+    {
+     "insightTrafficSourceType": "RELATED_VIDEO",
+     "views": 90,
+     "estimatedMinutesWatched": 108
+    },
+    {
+     "insightTrafficSourceType": "YT_OTHER_PAGE",
+     "views": 73,
+     "estimatedMinutesWatched": 16
+    },
+    {
+     "insightTrafficSourceType": "YT_CHANNEL",
+     "views": 26,
+     "estimatedMinutesWatched": 7
+    },
+    {
+     "insightTrafficSourceType": "NO_LINK_OTHER",
+     "views": 9,
+     "estimatedMinutesWatched": 4
+    },
+    {
+     "insightTrafficSourceType": "EXT_URL",
+     "views": 8,
+     "estimatedMinutesWatched": 14
+    },
+    {
+     "insightTrafficSourceType": "PLAYLIST",
+     "views": 2,
+     "estimatedMinutesWatched": 3
+    },
+    {
+     "insightTrafficSourceType": "NOTIFICATION",
+     "views": 2,
+     "estimatedMinutesWatched": 0
+    }
+   ],
+   "dataThrough": "2026-09-08",
+   "lagDays": 3,
+   "window": {
+    "start": "2026-08-14",
+    "end": "2026-09-11"
+   }
   }
- ],
+ },
+ "dataThrough": "2026-09-08",
+ "lagDays": 3,
+ "window": {
+  "start": "2026-08-14",
+  "end": "2026-09-11"
+ },
  "missing": {
   "impressions": "Not exposed by the YouTube Analytics API. Read it in Studio.",
   "impressionClickThroughRate": "Not exposed by the YouTube Analytics API. Read it in Studio."

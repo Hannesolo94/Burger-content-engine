@@ -68,6 +68,9 @@ a{color:var(--lime)}
 .chan-wrap{margin:0 8px 5px}
 .chan{display:flex;align-items:center;gap:9px;background:transparent;border:0;border-radius:10px;padding:8px 10px;margin:0;
   width:100%;color:var(--dim);font:inherit;text-align:left;cursor:pointer}
+.chan .cn{margin-left:auto;font-family:var(--f-mono);font-size:9px;color:var(--faint);
+  border:1px solid var(--line);border-radius:20px;padding:1px 7px}
+.chan[aria-pressed="true"] .cn{color:var(--lime);border-color:var(--line2)}
 .chan-links{display:flex;gap:5px;padding:5px 0 0 10px}
 .clink{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;
   color:var(--faint);border:1px solid var(--line);border-radius:7px;padding:4px 8px;transition:color .16s,border-color .16s,background .16s}
@@ -77,6 +80,8 @@ a{color:var(--lime)}
   background:var(--glass);border:1px solid var(--line);border-radius:8px;padding:5px 8px}
 .dateset input:focus,.dateset select:focus{outline:none;border-color:var(--line2)}
 .dateset .btn{padding:5px 9px;font-size:9px}
+.fhint{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);margin:0 0 14px}
 .dateset em{font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-style:normal}
 .chan .led{width:7px;height:7px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 9px currentColor}
 .chan b{font-size:13px;font-weight:600;display:block}
@@ -368,20 +373,43 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   ];
   var SUBS = [{id:"board", n:"Board"}, {id:"table", n:"Table"}, {id:"week", n:"Week"}];
   var sub = "board";
+  var fmt = "long";   /* which Performance tab is showing */
+  var chan = (D.channels[0] || {}).id || "hanneburger";   /* which channel the working views show */
+  function mine(x){ return (x.channel || "hanneburger") === chan; }
+  function chanName(){ var c = D.channels.filter(function(x){ return x.id === chan; })[0]; return c ? c.name : chan; }
+  function segHTML(items, on, key){
+    return '<div class="seg">' + items.map(function(i){
+      return '<button data-' + key + '="' + i.id + '" aria-selected="' + (i.id === on) + '">' + esc(i.n) +
+             (i.c != null ? '<span class="c">' + i.c + '</span>' : '') + '</button>'; }).join("") + '</div>';
+  }
 
   /* ---------- rail ---------- */
   function links(c){
     return (c.url ? '<a class="clink" href="' + esc(c.url) + '" target="_blank" rel="noopener">Channel</a>' : "") +
            (c.studio ? '<a class="clink" href="' + esc(c.studio) + '" target="_blank" rel="noopener">Studio</a>' : "");
   }
-  document.getElementById("chans").innerHTML = D.channels.map(function(c){
-    return '<div class="chan-wrap"><button class="chan" aria-pressed="' + (c.active ? "true" : "false") + '"' + (c.active ? "" : " disabled") + '>' +
-      '<span class="led" style="color:' + CHTONE[c.id] + ';background:' + CHTONE[c.id] + '"></span>' +
-      '<span><b>' + esc(c.name) + '</b><i>' + esc(c.tag) + '</i></span></button>' +
-      '<div class="chan-links">' + links(c) + '</div></div>'; }).join("");
+  function drawChans(){
+    document.getElementById("chans").innerHTML = D.channels.map(function(c){
+      var cards = allCards().filter(function(x){ return (x.channel || "hanneburger") === c.id; }).length;
+      return '<div class="chan-wrap"><button class="chan" data-ch="' + c.id + '" aria-pressed="' + (c.id === chan) + '">' +
+        '<span class="led" style="color:' + CHTONE[c.id] + ';background:' + CHTONE[c.id] + '"></span>' +
+        '<span><b>' + esc(c.name) + '</b><i>' + esc(c.tag) + '</i></span>' +
+        '<span class="cn">' + cards + '</span></button>' +
+        '<div class="chan-links">' + links(c) + '</div></div>'; }).join("");
+    document.querySelectorAll("#chans .chan").forEach(function(b){
+      b.addEventListener("click", function(){
+        if (b.dataset.ch === chan) return;
+        chan = b.dataset.ch;
+        drawChans(); drawNav(); drawBoard(); drawTable(); drawPerf(); drawCal();
+        if (current !== "home") show(current);
+      });
+    });
+  }
+  drawChans();
   function drawNav(){
     document.getElementById("nav").innerHTML = VIEWS.map(function(v, i){
-      var c = {board:allCards().length, metrics:D.live.length, thumbs:D.cards.filter(function(x){ return x.thumbs; }).length}[v.id] || "";
+      var c = {board:allCards().filter(mine).length, metrics:D.live.filter(mine).length,
+               thumbs:D.cards.filter(function(x){ return x.thumbs && mine(x); }).length}[v.id] || "";
       return '<button data-v="' + v.id + '" aria-current="' + (v.id === current) + '">' + esc(v.n) +
              (c ? '<span class="c">' + c + '</span>' : '') + '</button>'; }).join("");
     document.querySelectorAll("#nav button").forEach(function(b){ b.addEventListener("click", function(){ show(b.dataset.v); }); });
@@ -393,20 +421,28 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     current = id;
     var v = VIEWS.filter(function(x){ return x.id === id; })[0];
     document.getElementById("vt").textContent = v.t;
-    document.getElementById("vs").textContent = v.s;
+    document.getElementById("vs").textContent =
+      (id === "board" || id === "metrics" || id === "thumbs") ? chanName() + ". " + v.s : v.s;
     document.querySelectorAll(".view").forEach(function(s){ s.classList.remove("on"); });
     document.getElementById("view-" + id).classList.add("on");
     document.querySelectorAll("#nav button").forEach(function(b){ b.setAttribute("aria-current", b.dataset.v === id ? "true" : "false"); });
-    document.getElementById("acts").innerHTML = id === "board"
-      ? '<div class="seg">' + SUBS.map(function(s){
-          return '<button data-sub="' + s.id + '" aria-selected="' + (s.id === sub) + '">' + s.n + '</button>'; }).join("") + '</div>'
+    document.getElementById("acts").innerHTML =
+        id === "board"   ? segHTML(SUBS, sub, "sub")
+      : id === "metrics" ? segHTML(formatTabs(), fmt, "fmt")
       : "";
-    document.querySelectorAll(".seg button").forEach(function(b){
+    document.querySelectorAll("#acts .seg button[data-sub]").forEach(function(b){
       b.addEventListener("click", function(){
         sub = b.dataset.sub;
         document.querySelectorAll(".sub").forEach(function(s){ s.classList.remove("on"); });
         document.getElementById("sub-" + sub).classList.add("on");
-        document.querySelectorAll(".seg button").forEach(function(x){ x.setAttribute("aria-selected", x.dataset.sub === sub); });
+        document.querySelectorAll("#acts .seg button[data-sub]").forEach(function(x){ x.setAttribute("aria-selected", x.dataset.sub === sub); });
+      });
+    });
+    document.querySelectorAll("#acts .seg button[data-fmt]").forEach(function(b){
+      b.addEventListener("click", function(){
+        fmt = b.dataset.fmt;
+        document.querySelectorAll("#acts .seg button[data-fmt]").forEach(function(x){ x.setAttribute("aria-selected", x.dataset.fmt === fmt); });
+        drawPerf();
       });
     });
     document.querySelector(".scroll").scrollTop = 0;
@@ -524,7 +560,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   }
   function drawBoard(){
     document.getElementById("board").innerHTML = D.columns.map(function(col){
-      var cards = allCards().filter(function(c){ return colOf(c) === col.id; });
+      var cards = allCards().filter(function(c){ return colOf(c) === col.id && mine(c); });
       return '<div class="col" data-col="' + col.id + '"><div class="col-h">' +
         '<span class="dot" style="color:' + TONE[col.id] + ';background:' + TONE[col.id] + '"></span>' +
         '<h2>' + esc(col.name) + '</h2><span class="n">' + cards.length + '</span><p>' + esc(col.hint) + '</p></div>' +
@@ -570,11 +606,28 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
 
   /* ---------- performance ---------- */
   var rFrom = "", rTo = "";
+  function kindOfVid(v){ return v.kind || (v.seconds != null && v.seconds <= 180 ? "short" : "long"); }
+  function formatTabs(){
+    return (D.formats || [{id:"long", name:"Long form"}, {id:"short", name:"Shorts"}]).map(function(f){
+      return {id: f.id, n: f.name, c: D.live.filter(function(v){ return mine(v) && kindOfVid(v) === f.id; }).length}; });
+  }
+  function held(list){
+    var w = 0, t = 0, xs = [];
+    list.forEach(function(v){
+      var a = v.analytics; if (!a || a.avp == null) return;
+      w += v.views * a.avp; t += v.views; xs.push(a.avp);
+    });
+    if (!xs.length || !t) return null;
+    xs.sort(function(a, b){ return a - b; });
+    return {avg: Math.round(w / t * 10) / 10, med: Math.round(xs[Math.floor(xs.length / 2)] * 10) / 10};
+  }
   function drawPerf(){
+    var F = (D.formats || []).filter(function(f){ return f.id === fmt; })[0] || {name: "Videos", hint: ""};
     var list = D.live.filter(function(v){
-      return (!rFrom || v.published >= rFrom) && (!rTo || v.published <= rTo); })
+      return mine(v) && kindOfVid(v) === fmt && (!rFrom || v.published >= rFrom) && (!rTo || v.published <= rTo); })
       .sort(function(a, b){ return a.published < b.published ? 1 : -1; });
     var tv = list.reduce(function(s, v){ return s + v.views; }, 0);
+    var H = held(list);
     document.getElementById("view-metrics").innerHTML =
       '<div class="range">' +
         '<button class="btn" data-p="all">All time</button><button class="btn" data-p="28">Last 28 days</button>' +
@@ -583,13 +636,19 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
         '<input type="date" id="rf" value="' + rFrom + '"><span style="color:var(--faint);font-family:var(--f-mono);font-size:10px">to</span>' +
         '<input type="date" id="rt" value="' + rTo + '">' +
       '</div>' +
+      '<p class="fhint">' + esc(F.hint || "") + '</p>' +
       '<div class="tiles" style="margin-bottom:18px">' +
-        '<div class="tile"><i>Videos in range</i><b>' + list.length + '</b></div>' +
+        '<div class="tile"><i>' + esc(F.name) + ' in range</i><b>' + list.length + '</b></div>' +
         '<div class="tile"><i>Views in range</i><b>' + num(tv) + '</b></div>' +
         '<div class="tile"><i>Best</i><b>' + num(list.length ? Math.max.apply(null, list.map(function(v){ return v.views; })) : 0) + '</b></div>' +
-        '<div class="tile"><i>Studio reads</i><b>' + list.filter(function(v){ return v.analytics; }).length + '</b><s>of ' + list.length + '</s></div>' +
+        (fmt === "short"
+          ? '<div class="tile"><i>Average held</i><b>' + (H ? H.avg + "%" : "n/a") + '</b><s>' +
+            (H ? "weighted by views, median " + H.med + "%" : "a Short is judged on the hold") + '</s></div>'
+          : '<div class="tile"><i>Studio reads</i><b>' + list.filter(function(v){ return v.analytics && v.analytics.ctr != null; }).length + '</b><s>of ' + list.length + ', for click through rate</s></div>') +
       '</div>' +
-      (list.length ? list.map(vidHTML).join("") : '<p style="color:var(--faint)">No videos published in that range.</p>') +
+      (list.length ? list.map(vidHTML).join("")
+        : '<div class="pend">Nothing live on ' + esc(chanName()) + ' in this format and range. ' +
+          'Numbers arrive on the next pull once a video is up and the API has finalised it.</div>') +
       '<p style="color:var(--faint);font-size:12.5px;margin-top:16px;max-width:80ch">' + esc(D.liveSource) + '</p>';
     document.querySelectorAll("#view-metrics .range .btn").forEach(function(b){
       b.addEventListener("click", function(){
@@ -604,6 +663,24 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     document.getElementById("rt").addEventListener("change", function(){ rTo = this.value; drawPerf(); });
     document.querySelectorAll("#view-metrics .nm").forEach(function(el){ el.addEventListener("click", function(){ open(el.dataset.id); }); });
   }
+  function vidTiles(v, a){
+    var t = [];
+    if (kindOfVid(v) === "short"){
+      /* a Short has no thumbnail auction to win, so click through rate is not the measure */
+      t.push(["Held", a.avp == null ? "n/a" : a.avp + "%", "average percentage viewed"]);
+      t.push(["Avg duration", a.avd || "n/a", "of " + (v.runtime || "")]);
+      if (a.watchMinutes != null) t.push(["Watch time", a.watchMinutes + " min"]);
+      t.push(["Subs", a.subs == null ? "n/a" : (a.subs > 0 ? "+" + a.subs : "0")]);
+    } else {
+      t.push(["Impressions", a.impressions == null ? "Studio only" : num(a.impressions)]);
+      t.push(["CTR", a.ctr == null ? "Studio only" : a.ctr + "%"]);
+      t.push(["Avg duration", a.avd || "n/a", "of " + (v.runtime || "")]);
+      t.push(["Avg viewed", a.avp == null ? "n/a" : a.avp + "%"]);
+      t.push(["Subs", a.subs == null ? "n/a" : (a.subs > 0 ? "+" + a.subs : "0")]);
+    }
+    t.push(["Read", a.read || "not read"]);
+    return t;
+  }
   function vidHTML(v){
     var a = v.analytics;
     return '<div class="vid"><a href="' + esc(v.url) + '" target="_blank" rel="noopener"><img src="' + esc(v.thumb) + '" alt="" loading="lazy"></a>' +
@@ -611,12 +688,11 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       '<div class="sub chips"><span class="chip lime">' + num(v.views) + ' views</span>' +
         '<span class="chip">' + esc(v.published) + '</span><span class="chip">' + esc(v.runtime) + '</span>' +
         (v.cardId ? '<span class="chip yellow nm" data-id="' + v.cardId + '" style="cursor:pointer">Open card</span>' : '') + '</div>' +
-      '<p>' + esc(v.note) + '</p>' +
-      (a ? '<div class="tiles">' +
-            [["Impressions", num(a.impressions)], ["CTR", a.ctr + "%"], ["Avg duration", a.avd],
-             ["Avg viewed", a.avp + "%"], ["Subs", "+" + a.subs], ["Read", a.read]]
-            .map(function(t){ return '<div class="tile"><i>' + t[0] + '</i><b>' + t[1] + '</b></div>'; }).join("") + '</div>'
-          : '<div class="pend">No Studio read taken yet. Impressions, click through rate and retention appear here once one is.</div>') +
+      (v.note ? '<p>' + esc(v.note) + '</p>' : "") +
+      (a ? '<div class="tiles">' + vidTiles(v, a)
+            .map(function(t){ return '<div class="tile"><i>' + t[0] + '</i><b>' + t[1] + '</b>' +
+              (t[2] ? '<s>' + t[2] + '</s>' : "") + '</div>'; }).join("") + '</div>'
+          : '<div class="pend">Nothing pulled for this one yet. Numbers appear here on the next run.</div>') +
       '</div></div>';
   }
 
@@ -815,11 +891,34 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
      metrics.json is written every morning by .github/workflows/metrics.yml.
      If it is not there yet, or the pull failed, the page keeps the numbers in data.js. */
   function mmss(n){ var m = Math.floor(n / 60); return m + ":" + String(n % 60).padStart(2, "0"); }
+  function clock(n){
+    if (n == null) return "";
+    var h = Math.floor(n / 3600), m = Math.floor((n % 3600) / 60), s = n % 60;
+    return h ? h + ":" + String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0")
+             : m + ":" + String(s).padStart(2, "0");
+  }
+  function isoSecs(iso){
+    var g = /^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/.exec(iso || "");
+    if (!g) return null;
+    return (+(g[1] || 0)) * 3600 + (+(g[2] || 0)) * 60 + (+(g[3] || 0));
+  }
   function setStat(ch, k, v){ ch.stats.forEach(function(x){ if (x.k === k) x.v = v; }); }
   function applyLive(m){
     if (!m || !m.channels || !m.channels.length) return;
-    var rows = {};
+    var rows = {}, have = {};
     (m.videos || []).forEach(function(v){ rows[v.video] = v; });
+    D.live.forEach(function(v){ have[v.id] = true; });
+    /* anything the pull found that is not on the page yet, usually a Short he just posted */
+    (m.videos || []).forEach(function(r){
+      if (have[r.video]) return;
+      var sec = isoSecs(r.runtime);
+      D.live.push({id: r.video, title: r.title || r.video, published: r.published || m.dataThrough,
+        runtime: clock(sec), seconds: sec, kind: sec != null && sec <= 180 ? "short" : "long",
+        views: r.views, channel: r.channel || "hanneburger", cardId: null, note: "",
+        url: "https://www.youtube.com/watch?v=" + r.video,
+        thumb: "https://i.ytimg.com/vi/" + r.video + "/mqdefault.jpg", analytics: {}});
+    });
+    D.live.sort(function(a, b){ return (a.published || "") < (b.published || "") ? 1 : -1; });
     D.live.forEach(function(v){
       var r = rows[v.id]; if (!r) return;
       v.views = r.views;
@@ -827,6 +926,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       if (r.averageViewDuration != null) v.analytics.avd = mmss(r.averageViewDuration);
       if (r.averageViewPercentage != null) v.analytics.avp = Math.round(r.averageViewPercentage * 10) / 10;
       if (r.subscribersGained != null) v.analytics.subs = r.subscribersGained;
+      if (r.estimatedMinutesWatched != null) v.analytics.watchMinutes = r.estimatedMinutesWatched;
       v.analytics.read = "API, " + m.window.start + " to " + (m.dataThrough || m.window.end);
     });
     m.channels.forEach(function(c){
@@ -836,13 +936,15 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       setStat(ch, "Videos", num(c.videos));
       setStat(ch, "Lifetime", num(c.views));
       setStat(ch, "Lifetime views", num(c.views));
-      var t = m.totals || {};
+      var t = ((m.byChannel || {})[c.id] || {}).totals || {};
       if (t.views != null) setStat(ch, "Views, 28d", num(t.views));
       if (t.estimatedMinutesWatched != null)
         setStat(ch, "Watch time", (Math.round(t.estimatedMinutesWatched / 6) / 10) + " h");
     });
     document.getElementById("stamp").textContent = m.dataThrough
       ? "API, complete to " + m.dataThrough : "API, pulled " + m.pulled;
+    if (current === "metrics") show("metrics");
+    drawChans(); drawNav();
     document.getElementById("stamp").title = m.lagDays
       ? "The Analytics API finalises about " + m.lagDays + " days behind. Studio is more current."
       : "";
