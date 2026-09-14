@@ -67,9 +67,9 @@ window.ENGINE = {
  "cards": [
   {
    "id": "neongutzyt",
-   "col": "capture",
-   "night": "Fri 11 Sep",
-   "session": "Light",
+   "col": "ready",
+   "night": "Fri 18 Sep",
+   "session": "Edited, 11:45",
    "title": "NEONGUTZYT light build",
    "why": "The only format that has broken 1k on this channel. A named creator's loadout played by someone who admits he cannot use it. Own data beats everyone else's, so this goes first.",
    "clips": [
@@ -136,8 +136,8 @@ window.ENGINE = {
     "priority": "High"
    },
    "learn": {
-    "hypothesis": "If we repeat the named creator loadout format with NEONGUTZYT, we expect a result closer to the Sanguine video than to the channel baseline, because the format not the creator is what carried it.",
-    "measure": "Beat 300 views in 14 days, which is above every non Sanguine upload. Click through rate from Home is the tiebreak.",
+    "hypothesis": "If we repeat the named creator loadout format with NEONGUTZYT, we expect a result closer to the Sanguine video than to the channel baseline, because the format not the creator is what carried it. Second variable, added in the edit: effects placed on deaths and jokes from 3:07 on, a spin transition at 3:07, a crying emoji at 5:07, I HATE BOWS at 6:35, a health bar zoom at 7:55 and a kill feed zoom at 10:35. If the effects hold attention, the retention curve should flatten after 3:00 compared with before it.",
+    "measure": "Views: beat 300 in 14 days, click through rate from Home as the tiebreak. Retention, the real test of the edit: compare the slope from 1:30 to 3:00, which has almost no effects, with 3:00 to 7:00, and look for bumps at the five effect timestamps. The quietest stretch is 6:30 to 7:30. Benchmarks: BFR Titan held 1:50 at 17.2 percent viewed, which is about 2:00 on an 11:45 video. The Sanguine original kept 57 percent at 0:30, and the cold open should beat that. Subscribers from this video should beat the 0 to 1 of earlier uploads if the spoken ask works. This upload changes several things at once, so read the edit from the shape of the curve, not from the average alone.",
     "result": "",
     "insight": ""
    },
@@ -162,8 +162,9 @@ window.ENGINE = {
     }
    ],
    "channel": "hanneburger",
-   "date": "2026-09-11",
-   "kind": "capture"
+   "date": "2026-09-18",
+   "kind": "upload",
+   "note": "Final edit done 14 Sep. Thumbnails Friday, then publish. Structure: a cold open on the Nullifier cashout deny with his teammates down and a spoken promise to show how they held it, the title restated at 0:22 with a NeonGutz channel card, a spoken subscribe ask at 1:10, then the full Monaco win, paid off at 11:17 with We got it."
   },
   {
    "id": "dagger",
