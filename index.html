@@ -207,6 +207,9 @@ a{color:var(--lime)}
 
 /* week */
 .week{display:flex;flex-direction:column;gap:9px}
+.week .night{cursor:pointer}
+.week .night.past{opacity:.5}
+.week .night.past:hover{opacity:.85}
 .night{display:grid;grid-template-columns:126px 1fr;background:var(--glass);backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-s)}
 .night-d{background:var(--well);padding:14px 13px;border-right:1px solid var(--line)}
@@ -361,7 +364,17 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   var KINDS = [["capture","Capture night"], ["upload","Upload target"], ["published","Published"], ["backlog","No date"]];
   var PRIO = {High:"red", Medium:"yellow", Low:"", Done:"lime"};
   var CHTONE = {hanneburger:"var(--lime)", burgercam:"var(--yellow)"};
-  var TODAY = "2026-09-11";
+  /* Local date, never toISOString: that is UTC, and in Cape Town it would say
+     yesterday for the first two hours of every day. */
+  function localISO(d){
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  }
+  function isoAddDays(iso, days){
+    var q = iso.split("-"), d = new Date(+q[0], +q[1] - 1, +q[2]);
+    d.setDate(d.getDate() + days);
+    return localISO(d);
+  }
+  var TODAY = localISO(new Date());
 
   var VIEWS = [
     {id:"home",     n:"Home",       t:"Dashboard",        s:"Both channels in one place. Drag anything on the calendar to move it, or click an empty day to add an idea."},
@@ -449,7 +462,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   }
 
   /* ---------- home ---------- */
-  var calYear = 2026, calMonth = 8;
+  var calYear = +TODAY.slice(0, 4), calMonth = +TODAY.slice(5, 7) - 1;
   var MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   function drawHome(){
     document.getElementById("view-home").innerHTML =
@@ -472,7 +485,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
         '</div></div></div>';
     document.getElementById("prev").addEventListener("click", function(){ calMonth--; if (calMonth < 0){ calMonth = 11; calYear--; } drawCal(); });
     document.getElementById("next").addEventListener("click", function(){ calMonth++; if (calMonth > 11){ calMonth = 0; calYear++; } drawCal(); });
-    document.getElementById("today").addEventListener("click", function(){ calYear = 2026; calMonth = 8; drawCal(); });
+    document.getElementById("today").addEventListener("click", function(){ calYear = +TODAY.slice(0, 4); calMonth = +TODAY.slice(5, 7) - 1; drawCal(); });
     drawCal();
   }
   function drawCal(){
@@ -596,13 +609,29 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
           '<td class="num">' + esc(p.variable || "") + '</td>' +
           '<td><span class="chip ' + (PRIO[p.priority] || "") + '">' + esc(p.priority || "") + '</span></td></tr>'; }).join("") + '</tbody>';
     document.querySelectorAll(".tbl .nm").forEach(function(td){ td.addEventListener("click", function(){ open(td.dataset.id); }); });
+    drawWeek();   /* the week is the same cards as the table, so it redraws with it */
   }
-  document.getElementById("week").innerHTML = D.cards.filter(function(c){ return c.col === "capture"; })
-    .map(function(c, i){
-      return '<article class="night"><div class="night-d" style="border-left:2px solid ' + (c.id === "bottom1" ? "var(--lime)" : "var(--red)") + '">' +
-        '<b>Night ' + (i + 1) + '</b><i>' + esc(c.night) + '</i><i>' + esc(c.session) + '</i></div>' +
-        '<div class="night-b"><h3>' + esc(c.title) + '</h3><p>' + esc(c.why) + '</p><ul class="hunt">' +
-        (c.clips || []).map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div></article>'; }).join("");
+  function drawWeek(){
+    /* capture nights for this channel, in date order, reading SAVED dates and SAVED status */
+    var list = allCards().filter(function(c){ return mine(c) && colOf(c) === "capture"; })
+      .sort(function(a, b){
+        var x = dateOf(a) || "9999-99-99", y = dateOf(b) || "9999-99-99";
+        return x < y ? -1 : x > y ? 1 : 0; });
+    var upcoming = 0;
+    document.getElementById("week").innerHTML = list.length ? list.map(function(c){
+      var d = dateOf(c), past = !!d && d < TODAY, now = d === TODAY;
+      var label = now ? "Tonight" : past ? "Past" : d ? "Night " + (++upcoming) : "No date";
+      var tone = now ? "var(--lime)" : past || !d ? "var(--faint)" : "var(--red)";
+      return '<article class="night' + (past ? " past" : "") + '" data-id="' + esc(c.id) + '">' +
+        '<div class="night-d" style="border-left:2px solid ' + tone + '">' +
+        '<b>' + label + '</b><i>' + esc(d ? fmt(d) : "Unscheduled") + '</i><i>' + esc(c.session || "") + '</i></div>' +
+        '<div class="night-b"><h3>' + esc(c.title) + '</h3><p>' + esc(c.why || "") + '</p><ul class="hunt">' +
+        (c.clips || []).map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div></article>';
+    }).join("") : '<div class="pend">No capture nights planned on ' + esc(chanName()) + '.</div>';
+    document.querySelectorAll("#week .night").forEach(function(el){
+      el.addEventListener("click", function(){ open(el.dataset.id); });
+    });
+  }
 
   /* ---------- performance ---------- */
   var rFrom = "", rTo = "";
@@ -652,11 +681,13 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       '<p style="color:var(--faint);font-size:12.5px;margin-top:16px;max-width:80ch">' + esc(D.liveSource) + '</p>';
     document.querySelectorAll("#view-metrics .range .btn").forEach(function(b){
       b.addEventListener("click", function(){
-        var p = b.dataset.p, now = new Date(TODAY);
+        var p = b.dataset.p;
         if (p === "all"){ rFrom = ""; rTo = ""; }
-        else if (p === "month"){ rFrom = "2026-09-01"; rTo = "2026-09-30"; }
-        else { var d = new Date(now.getTime() - (+p) * 86400000);
-               rFrom = d.toISOString().slice(0,10); rTo = TODAY; }
+        else if (p === "month"){
+          rFrom = TODAY.slice(0, 8) + "01";
+          rTo = localISO(new Date(+TODAY.slice(0, 4), +TODAY.slice(5, 7), 0));   /* day 0 of next month = last day of this one */
+        }
+        else { rFrom = isoAddDays(TODAY, -(+p)); rTo = TODAY; }
         drawPerf(); });
     });
     document.getElementById("rf").addEventListener("change", function(){ rFrom = this.value; drawPerf(); });
@@ -883,6 +914,19 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     put(K_COL, moved); put(K_DATE, dates); put(K_NEW, custom); put(K_KIND, kinds);
     window.location.reload();
   });
+
+  function refreshToday(){
+    var t = localISO(new Date());
+    if (t === TODAY) return;
+    /* follow into the new month only if he was looking at the current one */
+    var onCurrent = calYear === +TODAY.slice(0, 4) && calMonth === +TODAY.slice(5, 7) - 1;
+    TODAY = t;
+    if (onCurrent){ calYear = +t.slice(0, 4); calMonth = +t.slice(5, 7) - 1; }
+    drawCal(); drawWeek();
+  }
+  document.addEventListener("visibilitychange", function(){ if (!document.hidden) refreshToday(); });
+  window.addEventListener("focus", refreshToday);
+  setInterval(refreshToday, 60000);
 
   function boot(){
     try { applyStored(); }
