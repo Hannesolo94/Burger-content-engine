@@ -1256,6 +1256,31 @@ window.ENGINE = {
     "result": "31 views, below baseline and far below the Sanguine video published the day before it.",
     "insight": "Counter-takes need an audience that already trusts you. At 116 subscribers there is nobody waiting for your dissent, so lead with the format that earns the click instead."
    }
+  },
+  {
+   "id": "m240gtfu",
+   "col": "ideas",
+   "night": "Unscheduled",
+   "session": "",
+   "title": "GTFU with the M240",
+   "why": "His idea, captured 24 Sep. Not developed yet, no research pulled and no angle written.",
+   "clips": [],
+   "titles": [],
+   "thumb": "",
+   "research": {
+    "strip": "",
+    "rows": []
+   },
+   "props": {
+    "lane": "",
+    "variable": "",
+    "format": "",
+    "persona": "",
+    "priority": ""
+   },
+   "channel": "hanneburger",
+   "date": "",
+   "kind": "backlog"
   }
  ],
  "metrics": [
