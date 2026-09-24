@@ -270,20 +270,22 @@ window.ENGINE = {
    "id": "bow",
    "col": "capture",
    "night": "Sun 13 Sep",
-   "session": "Medium",
+   "session": "Light",
    "title": "The bow",
-   "why": "Moved up on the data. A 234 subscriber channel got 29.1x and 28.7x on two bow videos, the smallest channel and biggest multiplier in the set, which says the bow audience is underserved. You are not playing bow, you are being killed by it.",
+   "why": "He is playing the bow. A 234 subscriber channel got 29.1x and 28.7x on two bow videos, the smallest channel and the biggest multiplier in the whole pull, so the bow audience is underserved. It is also the weapon everyone in the lobby complains about, which is the part that makes picking it up worth watching. First game of the week he got 11 kills and no win, so the honest story is already there.",
    "clips": [
-    "Bow lights ruining a hold",
-    "The distance they get away with",
-    "One time you actually beat one",
-    "Your honest reaction in the moment"
+    "The first kills, and how early they come",
+    "The shots missed by a mile while still learning it",
+    "The distance a bow kill actually lands from",
+    "A fight lost despite the kills",
+    "His honest reaction the moment it clicks"
    ],
    "titles": [
-    "The bow is why I stopped holding cashouts | THE FINALS",
-    "What fighting a bow main feels like | THE FINALS"
+    "I picked up the bow and got 11 kills | THE FINALS",
+    "Everyone hates the bow so I played it | THE FINALS",
+    "STOP complaining about the bow | THE FINALS"
    ],
-   "thumb": "Bow drawn at you, POV, white border.",
+   "thumb": "Bow drawn from his own POV mid shot, white border. No rank on the thumbnail.",
    "research": {
     "strip": "img/bow.jpg",
     "rows": [
@@ -337,15 +339,15 @@ window.ENGINE = {
     "priority": "High"
    },
    "learn": {
-    "hypothesis": "If we make the bow video from the receiving end rather than as a patch reaction, we expect it to age past the patch window, because the frustration is evergreen and the buff is not.",
-    "measure": "Still earning views at day 30, which no upload has managed except Sanguine.",
+    "hypothesis": "If we make the bow video from playing it rather than being killed by it, then it will beat the channel's typical 100 to 200 views, because the bow audience is underserved and the weapon everyone complains about is the one they want to watch someone try.",
+    "measure": "Views against the channel's typical 100 to 200 on a long form upload.",
     "result": "",
     "insight": ""
    },
    "channel": "hanneburger",
    "date": "2026-09-13",
    "kind": "capture",
-   "note": "24 Sep, he has played some bow. No win yet, but 11 kills in his first game of the week. Note the angle: this card was written for the receiving end, you are not playing bow, you are being killed by it, and every clip and title on it is about fighting bow mains. He is now playing it, so this is either a second video or the card changes. His call, not mine."
+   "note": "24 Sep, his ruling: the bow video is him playing it. The card was written the other way, being killed by it, and that came from my Sep 11 capture week plan, where bow night kept him on Medium. That was my call and I never put it to him. Rewritten to his angle. Session moved to Light. His own data so far: 11 kills first game, no win yet."
   },
   {
    "id": "defibs",
