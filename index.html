@@ -290,6 +290,31 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
 .form textarea{min-height:88px;resize:vertical}
 .form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .formbar{display:flex;gap:8px;margin-top:18px}
+/* ---- inline editing, Asana style: the text IS the field ---- */
+.ed{border:1px solid transparent;border-radius:var(--rs);padding:4px 7px;margin:-4px -7px;cursor:text;
+    transition:background .12s,border-color .12s;display:block}
+.ed:hover{background:var(--well);border-color:var(--line)}
+.ed:focus{outline:none;background:var(--well);border-color:var(--lime)}
+.ed:empty::before{content:attr(data-ph);color:var(--faint);font-style:italic}
+.edin{background:transparent;border:1px solid transparent;color:var(--text);font:inherit;width:100%;
+  border-radius:var(--rs);padding:4px 7px;margin:-4px -7px}
+.edin:hover{background:var(--well);border-color:var(--line)}
+.edin:focus{outline:none;background:var(--well);border-color:var(--lime)}
+.edin::placeholder{color:var(--faint);font-style:italic}
+select.edin{cursor:pointer}
+.tbl .edin{min-width:64px}
+.tbl td .edin+.edin{margin-top:2px;font-size:11.5px;color:var(--faint)}
+.ed[data-multi]{white-space:pre-wrap}
+.ed ul,.ed ol{margin:0;padding-left:18px}
+h4 .ed,.edhead{font:inherit;color:inherit}
+#d-title.ed{padding:2px 7px;margin:-2px -7px;width:calc(100% - 14px)}
+.edsave{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;z-index:60;
+  background:var(--lime);color:#0b0f0b;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;padding:8px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .16s}
+.edsave.on{opacity:1}
+.edhint{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+  margin:14px 0 0;display:block}
+.props td .ed{display:inline-block;min-width:90px}
 .primary{background:var(--lime);color:#0A0D0B;border:0;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;
   text-transform:uppercase;padding:10px 16px;border-radius:9px;cursor:pointer;font-weight:500}
 .primary:hover{filter:brightness(1.1)}
@@ -346,10 +371,12 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
 (function(){
   var D = window.ENGINE;
   var K_COL = "burger-engine-board-v1", K_DATE = "burger-engine-dates-v1", K_NEW = "burger-engine-custom-v1",
-      K_KIND = "burger-engine-kinds-v1";
+      K_KIND = "burger-engine-kinds-v1", K_EDIT = "burger-engine-edits-v1";
   function load(k, d){ try { return JSON.parse(localStorage.getItem(k) || "null") || d; } catch(e){ return d; } }
   function put(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
   var moved = load(K_COL, {}), dates = load(K_DATE, {}), custom = load(K_NEW, []), kinds = load(K_KIND, {});
+  /* every field edit he makes, keyed by card id, as a patch over what data.js shipped */
+  var edits = load(K_EDIT, {});
   function allCards(){ return D.cards.concat(custom); }
   var colOf = function(c){ return moved[c.id] || c.col; };
   var dateOf = function(c){ return dates[c.id] !== undefined ? dates[c.id] : c.date; };
@@ -554,6 +581,46 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       if (kinds[c.id]) c.kind = kinds[c.id];
     });
   }
+
+  /* ---------- editing ---------- */
+  /* Edits are merged straight into the card objects, so every view that reads c.title
+     or c.props.lane picks them up with no extra wiring. One store, one redraw. */
+  function setPath(o, path, val){
+    var ks = path.split("."), t = o, i;
+    for (i = 0; i < ks.length - 1; i++){
+      if (t[ks[i]] == null || typeof t[ks[i]] !== "object") t[ks[i]] = {};
+      t = t[ks[i]];
+    }
+    t[ks[ks.length - 1]] = val;
+  }
+  function getPath(o, path){
+    return path.split(".").reduce(function(t, k){ return (t == null) ? undefined : t[k]; }, o);
+  }
+  function merge(dst, src){
+    Object.keys(src).forEach(function(k){
+      var v = src[k];
+      if (v && typeof v === "object" && !Array.isArray(v)){
+        if (!dst[k] || typeof dst[k] !== "object") dst[k] = {};
+        merge(dst[k], v);
+      } else dst[k] = v;
+    });
+  }
+  function applyEdits(){
+    allCards().forEach(function(c){ if (edits[c.id]) merge(c, edits[c.id]); });
+  }
+  function redrawAll(){
+    drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); drawThumbs(); drawPlaybook();
+  }
+  function saveEdit(id, path, val){
+    var c = byId(id); if (!c) return null;
+    if (!edits[id]) edits[id] = {};
+    setPath(edits[id], path, val);
+    put(K_EDIT, edits);
+    setPath(c, path, val);
+    if (c.custom) put(K_NEW, custom);
+    redrawAll();
+    return c;
+  }
   function fmt(iso){
     var p = iso.split("-"), dt = new Date(+p[0], +p[1] - 1, +p[2]);
     return ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][dt.getDay()] + " " + (+p[2]) + " " + MON[+p[1] - 1].slice(0,3);
@@ -737,6 +804,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       '<div><h5>Result</h5><p' + (l.result ? '' : ' class="empty"') + '>' + esc(l.result || "Not run yet") + '</p></div>' +
       '<div><h5>Insight</h5><p' + (l.insight ? '' : ' class="empty"') + '>' + esc(l.insight || "Written when the result lands") + '</p></div></div></div>';
   }
+  function drawThumbs(){
   document.getElementById("view-thumbs").innerHTML =
     '<div class="grid" style="margin-bottom:22px">' +
       '<div class="panel"><h2>The rules</h2><ul>' + D.thumbRules.map(function(r){ return '<li>' + esc(r) + '</li>'; }).join("") + '</ul></div>' +
@@ -751,7 +819,8 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
             '<div class="ttl">' + esc(p.title) + '</div><p class="th">' + esc(p.thumb) + '</p></div>'; }).join("") + '</div>' +
         (c.research ? '<img class="strip" style="margin-top:10px" src="' + esc(c.research.strip) + '" alt="Competitor thumbnails" loading="lazy">' : '') +
         '</div>'; }).join("");
-  (function(){
+  }
+  function drawPlaybook(){
     var R = D.rules;
     document.getElementById("view-playbook").innerHTML = '<div class="grid">' +
       '<div class="panel"><h2>The one rule</h2><p style="color:var(--text)">' + esc(R.one_thing) + '</p>' +
@@ -763,7 +832,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
       '<div class="panel" style="border-left:2px solid var(--lime)"><h2>Guardrail</h2><p style="color:var(--text)">' + esc(R.guardrail) + '</p></div></div>' +
       '<div class="sect" style="margin-top:22px"><h2>The loop</h2>' +
         D.cards.filter(function(c){ return c.learn; }).map(loopHTML).join("") + '</div>';
-  })();
+  }
   (function(){
     var A = D.apiPlan;
     document.getElementById("view-roadmap").innerHTML =
@@ -823,54 +892,133 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     });
   }
 
+  /* ---------- editable drawer ---------- */
+  /* Asana style: the text is the field. Click it, type, click away. Every commit goes
+     through saveEdit, which writes the patch, mutates the card and redraws every view. */
+  var toastEl = null;
+  function toast(msg){
+    if (!toastEl){ toastEl = document.createElement("div"); toastEl.className = "edsave"; document.body.appendChild(toastEl); }
+    toastEl.textContent = msg || "Saved";
+    toastEl.classList.add("on");
+    window.clearTimeout(toastEl._t);
+    toastEl._t = window.setTimeout(function(){ toastEl.classList.remove("on"); }, 1400);
+  }
+  var PLAIN = (function(){ var d = document.createElement("div");
+    try { d.contentEditable = "plaintext-only"; return d.contentEditable === "plaintext-only"; } catch(e){ return false; } })();
+  function ed(path, val, kind, ph){
+    var txt = kind === "lines" ? ((val && val.length) ? val.join("\n") : "") : (val == null ? "" : String(val));
+    return '<div class="ed" contenteditable="' + (PLAIN ? "plaintext-only" : "true") + '" data-ed="' + path +
+      '" data-kind="' + kind + '" data-ph="' + esc(ph) + '"' + (kind === "text" ? "" : ' data-multi="1"') +
+      '>' + esc(txt) + '</div>';
+  }
+  function edin(path, val, ph, list, kind){
+    return '<input class="ed edin" data-ed="' + path + '" data-kind="' + (kind || "text") + '" data-ph="' + esc(ph) +
+      '" value="' + esc(val == null ? "" : val) + '" placeholder="' + esc(ph) + '"' + (list ? ' list="' + list + '"' : '') + '>';
+  }
+  function edsel(path, val, opts){
+    return '<select class="ed edin" data-ed="' + path + '" data-kind="text">' + opts.map(function(o){
+      return '<option value="' + esc(o[0]) + '"' + (String(val || "") === o[0] ? " selected" : "") + '>' + esc(o[1]) + '</option>';
+    }).join("") + '</select>';
+  }
+  function hint(t){ return '<span class="edhint">' + esc(t) + '</span>'; }
+  /* suggestions come from what the other cards already use, so he is never boxed in */
+  function datalists(){
+    var keys = ["lane","variable","format","persona","priority"], out = "";
+    keys.forEach(function(k){
+      var seen = {};
+      allCards().forEach(function(c){ var v = (c.props || {})[k]; if (v) seen[v] = 1; });
+      out += '<datalist id="dl-' + k + '">' + Object.keys(seen).sort().map(function(v){
+        return '<option value="' + esc(v) + '">'; }).join("") + '</datalist>';
+    });
+    var ses = {};
+    allCards().forEach(function(c){ if (c.session) ses[c.session] = 1; });
+    out += '<datalist id="dl-session">' + Object.keys(ses).sort().map(function(v){
+      return '<option value="' + esc(v) + '">'; }).join("") + '</datalist>';
+    return out;
+  }
+
   function open(id){
     var c = byId(id); if (!c) return;
-    var cn = {}; D.columns.forEach(function(x){ cn[x.id] = x.name; });
-    var p = c.props || {}, v = D.live.filter(function(x){ return x.cardId === id; })[0];
-    var chn = D.channels.filter(function(x){ return x.id === c.channel; })[0];
-    document.getElementById("d-title").textContent = c.title;
-    var h = '<table class="props"><tbody>' +
-      row("Status", '<span class="chip" style="color:' + TONE[colOf(c)] + ';border-color:' + TONE[colOf(c)] + '">' + esc(cn[colOf(c)]) + '</span>') +
-      (chn ? row("Channel", '<span class="chip" style="color:' + CHTONE[chn.id] + ';border-color:' + CHTONE[chn.id] + '">' + esc(chn.name) + '</span>') : "") +
+    var p = c.props || {}, l = c.learn || {}, v = D.live.filter(function(x){ return x.cardId === id; })[0];
+
+    var head = document.getElementById("d-title");
+    head.textContent = c.title || "";
+    head.className = "ed";
+    head.setAttribute("contenteditable", PLAIN ? "plaintext-only" : "true");
+    head.setAttribute("data-ed", "title");
+    head.setAttribute("data-kind", "text");
+    head.setAttribute("data-ph", "Name this video");
+
+    var h = datalists() + '<table class="props"><tbody>' +
+      row("Status", edsel("__col", colOf(c), D.columns.map(function(x){ return [x.id, x.name]; }))) +
+      row("Channel", edsel("channel", c.channel || "hanneburger", D.channels.map(function(x){ return [x.id, x.name]; }))) +
       row("Date", '<span class="dateset"><input type="date" id="d-date" value="' + esc(dateOf(c) || "") + '">' +
         '<select id="d-kind">' + KINDS.map(function(k){
           return '<option value="' + k[0] + '"' + (kindOf(c) === k[0] ? " selected" : "") + '>' + k[1] + '</option>'; }).join("") +
         '</select><button class="btn" id="d-clear">Clear</button><em id="d-note"></em></span>') +
-      (c.session ? row("Session", esc(c.session)) : "") +
-      (p.lane ? row("Lane", '<span class="chip' + (p.lane === "Identity" ? " lime" : "") + '">' + esc(p.lane) + '</span>') : "") +
-      (p.variable ? row("Variable tested", esc(p.variable)) : "") + (p.format ? row("Format", esc(p.format)) : "") +
-      (p.persona ? row("Persona", esc(p.persona)) : "") +
-      (p.priority ? row("Priority", '<span class="chip ' + (PRIO[p.priority] || "") + '">' + esc(p.priority) + '</span>') : "") +
+      row("Session", edin("session", c.session, "Medium, Light, any", "dl-session")) +
+      row("Lane", edin("props.lane", p.lane, "Identity, Build", "dl-lane")) +
+      row("Variable tested", edin("props.variable", p.variable, "Angle, Title, Format", "dl-variable")) +
+      row("Format", edin("props.format", p.format, "Long form, Short", "dl-format")) +
+      row("Persona", edin("props.persona", p.persona, "Who it is for", "dl-persona")) +
+      row("Priority", edin("props.priority", p.priority, "High, Medium, Low", "dl-priority")) +
       (v ? row("Live", '<a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + num(v.views) + ' views on YouTube</a>') : "") +
       '</tbody></table>';
-    if (c.why) h += '<h4>Why this one</h4><p>' + esc(c.why) + '</p>';
-    if (c.note) h += '<div class="note">' + esc(c.note) + '</div>';
-    if (c.learn) h += '<h4>The loop</h4>' + loopHTML(c).replace(/<h3[\s\S]*?<\/h3>/, "");
+
+    h += '<h4>Why this one</h4>' + ed("why", c.why, "para", "Why is this worth a night?");
+    h += '<h4>Note</h4>' + ed("note", c.note, "para", "Anything still missing or worth flagging");
+
+    h += '<h4>The loop</h4><div class="loop">' +
+      '<div><h5>Hypothesis</h5>' + ed("learn.hypothesis", l.hypothesis, "para", "If we do X, then Y will change, because Z") + '</div>' +
+      '<div><h5>Measure</h5>' + ed("learn.measure", l.measure, "para", "The one number this is judged on") + '</div>' +
+      '<div><h5>Result</h5>' + ed("learn.result", l.result, "para", "Not run yet") + '</div>' +
+      '<div><h5>Insight</h5>' + ed("learn.insight", l.insight, "para", "Written when the result comes in") + '</div></div>';
+
     if (v && v.analytics) h += '<h4>Numbers, ' + esc(v.analytics.read) + '</h4><div class="tiles">' +
       [["Views", num(v.views)], ["Impressions", num(v.analytics.impressions)], ["CTR", v.analytics.ctr + "%"],
        ["Avg duration", v.analytics.avd], ["Avg viewed", v.analytics.avp + "%"], ["Subs", "+" + v.analytics.subs]]
       .map(function(t){ return '<div class="tile"><i>' + t[0] + '</i><b>' + t[1] + '</b></div>'; }).join("") + '</div>';
-    if (c.clips && c.clips.length) h += '<h4>Hunt these clips</h4><ul>' + c.clips.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
-    if (c.thumbs) h += '<h4>Thumbnail pairs</h4><div class="pairs">' + c.thumbs.map(function(t){
-        return '<div class="pair"><div class="lab"><b>' + esc(t.label) + '</b><span class="chip lime">' + esc(t.strategy) + '</span></div>' +
-          '<div class="ttl">' + esc(t.title) + '</div><p class="th">' + esc(t.thumb) + '</p></div>'; }).join("") + '</div>';
-    else {
-      if (c.titles && c.titles.length) h += '<h4>Title options</h4><ul>' + c.titles.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
-      if (c.thumb) h += '<h4>Thumbnail</h4><p>' + esc(c.thumb) + '</p>';
+
+    h += '<h4>Hunt these clips</h4>' + ed("clips", c.clips, "lines", "One clip per line") + hint("One per line");
+    h += '<h4>Title options</h4>' + ed("titles", c.titles, "lines", "One title per line") + hint("One per line");
+    h += '<h4>Thumbnail</h4>' + ed("thumb", c.thumb, "para", "What the thumbnail shows");
+
+    if (c.thumbs && c.thumbs.length){
+      h += '<h4>Thumbnail pairs</h4><div class="pairs">' + c.thumbs.map(function(t, i){
+        return '<div class="pair"><div class="lab"><b>' + edin("thumbs." + i + ".label", t.label, "A") +
+          '</b>' + edin("thumbs." + i + ".strategy", t.strategy, "Strategy") + '</div>' +
+          '<div class="ttl">' + ed("thumbs." + i + ".title", t.title, "para", "Title") + '</div>' +
+          '<p class="th">' + ed("thumbs." + i + ".thumb", t.thumb, "para", "Thumbnail") + '</p></div>'; }).join("") + '</div>';
     }
-    if (c.research){
-      h += '<h4>Competitor research</h4><img class="strip" src="' + esc(c.research.strip) + '" alt="Competitor thumbnails" loading="lazy">' +
-        '<div class="wrapx"><table class="tbl"><thead><tr><th>x</th><th>Video</th><th>Channel</th><th>Views</th><th>Subs</th><th>Len</th></tr></thead><tbody>' +
-        c.research.rows.map(function(r){
-          return '<tr><td class="num" style="color:var(--red)">' + esc(r.mult) + 'x</td>' +
-            '<td><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.t) + '</a></td>' +
-            '<td class="num">' + esc(r.ch) + '</td><td class="num">' + num(r.views) + '</td>' +
-            '<td class="num">' + num(r.subs) + '</td><td class="num">' + esc(r.dur) + '</td></tr>'; }).join("") + '</tbody></table></div>';
-    }
+
+    h += '<h4>Competitor research</h4>';
+    if (c.research && c.research.strip) h += '<img class="strip" src="' + esc(c.research.strip) + '" alt="Competitor thumbnails" loading="lazy">';
+    h += '<div class="wrapx"><table class="tbl"><thead><tr><th>x</th><th>Video</th><th>Channel</th><th>Views</th><th>Subs</th><th>Len</th></tr></thead><tbody>' +
+      ((c.research && c.research.rows) || []).map(function(r, i){
+        var b = "research.rows." + i + ".";
+        return '<tr><td class="num" style="color:var(--red)">' + edin(b + "mult", r.mult, "0", null, "num") + '</td>' +
+          '<td>' + edin(b + "t", r.t, "Video title") + edin(b + "url", r.url, "URL") + '</td>' +
+          '<td class="num">' + edin(b + "ch", r.ch, "Channel") + '</td>' +
+          '<td class="num">' + edin(b + "views", r.views, "0", null, "num") + '</td>' +
+          '<td class="num">' + edin(b + "subs", r.subs, "0", null, "num") + '</td>' +
+          '<td class="num">' + edin(b + "dur", r.dur, "0:00") + '</td></tr>'; }).join("") +
+      '</tbody></table></div>' +
+      '<div class="formbar"><button class="btn" id="addrow">Add a competitor row</button>' +
+      (c.research && c.research.strip ? '' : '') + '</div>' +
+      '<label class="edhint" style="margin-top:12px">Strip image path</label>' +
+      edin("research.strip", (c.research || {}).strip, "img/name.jpg");
+
     if (c.script) h += '<h4>Full script</h4><pre class="script">' + esc(c.script) + '</pre>';
-    if (c.custom) h += '<div class="formbar"><button class="btn" id="del">Delete this card</button></div>';
+
+    h += '<div class="formbar">' +
+      (c.custom ? '<button class="btn" id="del">Delete this card</button>' : '') +
+      (edits[id] ? '<button class="btn" id="revert">Undo my edits on this card</button>' : '') + '</div>' +
+      '<p style="color:var(--faint);font-size:12.5px;margin-top:14px">Edits save in this browser as you go. ' +
+      'Hit Copy board state in the sidebar and paste it to Claude to make them permanent.</p>';
+
     document.getElementById("d-body").innerHTML = h;
     document.getElementById("d-body").scrollTop = 0;
+
     var di = document.getElementById("d-date"), dk = document.getElementById("d-kind"),
         dcl = document.getElementById("d-clear"), dnote = document.getElementById("d-note");
     function saveDate(){
@@ -883,12 +1031,66 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     di.addEventListener("change", saveDate);
     dk.addEventListener("change", saveDate);
     dcl.addEventListener("click", function(){ di.value = ""; saveDate(); });
+
+    var addrow = document.getElementById("addrow");
+    if (addrow) addrow.addEventListener("click", function(){
+      var rows = ((byId(id).research || {}).rows || []).slice();
+      rows.push({mult:"", t:"", ch:"", views:"", subs:"", dur:"", url:""});
+      saveEdit(id, "research.rows", rows);
+      open(id); toast("Row added");
+    });
     var del = document.getElementById("del");
     if (del) del.addEventListener("click", function(){
       if (!window.confirm("Delete " + c.title + "?")) return;
       custom = custom.filter(function(x){ return x.id !== c.id; }); put(K_NEW, custom);
-      shut(); drawCal(); drawBoard(); drawTable(); drawNav(); });
+      delete edits[c.id]; put(K_EDIT, edits);
+      shut(); redrawAll(); });
+    var rev = document.getElementById("revert");
+    if (rev) rev.addEventListener("click", function(){
+      if (!window.confirm("Undo every edit you made on this card?")) return;
+      delete edits[id]; put(K_EDIT, edits);
+      window.location.reload(); });
+
+    wireEdits(id);
     openDrawer();
+  }
+
+  function wireEdits(id){
+    var nodes = Array.prototype.slice.call(document.getElementById("d-body").querySelectorAll("[data-ed]"));
+    var head = document.getElementById("d-title");
+    if (head && head.hasAttribute("data-ed")) nodes.push(head);
+    nodes.forEach(function(n){
+      var path = n.dataset.ed, kind = n.dataset.kind || "text";
+      var tag = n.tagName;
+      function read(){ return (tag === "INPUT" || tag === "SELECT") ? n.value : n.innerText.replace(/\u00a0/g, " "); }
+      function commit(){
+        var raw = read();
+        if (tag !== "INPUT" && tag !== "SELECT" && !raw.trim()) n.innerHTML = "";
+        var val;
+        if (kind === "lines") val = raw.split("\n").map(function(s){ return s.trim(); }).filter(Boolean);
+        else if (kind === "num"){
+          var t = String(raw).replace(/[,\s]/g, "");
+          val = (t === "" || isNaN(Number(t))) ? raw.trim() : Number(t);
+        } else val = raw.trim();
+        if (path === "__col"){
+          if (moved[id] === val || (!moved[id] && byId(id).col === val)) return;
+          moved[id] = val; put(K_COL, moved); redrawAll(); toast("Moved"); return;
+        }
+        var was = getPath(byId(id), path);
+        if (JSON.stringify(was === undefined ? (kind === "lines" ? [] : "") : was) === JSON.stringify(val)) return;
+        saveEdit(id, path, val);
+        toast();
+      }
+      if (tag === "SELECT") n.addEventListener("change", commit);
+      else if (tag === "INPUT") n.addEventListener("change", commit);
+      else {
+        n.addEventListener("blur", commit);
+        n.addEventListener("keydown", function(e){
+          if (e.key === "Escape"){ e.stopPropagation(); n.blur(); }
+          if (e.key === "Enter" && (kind === "text" || e.metaKey || e.ctrlKey)){ e.preventDefault(); n.blur(); }
+        });
+      }
+    });
   }
 
   /* ---------- tools ---------- */
@@ -901,7 +1103,7 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   });
   try { var th = localStorage.getItem("burger-engine-theme"); if (th) document.documentElement.setAttribute("data-theme", th); } catch(e){}
   document.getElementById("export").addEventListener("click", function(){
-    var out = {statuses:{}, dates:dates, kinds:kinds, added:custom};
+    var out = {statuses:{}, dates:dates, kinds:kinds, added:custom, edits:edits};
     allCards().forEach(function(c){ out.statuses[c.id] = colOf(c); });
     var txt = JSON.stringify(out, null, 1), b = this;
     var done = function(){ b.textContent = "Copied"; setTimeout(function(){ b.textContent = "Copy board state"; }, 1600); };
@@ -909,9 +1111,9 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
     else window.prompt("Copy this:", txt);
   });
   document.getElementById("reset").addEventListener("click", function(){
-    if (!window.confirm("Reset statuses and dates, and delete cards you added?")) return;
-    moved = {}; dates = {}; custom = []; kinds = {};
-    put(K_COL, moved); put(K_DATE, dates); put(K_NEW, custom); put(K_KIND, kinds);
+    if (!window.confirm("Reset statuses, dates and every field you edited, and delete cards you added?")) return;
+    moved = {}; dates = {}; custom = []; kinds = {}; edits = {};
+    put(K_COL, moved); put(K_DATE, dates); put(K_NEW, custom); put(K_KIND, kinds); put(K_EDIT, edits);
     window.location.reload();
   });
 
@@ -931,7 +1133,9 @@ pre.script{background:var(--well);border:1px solid var(--line);border-radius:var
   function boot(){
     try { applyStored(); }
     catch(e){ oops("Saved card dates could not be read", e); }
-    drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); show("home");
+    try { applyEdits(); }
+    catch(e){ oops("Your saved card edits could not be read", e); }
+    drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); drawThumbs(); drawPlaybook(); show("home");
   }
   function oops(what, e){
     /* a broken step must never take the whole page down silently */
