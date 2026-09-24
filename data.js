@@ -1263,24 +1263,41 @@ window.ENGINE = {
    "night": "Unscheduled",
    "session": "",
    "title": "GTFU with the M240",
-   "why": "His idea, captured 24 Sep. Not developed yet, no research pulled and no angle written.",
-   "clips": [],
-   "titles": [],
-   "thumb": "",
+   "why": "His phrase, get the fucking gun up. So the video is about hesitating, not about the weapon. Every casual player secretly feels bad about losing fights to better aim, and the honest answer is that at this level everyone is missing, the difference is who is actually firing. The M240 is the gun that pays you for volume instead of precision, so it defends the thing they feel bad about instead of coaching it out of them.",
+   "clips": [
+    "A fight he loses by waiting for a clean angle",
+    "Holding a lane on sustained fire, enemies pinned and unable to push",
+    "A kill that lands on volume, not accuracy",
+    "Running dry mid fight, the honest cost of the answer",
+    "His reaction in the moment he stops aiming and just holds it"
+   ],
+   "titles": [
+    "I stopped aiming and started winning | THE FINALS",
+    "Can a 60+ Hr NOOB carry with the M240? | THE FINALS",
+    "STOP waiting for the perfect shot | THE FINALS"
+   ],
+   "thumb": "POV down the M240 with the muzzle lit, white border. No rank on the thumbnail.",
    "research": {
     "strip": "",
     "rows": []
    },
    "props": {
-    "lane": "",
-    "variable": "",
-    "format": "",
+    "lane": "Identity",
+    "variable": "Angle",
+    "format": "Long form",
     "persona": "",
     "priority": ""
    },
    "channel": "hanneburger",
    "date": "",
-   "kind": "backlog"
+   "kind": "backlog",
+   "learn": {
+    "hypothesis": "If we build it on getting the gun up rather than on the weapon stats, then it will hold past the first two minutes, because the viewer recognises the hesitation before he recognises the gun.",
+    "measure": "Average view duration in minutes, against the BFR Titan's 1:50, the best hold on the channel.",
+    "result": "",
+    "insight": ""
+   },
+   "note": "Needs a competitor pull before it gets scheduled, no research rows yet. Class session not set, as I do not know which class the M240 sits on."
   }
  ],
  "metrics": [
