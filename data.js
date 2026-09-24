@@ -272,15 +272,17 @@ window.ENGINE = {
    "night": "Sun 13 Sep",
    "session": "Light",
    "title": "The bow",
-   "why": "He is playing the bow. A 234 subscriber channel got 29.1x and 28.7x on two bow videos, the smallest channel and the biggest multiplier in the whole pull, so the bow audience is underserved. It is also the weapon everyone in the lobby complains about, which is the part that makes picking it up worth watching. First game of the week he got 11 kills and no win, so the honest story is already there.",
+   "why": "He is playing the bow. A 234 subscriber channel got 29.1x and 28.7x on two bow videos, the smallest channel and the biggest multiplier in the whole pull, so the bow audience is underserved. It is also the weapon everyone in the lobby complains about, which is the part that makes picking it up worth watching. First game of the week was 11 kills and no win, then he took a full Cash Out with it on Sep 24, so the arc runs learning it to winning with it.",
    "clips": [
     "The first kills, and how early they come",
     "The shots missed by a mile while still learning it",
     "The distance a bow kill actually lands from",
     "A fight lost despite the kills",
+    "The Cash Out win, the steal and the last stand on it. This opens the video, his call Sep 24",
     "His honest reaction the moment it clicks"
    ],
    "titles": [
+    "I won a Cash Out with the bow | THE FINALS",
     "I picked up the bow and got 11 kills | THE FINALS",
     "Everyone hates the bow so I played it | THE FINALS",
     "STOP complaining about the bow | THE FINALS"
