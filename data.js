@@ -344,7 +344,8 @@ window.ENGINE = {
    },
    "channel": "hanneburger",
    "date": "2026-09-13",
-   "kind": "capture"
+   "kind": "capture",
+   "note": "24 Sep, he has played some bow. No win yet, but 11 kills in his first game of the week. Note the angle: this card was written for the receiving end, you are not playing bow, you are being killed by it, and every clip and title on it is about fighting bow mains. He is now playing it, so this is either a second video or the card changes. His call, not mine."
   },
   {
    "id": "defibs",
