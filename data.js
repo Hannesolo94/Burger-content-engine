@@ -219,6 +219,47 @@ window.ENGINE = {
    "viralWhy": "What X looks like: 4+ FINALS outliers (NateFPS 38x, springhour 19x). Finished, upload Fri."
   },
   {
+   "id": "typicalplayers",
+   "col": "ideas",
+   "kind": "backlog",
+   "night": "Unscheduled",
+   "session": "Clips you already have + emote photos",
+   "title": "Types of THE FINALS players (meme, 1-2 min)",
+   "why": "Hannes's idea, 13 Oct. A 1-2 minute 16:9 meme video: each player type gets a game-style intro card (name, class, 'special ability' roast), then a stop-motion run of character photos with emotes, plus one real clip from the footage library. Identity humour is a proven shape ('What your favorite weapon in THE FINALS says about you', 13x). Every type can also be cut vertical as its own Short.",
+   "clips": [
+    "Defib spammer: res in the open, both die",
+    "Heavy who only plays the RPG / sledge",
+    "Dagger light who backstabs then dies",
+    "Medium who never heals",
+    "Cashout ignorer chasing kills",
+    "Bow main",
+    "You: the 60-hour noob (closer)"
+   ],
+   "titles": [
+    "Every type of THE FINALS player",
+    "Which FINALS player are you?"
+   ],
+   "thumb": "Grid of 4-6 character cards, one face each, 'WHICH ONE ARE YOU?'",
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Meme format, length",
+    "format": "Long form (1-2 min, 16:9)",
+    "persona": "Casual player",
+    "priority": "Medium",
+    "viral": "Go"
+   },
+   "viralWhy": "Identity/humour shape (13x, 15x outliers). Invites 'I'm the defib guy' comments, and the cards double as Shorts. Low capture cost: clips are already in the library.",
+   "learn": {
+    "hypothesis": "If we roast player types with game-style cards and stop-motion emotes, viewers will tag friends and comment their type, because identity humour gets shared.",
+    "measure": "Comments per view vs channel average; shares.",
+    "result": "",
+    "insight": ""
+   },
+   "channel": "hanneburger",
+   "date": ""
+  },
+  {
    "id": "creatorloadout",
    "col": "ideas",
    "kind": "backlog",
