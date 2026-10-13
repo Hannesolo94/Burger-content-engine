@@ -390,6 +390,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
   var KINDTONE = {capture:"var(--red)", upload:"var(--yellow)", published:"var(--lime)", backlog:"var(--faint)"};
   var KINDS = [["capture","Capture night"], ["upload","Upload target"], ["published","Published"], ["backlog","No date"]];
   var PRIO = {High:"red", Medium:"yellow", Low:"", Done:"lime"};
+  var VIRAL = {Go:"lime", Reshape:"yellow", Park:""};
   var CHTONE = {hanneburger:"var(--lime)", burgercam:"var(--yellow)"};
   /* Local date, never toISOString: that is UTC, and in Cape Town it would say
      yesterday for the first two hours of every day. */
@@ -633,6 +634,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
       (/^(Fri|Sat|Sun|Mon|Tue|Wed|Thu)/.test(c.night) ? " red" : "") + '">' + esc(c.night) + '</span>');
     if (p.lane) out.push('<span class="chip' + (p.lane === "Identity" ? " lime" : "") + '">' + esc(p.lane) + '</span>');
     if (p.priority) out.push('<span class="chip ' + (PRIO[p.priority] || "") + '">' + esc(p.priority) + '</span>');
+    if (p.viral) out.push('<span class="chip ' + (VIRAL[p.viral] || "") + '" title="Viral audit">' + esc(p.viral) + '</span>');
     if (c.script) out.push('<span class="chip lime">Script</span>');
     if (c.thumbs) out.push('<span class="chip yellow">Thumbs</span>');
     if (c.custom) out.push('<span class="chip yellow">Added by you</span>');
@@ -962,10 +964,12 @@ h4 .ed,.edhead{font:inherit;color:inherit}
       row("Format", edin("props.format", p.format, "Long form, Short", "dl-format")) +
       row("Persona", edin("props.persona", p.persona, "Who it is for", "dl-persona")) +
       row("Priority", edin("props.priority", p.priority, "High, Medium, Low", "dl-priority")) +
+      row("Viral audit", edin("props.viral", p.viral, "Go, Reshape, Park", "dl-viral")) +
       (v ? row("Live", '<a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + num(v.views) + ' views on YouTube</a>') : "") +
       '</tbody></table>';
 
     h += '<h4>Why this one</h4>' + ed("why", c.why, "para", "Why is this worth a night?");
+    if (p.viral || c.viralWhy) h += '<h4>Viral audit</h4>' + ed("viralWhy", c.viralWhy, "para", "Why it will or won't travel");
     h += '<h4>Note</h4>' + ed("note", c.note, "para", "Anything still missing or worth flagging");
 
     h += '<h4>The loop</h4><div class="loop">' +

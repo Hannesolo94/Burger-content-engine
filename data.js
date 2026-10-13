@@ -1,5 +1,5 @@
 window.ENGINE = {
- "updated": "11 September 2026",
+ "updated": "13 October 2026",
  "channel": {
   "name": "@HanneBurger",
   "subs": 116,
@@ -66,12 +66,197 @@ window.ENGINE = {
  },
  "cards": [
   {
-   "id": "neongutzyt",
+   "id": "soloq",
+   "col": "capture",
+   "kind": "capture",
+   "night": "Next capture",
+   "session": "Ranked solo queue, normal play",
+   "title": "Why do I lose every solo queue game?",
+   "why": "The next video. Solo queue pain is the most proven FINALS shape (125x, 111x), and CMbark's first video 'Why I Suck at The Finals' did about 40x his 73 subs in 6 days (13 Oct). The noob diagnosing himself is the honest version nobody else can make.",
+   "clips": [
+    "Every death, auto-logged by the death scanner (red respawn bar)",
+    "Fights you took at half health",
+    "Teammates you didn't help",
+    "The round you lost by one cashout",
+    "The one fight you won by doing the fix"
+   ],
+   "titles": [
+    "Why do I lose every solo queue game? | THE FINALS",
+    "I counted every death. Here's why I lose | THE FINALS"
+   ],
+   "thumb": "Red background, giant white 'I LOSE' or a death count like '147 DEATHS', character cutout over the letters.",
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Confession title",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "High",
+    "viral": "Go"
+   },
+   "learn": {
+    "hypothesis": "If the title confesses (why I lose) instead of advising, then click-through and comments will beat the Healer video, because every player feels it and experts love to correct a noob.",
+    "measure": "Views in 7 days against Dagger (360) and comment count.",
+    "result": "",
+    "insight": ""
+   },
+   "channel": "hanneburger",
+   "date": "",
+   "viralWhy": "Solo queue pain, 4 outliers, plus CMbark 40x on the same confession angle. Comes out of normal play."
+  },
+  {
+   "id": "quitrl",
+   "col": "edit",
+   "kind": "edit",
+   "night": "Scripted, no capture",
+   "session": "Old Rocket League clips + FINALS footage",
+   "title": "I quit Rocket League for THE FINALS",
+   "why": "The switcher shape has the biggest outlier in the library: 'I Quit COD for The Finals' (TDAWG, 213 subs, 161K, 756x). It is your real story since 11 Sep, and it reuses your old Rocket League uploads.",
+   "clips": [
+    "Your best old Rocket League moments",
+    "First FINALS match ever",
+    "The 60 hour mark",
+    "A win that made it click"
+   ],
+   "titles": [
+    "I quit Rocket League for THE FINALS | THE FINALS",
+    "Why I quit Rocket League for THE FINALS"
+   ],
+   "thumb": "Split: Rocket League car on the left, your FINALS character on the right, one word.",
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Switcher story",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "High",
+    "viral": "Go"
+   },
+   "learn": {
+    "hypothesis": "If we tell the switch as a story, then strangers who play either game will click, because switching is a feeling both audiences share.",
+    "measure": "Views in 7 days against Dagger (360).",
+    "result": "",
+    "insight": ""
+   },
+   "channel": "hanneburger",
+   "date": "",
+   "viralWhy": "Switcher shape: 756x outlier plus 123x and 16x. A story, so it can be scripted and edited without a capture night."
+  },
+  {
+   "id": "bottom1",
    "col": "ready",
-   "night": "Fri 18 Sep",
-   "session": "Edited, 11:45",
+   "night": "Fri 16 Oct",
+   "session": "Finished, upload only",
+   "title": "What bottom 1% gameplay looks like",
+   "why": "Finished on 11 Oct (FINAL v2, 4:00, on the main PC). Thumbnails A/B/C, titles and description are in Figma. Upload 23:00 to 01:00 SAST for the US evening.",
+   "clips": [
+    "Whiffed magazines",
+    "Falling off the map",
+    "Getting third partied",
+    "Panic drops"
+   ],
+   "titles": [
+    "What bottom 1% gameplay actually looks like | THE FINALS",
+    "This is what 60 hours looks like | THE FINALS"
+   ],
+   "thumb": "A death screen, huge, white border.",
+   "research": {
+    "strip": "img/bottom_1pct_-_noob.jpg",
+    "rows": [
+     {
+      "t": "How To Improve Your Aim Stupidly Fast",
+      "ch": "Bacon",
+      "subs": 2640,
+      "views": 297557,
+      "mult": 112.7,
+      "dur": "13:45",
+      "date": "20251216",
+      "url": "https://youtu.be/IGiEa3W7Ns4"
+     },
+     {
+      "t": "Being good at the finals is 80% basics",
+      "ch": "Ronin!",
+      "subs": 58100,
+      "views": 178380,
+      "mult": 3.1,
+      "dur": "10:14",
+      "date": "20260122",
+      "url": "https://youtu.be/KNbx1fzHpCI"
+     },
+     {
+      "t": "The Finals Is The Best Game You Don't Play",
+      "ch": "Couch Co-Op",
+      "subs": 28700,
+      "views": 80286,
+      "mult": 2.8,
+      "dur": "18:17",
+      "date": "20251023",
+      "url": "https://youtu.be/XRvpM4mL7qs"
+     },
+     {
+      "t": "Smurfing is RUINING The Finals",
+      "ch": "HazedNConfused",
+      "subs": 27100,
+      "views": 63448,
+      "mult": 2.3,
+      "dur": "15:09",
+      "date": "20260224",
+      "url": "https://youtu.be/mrOZN4oFeFU"
+     }
+    ]
+   },
+   "props": {
+    "lane": "Identity",
+    "variable": "Validation angle",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "High",
+    "viral": "Go"
+   },
+   "channel": "hanneburger",
+   "date": "2026-10-16",
+   "kind": "upload",
+   "viralWhy": "What X looks like: 4+ FINALS outliers (NateFPS 38x, springhour 19x). Finished, upload Fri."
+  },
+  {
+   "id": "creatorloadout",
+   "col": "ideas",
+   "kind": "backlog",
+   "night": "Unscheduled",
+   "session": "Same session as the creator's class",
+   "title": "Creator loadout series: the next creator",
+   "why": "The only format proven on this channel: Sanguine 980 views, NeonGutz 199. The bigger creator name pulled five times the views, so pick the next creator by size.",
+   "clips": [],
+   "titles": [
+    "Can a 60+ Hr NOOB play <creator>'s Loadout? | THE FINALS"
+   ],
+   "thumb": "Hand of cards, the Sanguine look.",
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Creator size",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "Medium",
+    "viral": "Go"
+   },
+   "learn": {
+    "hypothesis": "If the creator is bigger, then the click is bigger, because their audience searches their name.",
+    "measure": "Views in 7 days against Sanguine (980).",
+    "result": "",
+    "insight": ""
+   },
+   "channel": "hanneburger",
+   "date": "",
+   "viralWhy": "Proven on your own channel twice."
+  },
+  {
+   "id": "neongutzyt",
+   "col": "published",
+   "night": "18 Sep",
+   "session": "199 views (13 Oct)",
    "title": "NEONGUTZYT light build",
-   "why": "The only format that has broken 1k on this channel. A named creator's loadout played by someone who admits he cannot use it. Own data beats everyone else's, so this goes first.",
+   "why": "Second creator loadout video, edited heavier on purpose to test whether effects help retention.",
    "clips": [
     "The first fumbles with a kit you do not know",
     "The moment it starts clicking",
@@ -133,13 +318,13 @@ window.ENGINE = {
     "variable": "Creative loadout",
     "format": "Long form",
     "persona": "Casual player",
-    "priority": "High"
+    "priority": "Done"
    },
    "learn": {
     "hypothesis": "If we repeat the named creator loadout format with NEONGUTZYT, we expect a result closer to the Sanguine video than to the channel baseline, because the format not the creator is what carried it. Second variable, added in the edit: effects placed on deaths and jokes from 3:07 on, a spin transition at 3:07, a crying emoji at 5:07, I HATE BOWS at 6:35, a health bar zoom at 7:55 and a kill feed zoom at 10:35. If the effects hold attention, the retention curve should flatten after 3:00 compared with before it.",
     "measure": "Views: beat 300 in 14 days, click through rate from Home as the tiebreak. Retention, the real test of the edit: compare the slope from 1:30 to 3:00, which has almost no effects, with 3:00 to 7:00, and look for bumps at the five effect timestamps. The quietest stretch is 6:30 to 7:30. Benchmarks: BFR Titan held 1:50 at 17.2 percent viewed, which is about 2:00 on an 11:45 video. The Sanguine original kept 57 percent at 0:30, and the cold open should beat that. Subscribers from this video should beat the 0 to 1 of earlier uploads if the spoken ask works. This upload changes several things at once, so read the edit from the shape of the curve, not from the average alone.",
-    "result": "",
-    "insight": ""
+    "result": "199 views by 13 Oct. About a fifth of Sanguine's 980 on the same format.",
+    "insight": "The format repeats, but the creator's name carries the click. Sanguine is the bigger name. Pick the next creator by size."
    },
    "thumbs": [
     {
@@ -163,16 +348,16 @@ window.ENGINE = {
    ],
    "channel": "hanneburger",
    "date": "2026-09-18",
-   "kind": "upload",
+   "kind": "published",
    "note": "Final edit done 14 Sep. Thumbnails Friday, then publish. Structure: a cold open on the Nullifier cashout deny with his teammates down and a spoken promise to show how they held it, the title restated at 0:22 with a NeonGutz channel card, a spoken subscribe ask at 1:10, then the full Monaco win, paid off at 11:17 with We got it."
   },
   {
    "id": "dagger",
-   "col": "capture",
-   "night": "Sat 12 Sep",
-   "session": "Light, same session family as night 1",
+   "col": "published",
+   "night": "25 Sep",
+   "session": "360 views (13 Oct)",
    "title": "Dagger",
-   "why": "The most validated single topic in the whole pull. One 1,180 subscriber channel has five dagger videos and every one beat its channel, from 6.5x to 20.8x. It also has a premise built in, because it is the weapon people complain about dying to.",
+   "why": "One weapon with a premise, the melee opener.",
    "clips": [
     "The first backstab",
     "Getting melted trying to close distance",
@@ -234,13 +419,13 @@ window.ENGINE = {
     "variable": "Weapon I hate",
     "format": "Long form",
     "persona": "Casual player",
-    "priority": "High"
+    "priority": "Done"
    },
    "learn": {
     "hypothesis": "If a noob plays the weapon the community complains about, we expect a higher click through than a build video, because the premise carries it instead of authority.",
     "measure": "Click through rate above 4% from Home in 14 days, against 3.3% on the Sanguine video.",
-    "result": "",
-    "insight": ""
+    "result": "360 views by 13 Oct, the best of the recent run. Title test settled on THE BACK STABBER DAGGER.",
+    "insight": "One weapon works when it has an angle. Melee iterations would be a repeat, not a new premise."
    },
    "thumbs": [
     {
@@ -263,16 +448,16 @@ window.ENGINE = {
     }
    ],
    "channel": "hanneburger",
-   "date": "2026-09-12",
-   "kind": "capture"
+   "date": "2026-09-25",
+   "kind": "published"
   },
   {
    "id": "bow",
-   "col": "capture",
-   "night": "Sun 13 Sep",
-   "session": "Light",
+   "col": "published",
+   "night": "2 Oct",
+   "session": "72 views (13 Oct)",
    "title": "The bow",
-   "why": "He is playing the bow. A 234 subscriber channel got 29.1x and 28.7x on two bow videos, the smallest channel and the biggest multiplier in the whole pull, so the bow audience is underserved. It is also the weapon everyone in the lobby complains about, which is the part that makes picking it up worth watching. First game of the week was 11 kills and no win, then he took a full Cash Out with it on Sep 24, so the arc runs learning it to winning with it.",
+   "why": "His own bow arc: 11 kills no dub, then the Cash Out win.",
    "clips": [
     "The first kills, and how early they come",
     "The shots missed by a mile while still learning it",
@@ -338,26 +523,26 @@ window.ENGINE = {
     "variable": "Angle",
     "format": "Long form",
     "persona": "Medium main",
-    "priority": "High"
+    "priority": "Done"
    },
    "learn": {
     "hypothesis": "If we make the bow video from playing it rather than being killed by it, then it will beat the channel's typical 100 to 200 views, because the bow audience is underserved and the weapon everyone complains about is the one they want to watch someone try.",
     "measure": "Views against the channel's typical 100 to 200 on a long form upload.",
-    "result": "",
-    "insight": ""
+    "result": "72 views by 13 Oct, A/B test still running. Title is caps hype: THE BOW BUFF GOT THIS NOOB GOING YEAH BABY!",
+    "insight": "Caps hype titles keep losing (caps lost 56.2% to 8% in his own test). Go back to a question plus a named specific."
    },
    "channel": "hanneburger",
-   "date": "2026-09-13",
-   "kind": "capture",
+   "date": "2026-10-02",
+   "kind": "published",
    "note": "24 Sep, his ruling: the bow video is him playing it. The card was written the other way, being killed by it, and that came from my Sep 11 capture week plan, where bow night kept him on Medium. That was my call and I never put it to him. Rewritten to his angle. Session moved to Light. His own data so far: 11 kills first game, no win yet."
   },
   {
    "id": "defibs",
-   "col": "capture",
-   "night": "Mon 14 Sep",
-   "session": "Medium",
-   "title": "Stop using defibs",
-   "why": "Loss aversion titles were the three best performers on the old channel. A 1,100 subscriber channel did 15.3x with STOP being a bad Medium, do THIS with the defib, which validates the topic and the title mechanic in one video.",
+   "col": "published",
+   "night": "9 Oct",
+   "session": "37 views (13 Oct)",
+   "title": "STOP being a bad Healer (defibs)",
+   "why": "Published as STOP being a bad Healer! Do THIS with the heal beam in The Finals Season 11.",
    "clips": [
     "A defib that instantly re-kills",
     "A defib that costs the fight",
@@ -419,13 +604,13 @@ window.ENGINE = {
     "variable": "Loss aversion title",
     "format": "Long form",
     "persona": "Medium main",
-    "priority": "High"
+    "priority": "Done"
    },
    "learn": {
     "hypothesis": "If we carry the STOP title format from Rocket League into FINALS, we expect the same loss aversion lift, because the mechanism is the viewer's fear of doing it wrong, not the game.",
     "measure": "Click through rate above the channel's 3.3% average, and higher than the same week's non STOP upload.",
-    "result": "",
-    "insight": ""
+    "result": "37 views in 4 days, A/B test still running.",
+    "insight": "Advice titles (STOP doing X) are the weakest shape for a noob channel: the viewer has no reason to take advice from a noob. Confess, don't lecture."
    },
    "thumbs": [
     {
@@ -448,82 +633,8 @@ window.ENGINE = {
     }
    ],
    "channel": "hanneburger",
-   "date": "2026-09-14",
-   "kind": "capture"
-  },
-  {
-   "id": "bottom1",
-   "col": "capture",
-   "night": "Tue 15 Sep",
-   "session": "Any, the free night",
-   "title": "What bottom 1% gameplay looks like",
-   "why": "Validate first, solve second. Zero capture cost, no loadout rules, and every bad moment is the asset. This is deliberately the easy night of the week.",
-   "clips": [
-    "Whiffed magazines",
-    "Falling off the map",
-    "Getting third partied",
-    "Panic drops"
-   ],
-   "titles": [
-    "What bottom 1% gameplay actually looks like | THE FINALS",
-    "This is what 60 hours looks like | THE FINALS"
-   ],
-   "thumb": "A death screen, huge, white border.",
-   "research": {
-    "strip": "img/bottom_1pct_-_noob.jpg",
-    "rows": [
-     {
-      "t": "How To Improve Your Aim Stupidly Fast",
-      "ch": "Bacon",
-      "subs": 2640,
-      "views": 297557,
-      "mult": 112.7,
-      "dur": "13:45",
-      "date": "20251216",
-      "url": "https://youtu.be/IGiEa3W7Ns4"
-     },
-     {
-      "t": "Being good at the finals is 80% basics",
-      "ch": "Ronin!",
-      "subs": 58100,
-      "views": 178380,
-      "mult": 3.1,
-      "dur": "10:14",
-      "date": "20260122",
-      "url": "https://youtu.be/KNbx1fzHpCI"
-     },
-     {
-      "t": "The Finals Is The Best Game You Don't Play",
-      "ch": "Couch Co-Op",
-      "subs": 28700,
-      "views": 80286,
-      "mult": 2.8,
-      "dur": "18:17",
-      "date": "20251023",
-      "url": "https://youtu.be/XRvpM4mL7qs"
-     },
-     {
-      "t": "Smurfing is RUINING The Finals",
-      "ch": "HazedNConfused",
-      "subs": 27100,
-      "views": 63448,
-      "mult": 2.3,
-      "dur": "15:09",
-      "date": "20260224",
-      "url": "https://youtu.be/mrOZN4oFeFU"
-     }
-    ]
-   },
-   "props": {
-    "lane": "Identity",
-    "variable": "Validation angle",
-    "format": "Long form",
-    "persona": "Casual player",
-    "priority": "Medium"
-   },
-   "channel": "hanneburger",
-   "date": "2026-09-15",
-   "kind": "capture"
+   "date": "2026-10-09",
+   "kind": "published"
   },
   {
    "id": "gadget",
@@ -592,15 +703,17 @@ window.ENGINE = {
     "variable": "Premise",
     "format": "Long form",
     "persona": "Casual player",
-    "priority": "Medium"
+    "priority": "Medium",
+    "viral": "Reshape"
    },
    "channel": "hanneburger",
    "date": "2026-09-16",
-   "kind": "capture"
+   "kind": "capture",
+   "viralWhy": "Plain gadget video scores 14. Only works as 'the gadget nobody uses carried a noob'."
   },
   {
    "id": "turret",
-   "col": "capture",
+   "col": "ideas",
    "night": "Thu 17 Sep",
    "session": "Medium",
    "title": "Medium turret build",
@@ -664,15 +777,17 @@ window.ENGINE = {
     "variable": "Build",
     "format": "Long form",
     "persona": "Medium main",
-    "priority": "Medium"
+    "priority": "Medium",
+    "viral": "Park"
    },
    "channel": "hanneburger",
    "date": "2026-09-17",
-   "kind": "capture"
+   "kind": "backlog",
+   "viralWhy": "Build lane. A better player always wins it. Scorer 11."
   },
   {
    "id": "missshots",
-   "col": "edit",
+   "col": "ideas",
    "night": "No capture needed",
    "session": "My edit",
    "title": "Miss your shots montage",
@@ -691,11 +806,13 @@ window.ENGINE = {
     "variable": "Format",
     "format": "Montage",
     "persona": "Casual player",
-    "priority": "Medium"
+    "priority": "Medium",
+    "viral": "Park"
    },
    "channel": "hanneburger",
    "date": "2026-09-26",
-   "kind": "upload"
+   "kind": "backlog",
+   "viralWhy": "A Short, not a main upload."
   },
   {
    "id": "mediumparody",
@@ -763,11 +880,13 @@ window.ENGINE = {
     "variable": "Format",
     "format": "Parody guide",
     "persona": "Casual player",
-    "priority": "High"
+    "priority": "High",
+    "viral": "Reshape"
    },
    "channel": "hanneburger",
    "date": "2026-10-03",
-   "kind": "upload"
+   "kind": "upload",
+   "viralWhy": "Retitle 'A noob attempts to explain Medium'. The shape has one outlier (160x), so it is unproven."
   },
   {
    "id": "statnobody",
@@ -792,7 +911,8 @@ window.ENGINE = {
     "variable": "Objective score",
     "format": "Long form",
     "persona": "Casual player",
-    "priority": "High"
+    "priority": "High",
+    "viral": "Park"
    },
    "learn": {
     "hypothesis": "If the video argues one counterintuitive number instead of showing highlights, we expect retention past 2:00 to beat the channel's cliff, because there is a question the viewer wants answered.",
@@ -822,7 +942,8 @@ window.ENGINE = {
    ],
    "channel": "hanneburger",
    "date": "2026-09-19",
-   "kind": "upload"
+   "kind": "upload",
+   "viralWhy": "Scorer 12/21. Finished, so ship it as filler when a week needs one, but make no more like it."
   },
   {
    "id": "akm",
@@ -888,11 +1009,13 @@ window.ENGINE = {
     "variable": "Build",
     "format": "Long form",
     "persona": "Medium main",
-    "priority": "Low"
+    "priority": "Low",
+    "viral": "Park"
    },
    "channel": "hanneburger",
    "date": null,
-   "kind": "backlog"
+   "kind": "backlog",
+   "viralWhy": "Build lane."
   },
   {
    "id": "ks23",
@@ -957,11 +1080,13 @@ window.ENGINE = {
     "variable": "Build",
     "format": "Long form",
     "persona": "Medium main",
-    "priority": "Low"
+    "priority": "Low",
+    "viral": "Park"
    },
    "channel": "hanneburger",
    "date": null,
-   "kind": "backlog"
+   "kind": "backlog",
+   "viralWhy": "Build lane."
   },
   {
    "id": "melee",
@@ -1025,11 +1150,13 @@ window.ENGINE = {
     "variable": "Weapon I hate",
     "format": "Series",
     "persona": "Casual player",
-    "priority": "Low"
+    "priority": "Low",
+    "viral": "Park"
    },
    "channel": "hanneburger",
    "date": null,
-   "kind": "backlog"
+   "kind": "backlog",
+   "viralWhy": "Dagger did 360, but a second melee video is a repeat, not a new premise."
   },
   {
    "id": "hatelight",
@@ -1093,11 +1220,13 @@ window.ENGINE = {
     "variable": "Player I hate",
     "format": "Long form",
     "persona": "Medium main",
-    "priority": "Low"
+    "priority": "Low",
+    "viral": "Reshape"
    },
    "channel": "hanneburger",
    "date": null,
-   "kind": "backlog"
+   "kind": "backlog",
+   "viralWhy": "Only as identity: 'what your loadout says about you' (13x)."
   },
   {
    "id": "cashout",
@@ -1122,11 +1251,13 @@ window.ENGINE = {
     "variable": "Objective play",
     "format": "Long form",
     "persona": "Medium main",
-    "priority": "Medium"
+    "priority": "Medium",
+    "viral": "Park"
    },
    "channel": "hanneburger",
    "date": null,
-   "kind": "backlog"
+   "kind": "backlog",
+   "viralWhy": "Scorer 10."
   },
   {
    "id": "pub_sanguine",
@@ -1291,7 +1422,8 @@ window.ENGINE = {
     "variable": "Angle",
     "format": "Long form",
     "persona": "",
-    "priority": ""
+    "priority": "",
+    "viral": "Reshape"
    },
    "channel": "hanneburger",
    "date": "",
@@ -1302,7 +1434,40 @@ window.ENGINE = {
     "result": "",
     "insight": ""
    },
-   "note": "Needs a competitor pull before it gets scheduled, no research rows yet. Class session not set, as I do not know which class the M240 sits on."
+   "note": "Needs a competitor pull before it gets scheduled, no research rows yet. Class session not set, as I do not know which class the M240 sits on.",
+   "viralWhy": "One weapon needs an angle: the worst, nobody plays it, got me reported."
+  },
+  {
+   "id": "healer0",
+   "col": "ideas",
+   "kind": "backlog",
+   "night": "Unscheduled",
+   "session": "One ranked tournament, Medium",
+   "title": "Can a noob win a tournament with 0 kills?",
+   "why": "Constraint challenge (BrainZ 'Emerald 1 with 0 eliminations' 86x). Only defib and heal beam. Must be titled as a challenge, not advice: the advice version did 37 views.",
+   "clips": [],
+   "titles": [
+    "Can a noob win a tournament with 0 kills? | THE FINALS"
+   ],
+   "thumb": "",
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Constraint",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "Low",
+    "viral": "Reshape"
+   },
+   "learn": {
+    "hypothesis": "",
+    "measure": "",
+    "result": "",
+    "insight": ""
+   },
+   "channel": "hanneburger",
+   "date": "",
+   "viralWhy": "Strong shape, but a grind (joy flag) and it sits right after the Healer video. Try one tournament before committing."
   }
  ],
  "metrics": [
