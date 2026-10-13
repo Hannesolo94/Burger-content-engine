@@ -639,7 +639,7 @@ window.ENGINE = {
   {
    "id": "gadget",
    "col": "capture",
-   "night": "Wed 16 Sep",
+   "night": "Unscheduled",
    "session": "Medium",
    "title": "The gadget nobody uses",
    "why": "Lefty1A did 36,000 views on 7,840 subscribers with one useless gadget defended with affection. The premise does the work, not the skill, which is why it transfers down to 116 subscribers. You pick the gadget, it should be the one you have never seen in a lobby.",
@@ -707,14 +707,14 @@ window.ENGINE = {
     "viral": "Reshape"
    },
    "channel": "hanneburger",
-   "date": "2026-09-16",
-   "kind": "capture",
+   "date": "",
+   "kind": "backlog",
    "viralWhy": "Plain gadget video scores 14. Only works as 'the gadget nobody uses carried a noob'."
   },
   {
    "id": "turret",
    "col": "ideas",
-   "night": "Thu 17 Sep",
+   "night": "Unscheduled",
    "session": "Medium",
    "title": "Medium turret build",
    "why": "Last of the week because build videos are the crowded lane where big channels win on authority. This one has to ride on identity rather than expertise.",
@@ -777,18 +777,18 @@ window.ENGINE = {
     "variable": "Build",
     "format": "Long form",
     "persona": "Medium main",
-    "priority": "Medium",
+    "priority": "Low",
     "viral": "Park"
    },
    "channel": "hanneburger",
-   "date": "2026-09-17",
+   "date": "",
    "kind": "backlog",
    "viralWhy": "Build lane. A better player always wins it. Scorer 11."
   },
   {
    "id": "missshots",
    "col": "ideas",
-   "night": "No capture needed",
+   "night": "Unscheduled",
    "session": "My edit",
    "title": "Miss your shots montage",
    "why": "Sound design led comedy montage from footage already on the drive. The turn at the end stops it being only a joke.",
@@ -806,18 +806,18 @@ window.ENGINE = {
     "variable": "Format",
     "format": "Montage",
     "persona": "Casual player",
-    "priority": "Medium",
+    "priority": "Low",
     "viral": "Park"
    },
    "channel": "hanneburger",
-   "date": "2026-09-26",
+   "date": "",
    "kind": "backlog",
    "viralWhy": "A Short, not a main upload."
   },
   {
    "id": "mediumparody",
    "col": "edit",
-   "night": "No capture needed",
+   "night": "Unscheduled",
    "session": "My edit",
    "title": "Medium guide, the parody",
    "why": "Parody of the tryhard guide format that turns honest in chapter four. Everything it needs is already recorded.",
@@ -884,14 +884,14 @@ window.ENGINE = {
     "viral": "Reshape"
    },
    "channel": "hanneburger",
-   "date": "2026-10-03",
-   "kind": "upload",
+   "date": "",
+   "kind": "backlog",
    "viralWhy": "Retitle 'A noob attempts to explain Medium'. The shape has one outlier (160x), so it is unproven."
   },
   {
    "id": "statnobody",
    "col": "ready",
-   "night": "Waiting on your voiceover",
+   "night": "Unscheduled",
    "session": "Cut at 6:46",
    "title": "The stat nobody looks at",
    "why": "Finished cut, eight long take scenes. 13 eliminations came third with objective score 250, 3 eliminations and 6 deaths won with objective 2,500. Script is written and timed to the cut.",
@@ -911,7 +911,7 @@ window.ENGINE = {
     "variable": "Objective score",
     "format": "Long form",
     "persona": "Casual player",
-    "priority": "High",
+    "priority": "Low",
     "viral": "Park"
    },
    "learn": {
@@ -941,8 +941,8 @@ window.ENGINE = {
     }
    ],
    "channel": "hanneburger",
-   "date": "2026-09-19",
-   "kind": "upload",
+   "date": "",
+   "kind": "backlog",
    "viralWhy": "Scorer 12/21. Finished, so ship it as filler when a week needs one, but make no more like it."
   },
   {
@@ -1013,7 +1013,7 @@ window.ENGINE = {
     "viral": "Park"
    },
    "channel": "hanneburger",
-   "date": null,
+   "date": "",
    "kind": "backlog",
    "viralWhy": "Build lane."
   },
@@ -1084,14 +1084,14 @@ window.ENGINE = {
     "viral": "Park"
    },
    "channel": "hanneburger",
-   "date": null,
+   "date": "",
    "kind": "backlog",
    "viralWhy": "Build lane."
   },
   {
    "id": "melee",
    "col": "ideas",
-   "night": "Held",
+   "night": "Unscheduled",
    "session": "Melee",
    "title": "Melee iterations: single blade, hammer, dual blades",
    "why": "Iterations, not new ideas. Only worth shooting if the dagger lands. Sledgehammer did 33.4x on a 295 subscriber channel, so the lane is real.",
@@ -1154,14 +1154,14 @@ window.ENGINE = {
     "viral": "Park"
    },
    "channel": "hanneburger",
-   "date": null,
+   "date": "",
    "kind": "backlog",
    "viralWhy": "Dagger did 360, but a second melee video is a repeat, not a new premise."
   },
   {
    "id": "hatelight",
    "col": "ideas",
-   "night": "Held",
+   "night": "Unscheduled",
    "session": "Light",
    "title": "The player I hate: light build",
    "why": "Same format as the dagger with a different noun, so it is an iteration. Hold until the dagger reads.",
@@ -1224,14 +1224,14 @@ window.ENGINE = {
     "viral": "Reshape"
    },
    "channel": "hanneburger",
-   "date": null,
+   "date": "",
    "kind": "backlog",
    "viralWhy": "Only as identity: 'what your loadout says about you' (13x)."
   },
   {
    "id": "cashout",
    "col": "ideas",
-   "night": "Evergreen",
+   "night": "Unscheduled",
    "session": "Medium",
    "title": "Locking down the cashout",
    "why": "From the tracker. Evergreen, capture happens inside normal play, no timing pressure.",
@@ -1251,11 +1251,11 @@ window.ENGINE = {
     "variable": "Objective play",
     "format": "Long form",
     "persona": "Medium main",
-    "priority": "Medium",
+    "priority": "Low",
     "viral": "Park"
    },
    "channel": "hanneburger",
-   "date": null,
+   "date": "",
    "kind": "backlog",
    "viralWhy": "Scorer 10."
   },
