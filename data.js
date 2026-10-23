@@ -1,5 +1,5 @@
 window.ENGINE = {
- "updated": "13 October 2026",
+ "updated": "23 October 2026",
  "channel": {
   "name": "@HanneBurger",
   "subs": 116,
@@ -67,10 +67,10 @@ window.ENGINE = {
  "cards": [
   {
    "id": "soloq",
-   "col": "capture",
-   "kind": "capture",
-   "night": "Next capture",
-   "session": "Ranked solo queue, normal play",
+   "col": "published",
+   "kind": "published",
+   "night": "23 Oct",
+   "session": "Published 23 Oct, youtu.be/c_NHxRi6-Gc, 3-way title+thumb test; Shorts #41-44 link to it",
    "title": "Why do I lose every solo queue game?",
    "why": "The next video. Solo queue pain is the most proven FINALS shape (125x, 111x), and CMbark's first video 'Why I Suck at The Finals' did about 40x his 73 subs in 6 days (13 Oct). The noob diagnosing himself is the honest version nobody else can make.",
    "clips": [
@@ -101,8 +101,89 @@ window.ENGINE = {
     "insight": ""
    },
    "channel": "hanneburger",
-   "date": "",
+   "date": "2026-10-23",
    "viralWhy": "Solo queue pain, 4 outliers, plus CMbark 40x on the same confession angle. Comes out of normal play."
+  },
+  {
+   "id": "spotlight",
+   "col": "edit",
+   "kind": "edit",
+   "night": "Recorded 21 Oct",
+   "session": "Spotlight, two runs, bow",
+   "title": "I Took Randoms to the Spotlight Final",
+   "channel": "hanneburger",
+   "date": "",
+   "why": "Spotlight run 2 went round 1 win, 2nd in knockout 2, then lost the sandstorm final by one cashout. Run 1 was 0 kills out in round 1. Cut is built with emotes placed; waiting on your VO (planned Fri 23 / Sat 24 Oct).",
+   "clips": [
+    "Run 1 Seoul: 0 kills, knocked out round 1",
+    "Run 2 Vegas: 5 elims in a row, qualified 1st",
+    "Knockout 2: scraped 2nd",
+    "Final: sandstorm, covering the heavy at the cashout",
+    "2nd place, MVP was not you",
+    "ElowzXD rival: kill, his replay, kill"
+   ],
+   "titles": [
+    "I Took Randoms to the Spotlight Final | THE FINALS",
+    "0 Kills to the Final in THE FINALS' New Mode",
+    "Can a Bow Main Win Spotlight? | THE FINALS"
+   ],
+   "thumb": "You on the bow in the sandstorm, \"2ND\" in red (combo 1, approved 22 Oct).",
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "New mode",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "High",
+    "viral": "Go"
+   },
+   "learn": {
+    "hypothesis": "If the title names the new Spotlight mode and the near-miss final, then views in 7 days will beat Bottom 1% (200), because a new mode is searched and an almost-win keeps people to the end.",
+    "measure": "Views in 7 days against Bottom 1% and Solo Queue.",
+    "result": "",
+    "insight": ""
+   },
+   "viralWhy": "New mode + near-miss final. Plan: projects/spotlight_oct21/PLAN.md + EDIT_PLAN.md, VO guide VO_GUIDE.md. 7 Shorts cut (45-51), waiting on VO."
+  },
+  {
+   "id": "dagger2",
+   "col": "capture",
+   "kind": "capture",
+   "night": "Capturing",
+   "session": "Light dagger + mimic device, 3 of ~6 games in",
+   "title": "Dagger Demon (dagger round 2, scripted)",
+   "channel": "hanneburger",
+   "date": "",
+   "why": "Melee is the channel lane: the first Dagger video is the best long-form for watch time and the sword/dojo Shorts are the best Shorts. Round 2 is funny and scripted, with the mimic device chair moment and a win on Sys$Horizon.",
+   "clips": [
+    "Stabs from behind + failed front stabs",
+    "Deaths to other melee (sword, dagger)",
+    "Another mimic device try",
+    "A ranked or tournament game for stakes",
+    "Range: dagger inspect + 2-3 emotes"
+   ],
+   "titles": [
+    "I became a chair and... | THE FINALS",
+    "Am I actually a dagger demon? | THE FINALS",
+    "Giving players back shots | THE FINALS"
+   ],
+   "thumb": "Locked 23 Oct: chair \"THAT AIN'T ME\" (red glow, FINALS bubble, [WABP] Burger) / DAGGER DEMON ?? KILLS / GIVING PLAYERS BACK SHOTS + UwU. Files in projects/dagger_oct23/.",
+   "research": null,
+   "props": {
+    "lane": "Identity",
+    "variable": "Humour + scripted",
+    "format": "Long form",
+    "persona": "Casual player",
+    "priority": "High",
+    "viral": "Go"
+   },
+   "learn": {
+    "hypothesis": "If the dagger video is scripted for laughs around one thread (am I a dagger demon) and a stab counter, then retention will beat the first Dagger video, because melee is what this channel's viewers watch longest.",
+    "measure": "Average view duration and views in 7 days against Dagger (370).",
+    "result": "",
+    "insight": ""
+   },
+   "viralWhy": "Plan: D:/VideoAgent/plans/finals_dagger2_plan.md. Waiting on the question line pick."
   },
   {
    "id": "quitrl",
@@ -144,9 +225,9 @@ window.ENGINE = {
   },
   {
    "id": "bottom1",
-   "col": "ready",
+   "col": "published",
    "night": "Fri 16 Oct",
-   "session": "Finished, upload only",
+   "session": "Published 16 Oct, youtu.be/JjkVO8EmtTY, 3-way title+thumb test",
    "title": "What bottom 1% gameplay looks like",
    "why": "Finished on 11 Oct (FINAL v2, 4:00, on the main PC). Thumbnails A/B/C, titles and description are in Figma. Upload 23:00 to 01:00 SAST for the US evening.",
    "clips": [
