@@ -30,7 +30,7 @@
   var badge = function(txt, ok){
     var el = document.getElementById("stamp"); if (!el) return;
     var s = document.getElementById("sync-dot");
-    if (!s){ s = document.createElement("span"); s.id = "sync-dot"; s.style.marginLeft = "8px"; el.appendChild(s); }
+    if (!s){ s = document.createElement("span"); s.id = "sync-dot"; s.className = "mini"; s.style.marginLeft = "8px"; el.parentNode.insertBefore(s, el.nextSibling); }
     s.textContent = "· " + txt; s.style.color = ok ? "var(--lime)" : "var(--yellow)";
   };
 
