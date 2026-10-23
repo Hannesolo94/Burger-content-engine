@@ -55,6 +55,9 @@
   };
   window.addEventListener("online", flush);
 
+  /* installable app: service worker caches the shell for offline */
+  if ("serviceWorker" in navigator) window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
+
   function boot(){ if (window.__boot) window.__boot(); }
   if (!live){ document.addEventListener("DOMContentLoaded", function(){ boot(); badge(token ? "not connected yet" : "local only", false); }); return; }
 
@@ -75,6 +78,4 @@
     });
   });
 
-  /* installable app: service worker caches the shell for offline */
-  if ("serviceWorker" in navigator) window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
 })();
