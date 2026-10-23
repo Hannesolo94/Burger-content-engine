@@ -3145,5 +3145,98 @@ window.ENGINE = {
    "hint": "Three minutes or under. Won on the hold, not the thumbnail.",
    "n": 42
   }
+ ],
+ "scripts": [
+  {
+   "id": "spotlight",
+   "channel": "hanneburger",
+   "title": "I Took Randoms to the Spotlight Final",
+   "status": "Ready to record",
+   "length": "~4 min",
+   "sub": "The grey VO cards on the CapCut timeline sit at the same spots. If your sub clip shifted anything, follow the cards.",
+   "rows": [
+    [
+     "0:00-0:15",
+     "[say nothing, let the final play]"
+    ],
+    [
+     "0:15-0:20",
+     "**\"New mode, Spotlight. Can a bow main carry randoms to a win?\"**"
+    ],
+    [
+     "0:20-0:31",
+     "\"I'm not a kills guy. I'm a support guy.\""
+    ],
+    [
+     "0:31-0:33",
+     "[on 0 KILLS] \"Spoiler. First attempt went great.\""
+    ],
+    [
+     "0:33-0:46",
+     "\"So this is me. Trying to be useful.\""
+    ],
+    [
+     "0:46-0:50",
+     "[on THE GROUND] \"The ground is undefeated.\""
+    ],
+    [
+     "0:50-0:55",
+     "[knocked out] \"Round one. Out.\""
+    ],
+    [
+     "0:55-0:59",
+     "\"But my revives? Season best.\""
+    ],
+    [
+     "0:59-1:16",
+     "\"So obviously, we went again.\" [then your sub ask]"
+    ],
+    [
+     "1:16-1:47",
+     "\"Okay. We're actually good?\""
+    ],
+    [
+     "1:47-1:53",
+     "[on QUALIFIED 1ST] \"First. We're first.\""
+    ],
+    [
+     "2:01-2:04",
+     "[on his card] \"Meet ElowzXD. Remember the glasses.\""
+    ],
+    [
+     "2:04-2:19",
+     "[over his replay] \"And here's his side of it.\""
+    ],
+    [
+     "2:19-2:24",
+     "**\"Pause. We're in the final. Me. Zero kills guy.\"**"
+    ],
+    [
+     "2:24-2:30",
+     "\"First to fifty grand wins.\" [then stay quiet]"
+    ],
+    [
+     "2:41-3:02",
+     "[on HIM. AGAIN.] \"Oh. Him again.\""
+    ],
+    [
+     "3:02-3:14",
+     "[slower] \"So this is me. Waiting. Watching the clock.\""
+    ],
+    [
+     "3:14-3:44",
+     "[say nothing, let the ending play]"
+    ],
+    [
+     "3:44-3:48",
+     "**\"Can a bow main carry randoms to a Spotlight win?\"** [pause] **\"Almost.\"**"
+    ],
+    [
+     "3:52-3:57",
+     "[on the MVP screen] \"And the MVP... wasn't me.\" [hard cut]"
+    ]
+   ],
+   "note": "Source: projects/spotlight_oct21/VO_SHEET.md. Say it your way, never AI voice."
+  }
  ]
 };

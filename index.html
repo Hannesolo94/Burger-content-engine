@@ -318,6 +318,29 @@ h4 .ed,.edhead{font:inherit;color:inherit}
 .primary{background:var(--lime);color:#0A0D0B;border:0;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;
   text-transform:uppercase;padding:10px 16px;border-radius:9px;cursor:pointer;font-weight:500}
 .primary:hover{filter:brightness(1.1)}
+
+/* Oct 23 2026: Scripts view. VO sheets in Hannes's format: time | line, **bold** = nail it, [brackets] = instruction */
+.scr-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.scr-tabs button{background:var(--glass);border:1px solid var(--line);color:var(--dim);border-radius:999px;padding:8px 14px;
+  font-family:var(--f-body);font-size:13px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.scr-tabs button[aria-current="true"]{color:var(--text);border-color:var(--line2);background:var(--glass2);font-weight:600}
+.scr-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:6px}
+.scr-head h2{font-family:var(--f-display);font-size:30px;letter-spacing:.01em;line-height:1.05;margin:0;text-transform:uppercase}
+.scr-sub{color:var(--dim);font-size:14px;margin:6px 0 0;max-width:70ch}
+.scr-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--dim);margin:14px 0 18px}
+.scr-legend b{color:var(--text)}
+.scr-rows{display:flex;flex-direction:column;gap:8px}
+.scr-row{display:grid;grid-template-columns:118px 1fr;gap:16px;align-items:center;padding:14px 16px;border-radius:var(--rs);
+  background:var(--well);border:1px solid var(--line)}
+.scr-row.nail{border-color:var(--line2);box-shadow:inset 3px 0 0 var(--lime);background:var(--glass2)}
+.scr-row.quiet{opacity:.72}
+.scr-t{font-family:var(--f-mono);font-size:12px;color:var(--lime);letter-spacing:.04em;white-space:nowrap}
+.scr-row.nail .scr-t::after{content:"NAIL IT";display:block;margin-top:5px;font-size:9px;letter-spacing:.12em;color:var(--yellow)}
+.scr-l{font-size:17px;line-height:1.45;color:var(--text)}
+.scr-l b{font-weight:700;color:var(--text)}
+.scr-l u{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--faint);color:var(--dim);font-style:italic;font-size:14px}
+.scr-note{margin-top:16px;color:var(--dim);font-size:13px}
+@media (max-width:620px){.scr-row{grid-template-columns:1fr;gap:6px}.scr-head h2{font-size:24px}.scr-l{font-size:16px}}
 @media (max-width:980px){
   body{grid-template-columns:1fr}
   .rail{position:static;height:auto;margin:12px}
@@ -355,6 +378,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
     </section>
     <section class="view" id="view-metrics"></section>
     <section class="view" id="view-thumbs"></section>
+    <section class="view" id="view-scripts"></section>
     <section class="view" id="view-playbook"></section>
     <section class="view" id="view-roadmap"></section>
   </div>
@@ -409,6 +433,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
     {id:"board",    n:"Board",      t:"Project",          s:"Board, table and week are three views of the same cards. Drag a card to change its status."},
     {id:"metrics",  n:"Performance",t:"Performance",      s:"Only videos that are actually live. View counts are real, the deeper numbers appear once a Studio read is taken."},
     {id:"thumbs",   n:"Thumbnails", t:"Thumbnail engine", s:"Three title and thumbnail pairs per video, each a different pitch, against the channel's own rules."},
+    {id:"scripts",  n:"Scripts",    t:"Scripts",          s:"Voiceover sheets, one line per beat. Bold = nail it, underlined brackets = instructions, never said."},
     {id:"playbook", n:"Playbook",   t:"Playbook",         s:"The rules this channel runs on, taken from its own results."},
     {id:"roadmap",  n:"Roadmap",    t:"What this becomes",s:"What the engine does now, and what can be automated next."}
   ];
@@ -441,7 +466,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
       b.addEventListener("click", function(){
         if (b.dataset.ch === chan) return;
         chan = b.dataset.ch;
-        drawChans(); drawNav(); drawBoard(); drawTable(); drawPerf(); drawCal();
+        drawChans(); drawNav(); drawBoard(); drawTable(); drawPerf(); drawCal(); drawScripts();
         if (current !== "home") show(current);
       });
     });
@@ -450,7 +475,8 @@ h4 .ed,.edhead{font:inherit;color:inherit}
   function drawNav(){
     document.getElementById("nav").innerHTML = VIEWS.map(function(v, i){
       var c = {board:allCards().filter(mine).length, metrics:D.live.filter(mine).length,
-               thumbs:D.cards.filter(function(x){ return x.thumbs && mine(x); }).length}[v.id] || "";
+               thumbs:D.cards.filter(function(x){ return x.thumbs && mine(x); }).length,
+               scripts:(D.scripts || []).filter(mine).length}[v.id] || "";
       return '<button data-v="' + v.id + '" aria-current="' + (v.id === current) + '">' + esc(v.n) +
              (c ? '<span class="c">' + c + '</span>' : '') + '</button>'; }).join("");
     document.querySelectorAll("#nav button").forEach(function(b){ b.addEventListener("click", function(){ show(b.dataset.v); }); });
@@ -610,7 +636,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
     allCards().forEach(function(c){ if (edits[c.id]) merge(c, edits[c.id]); });
   }
   function redrawAll(){
-    drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); drawThumbs(); drawPlaybook();
+    drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); drawThumbs(); drawScripts(); drawPlaybook();
   }
   function saveEdit(id, path, val){
     var c = byId(id); if (!c) return null;
@@ -821,6 +847,33 @@ h4 .ed,.edhead{font:inherit;color:inherit}
             '<div class="ttl">' + esc(p.title) + '</div><p class="th">' + esc(p.thumb) + '</p></div>'; }).join("") + '</div>' +
         (c.research ? '<img class="strip" style="margin-top:10px" src="' + esc(c.research.strip) + '" alt="Competitor thumbnails" loading="lazy">' : '') +
         '</div>'; }).join("");
+  }
+
+  /* Oct 23 2026: Scripts view. Lines use **bold** (nail it) and [instruction] (underlined, never said). */
+  var scrCur = null;
+  function scrLine(t){
+    return esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\[([^\]]+)\]/g, "<u>[$1]</u>");
+  }
+  function drawScripts(){
+    var L = (D.scripts || []).filter(mine), el = document.getElementById("view-scripts");
+    if (!L.length){ el.innerHTML = '<div class="panel"><p>No scripts for this channel yet.</p></div>'; return; }
+    if (!scrCur || !L.some(function(x){ return x.id === scrCur; })) scrCur = L[0].id;
+    var S = L.filter(function(x){ return x.id === scrCur; })[0];
+    var tone = /record/i.test(S.status) ? "yellow" : (/done|recorded|live/i.test(S.status) ? "lime" : "red");
+    el.innerHTML =
+      '<div class="scr-tabs">' + L.map(function(x){
+        return '<button data-s="' + esc(x.id) + '" aria-current="' + (x.id === scrCur) + '">' + esc(x.title) + '</button>'; }).join("") + '</div>' +
+      '<div class="panel"><div class="scr-head"><div><h2>' + esc(S.title) + '</h2>' +
+        (S.sub ? '<p class="scr-sub">' + esc(S.sub) + '</p>' : '') + '</div>' +
+        '<div class="chips"><span class="chip ' + tone + '">' + esc(S.status) + '</span>' +
+        (S.length ? '<span class="chip">' + esc(S.length) + '</span>' : '') + '</div></div>' +
+      '<div class="scr-legend"><span><b>Plain</b> = say it your way</span><span><b>Bold + NAIL IT</b> = the lines that hold the video</span><span><u style="text-underline-offset:3px">[brackets]</u> = instruction, don't say it</span></div>' +
+      '<div class="scr-rows">' + S.rows.map(function(r){
+        var nail = /\*\*/.test(r[1]), quiet = /^\s*\[[^\]]*\]\s*$/.test(r[1]);
+        return '<div class="scr-row' + (nail ? ' nail' : '') + (quiet ? ' quiet' : '') + '"><div class="scr-t">' + esc(r[0]) + '</div>' +
+               '<div class="scr-l">' + scrLine(r[1]) + '</div></div>'; }).join("") + '</div>' +
+      (S.note ? '<p class="scr-note">' + esc(S.note) + '</p>' : '') + '</div>';
+    el.querySelectorAll(".scr-tabs button").forEach(function(b){ b.addEventListener("click", function(){ scrCur = b.dataset.s; drawScripts(); }); });
   }
   function drawPlaybook(){
     var R = D.rules;
@@ -1139,7 +1192,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
     catch(e){ oops("Saved card dates could not be read", e); }
     try { applyEdits(); }
     catch(e){ oops("Your saved card edits could not be read", e); }
-    drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); drawThumbs(); drawPlaybook(); show("home");
+    drawNav(); drawHome(); drawBoard(); drawTable(); drawPerf(); drawThumbs(); drawScripts(); drawPlaybook(); show("home");
   }
   function oops(what, e){
     /* a broken step must never take the whole page down silently */
