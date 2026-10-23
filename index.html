@@ -867,7 +867,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
         (S.sub ? '<p class="scr-sub">' + esc(S.sub) + '</p>' : '') + '</div>' +
         '<div class="chips"><span class="chip ' + tone + '">' + esc(S.status) + '</span>' +
         (S.length ? '<span class="chip">' + esc(S.length) + '</span>' : '') + '</div></div>' +
-      '<div class="scr-legend"><span><b>Plain</b> = say it your way</span><span><b>Bold + NAIL IT</b> = the lines that hold the video</span><span><u style="text-underline-offset:3px">[brackets]</u> = instruction, don't say it</span></div>' +
+      '<div class="scr-legend"><span><b>Plain</b> = say it your way</span><span><b>Bold + NAIL IT</b> = the lines that hold the video</span><span><u style="text-underline-offset:3px">[brackets]</u> = instruction, never said</span></div>' +
       '<div class="scr-rows">' + S.rows.map(function(r){
         var nail = /\*\*/.test(r[1]), quiet = /^\s*\[[^\]]*\]\s*$/.test(r[1]);
         return '<div class="scr-row' + (nail ? ' nail' : '') + (quiet ? ' quiet' : '') + '"><div class="scr-t">' + esc(r[0]) + '</div>' +
