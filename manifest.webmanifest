@@ -1,0 +1,14 @@
+{
+  "name": "Burger Content Engine",
+  "short_name": "Burger",
+  "description": "Board, scripts, thumbnails and performance for HanneBurger and Burgercam.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0A0D0B",
+  "theme_color": "#0A0D0B",
+  "icons": [
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

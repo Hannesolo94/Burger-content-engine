@@ -7,6 +7,11 @@
 <meta name="description" content="Dashboard, calendar, recording queue, scripts and thumbnail tests for the HanneBurger and BurgerCam channels.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0A0D0B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -339,6 +344,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
 .scr-l{font-size:17px;line-height:1.45;color:var(--text)}
 .scr-l b{font-weight:700;color:var(--text)}
 .scr-l u{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--faint);color:var(--dim);font-style:italic;font-size:14px}
+.scr-row{cursor:pointer}.scr-row.done{opacity:.45}.scr-row.done .scr-t::before{content:"✓ ";color:var(--lime)}
 .scr-note{margin-top:16px;color:var(--dim);font-size:13px}
 @media (max-width:620px){.scr-row{grid-template-columns:1fr;gap:6px}.scr-head h2{font-size:24px}.scr-l{font-size:16px}}
 @media (max-width:980px){
@@ -391,7 +397,10 @@ h4 .ed,.edhead{font:inherit;color:inherit}
 </aside>
 
 <script src="data.js"></script>
+<script src="sync.js"></script>
 <script>
+/* Oct 23 2026: wrapped so sync.js can load the live data from Supabase first, then start the app */
+window.__boot = function(){
 (function(){
   var D = window.ENGINE;
   var K_COL = "burger-engine-board-v1", K_DATE = "burger-engine-dates-v1", K_NEW = "burger-engine-custom-v1",
@@ -850,7 +859,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
   }
 
   /* Oct 23 2026: Scripts view. Lines use **bold** (nail it) and [instruction] (underlined, never said). */
-  var scrCur = null;
+  var scrCur = null, K_SCR = "burger-engine-scripts-v1", scrDone = load(K_SCR, {});
   function scrLine(t){
     return esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\[([^\]]+)\]/g, "<u>[$1]</u>");
   }
@@ -867,13 +876,17 @@ h4 .ed,.edhead{font:inherit;color:inherit}
         (S.sub ? '<p class="scr-sub">' + esc(S.sub) + '</p>' : '') + '</div>' +
         '<div class="chips"><span class="chip ' + tone + '">' + esc(S.status) + '</span>' +
         (S.length ? '<span class="chip">' + esc(S.length) + '</span>' : '') + '</div></div>' +
-      '<div class="scr-legend"><span><b>Plain</b> = say it your way</span><span><b>Bold + NAIL IT</b> = the lines that hold the video</span><span><u style="text-underline-offset:3px">[brackets]</u> = instruction, never said</span></div>' +
+      '<div class="scr-legend"><span><b>Tap a line</b> when it’s recorded</span><span><b>Plain</b> = say it your way</span><span><b>Bold + NAIL IT</b> = the lines that hold the video</span><span><u style="text-underline-offset:3px">[brackets]</u> = instruction, never said</span></div>' +
       '<div class="scr-rows">' + S.rows.map(function(r){
         var nail = /\*\*/.test(r[1]), quiet = /^\s*\[[^\]]*\]\s*$/.test(r[1]);
-        return '<div class="scr-row' + (nail ? ' nail' : '') + (quiet ? ' quiet' : '') + '"><div class="scr-t">' + esc(r[0]) + '</div>' +
+        var done = !!(scrDone[S.id] || {})[r[0]];
+        return '<div class="scr-row' + (nail ? ' nail' : '') + (quiet ? ' quiet' : '') + (done ? ' done' : '') + '" data-t="' + esc(r[0]) + '" title="Tap when recorded"><div class="scr-t">' + esc(r[0]) + '</div>' +
                '<div class="scr-l">' + scrLine(r[1]) + '</div></div>'; }).join("") + '</div>' +
       (S.note ? '<p class="scr-note">' + esc(S.note) + '</p>' : '') + '</div>';
     el.querySelectorAll(".scr-tabs button").forEach(function(b){ b.addEventListener("click", function(){ scrCur = b.dataset.s; drawScripts(); }); });
+    el.querySelectorAll(".scr-row").forEach(function(row){ row.addEventListener("click", function(){
+      var m = scrDone[S.id] = scrDone[S.id] || {}, t = row.dataset.t;
+      if (m[t]) delete m[t]; else m[t] = 1; put(K_SCR, scrDone); drawScripts(); }); });
   }
   function drawPlaybook(){
     var R = D.rules;
@@ -1296,6 +1309,7 @@ h4 .ed,.edhead{font:inherit;color:inherit}
     .then(applyLive)
     .catch(function(){});
 })();
+};
 </script>
 </body>
 </html>

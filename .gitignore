@@ -3,3 +3,4 @@
 client_secret.json
 yt_token*.json
 *.env
+PAIR.txt
