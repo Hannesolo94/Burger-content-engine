@@ -4,7 +4,7 @@
    Pair a device once by opening the private link (?k=...). The key never lives in this repo. */
 (function(){
   var URL_ = "https://jtfyylkcznycxujdgahq.supabase.co";
-  var PUB = "PUBLISHABLE_KEY_HERE";          /* the publishable key is safe in page source: RLS has zero policies */
+  var PUB = "sb_publishable_VDg71dmGk6AVW7uIBLSHFQ_2SinV3uv";          /* the publishable key is safe in page source: RLS has zero policies */
   var K_KEY = "burger-engine-key", K_CACHE = "burger-engine-cache", K_Q = "burger-engine-queue", K_THEME = "burger-engine-theme";
   var LOCAL_ONLY = [K_KEY, K_CACHE, K_Q, K_THEME];
   var rawSet = Storage.prototype.setItem;

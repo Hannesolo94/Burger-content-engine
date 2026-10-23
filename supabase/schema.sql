@@ -37,6 +37,18 @@ begin
   return t;
 end $$;
 
+-- content push from tools/push_engine.py, same token gate, so no secret key is ever needed
+create or replace function public.be_put_engine(p_token text, p_data jsonb) returns timestamptz
+language plpgsql security definer set search_path = public as $$
+declare t timestamptz := now();
+begin
+  if not be_ok(p_token) then raise exception 'nope'; end if;
+  insert into engine(id, data, updated_at) values ('main', p_data, t)
+    on conflict (id) do update set data = excluded.data, updated_at = t;
+  return t;
+end $$;
+
 revoke all on function public.be_ok(text) from public, anon, authenticated;
 grant execute on function public.be_get(text) to anon;
 grant execute on function public.be_put(text, text, jsonb) to anon;
+grant execute on function public.be_put_engine(text, jsonb) to anon;
