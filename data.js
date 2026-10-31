@@ -3148,6 +3148,228 @@ window.ENGINE = {
  ],
  "scripts": [
   {
+   "id": "dagger_mimic",
+   "channel": "hanneburger",
+   "title": "I became a chair and...",
+   "status": "Ready to record",
+   "length": "~4 min",
+   "sub": "The grey VO cards on the CapCut timeline sit at the same spots. If anything shifts, follow the cards.",
+   "rows": [
+    [
+     "0:00-0:11",
+     "[say nothing, let it play]"
+    ],
+    [
+     "0:11-0:16",
+     "**\"Can I win a game with just a knife and a chair?\"**"
+    ],
+    [
+     "0:16-0:26",
+     "\"So the mimic device. You turn into a prop. Enemies walk right past you. In theory.\""
+    ],
+    [
+     "0:26-0:33",
+     "[your sub ask, your words] \"please like and subscribe and press that bell icon for the algorithm, please. Thank you!\""
+    ],
+    [
+     "0:33-0:35",
+     "[your live line plays, say nothing]"
+    ],
+    [
+     "0:42-0:53",
+     "[your live line plays, say nothing]"
+    ],
+    [
+     "0:53-0:55",
+     "[your live line plays, say nothing]"
+    ],
+    [
+     "0:59-1:04",
+     "\"So this is me. About to get spotted.\""
+    ],
+    [
+     "1:07-1:16",
+     "[your live line plays, say nothing]"
+    ],
+    [
+     "1:16-1:24",
+     "\"But when it works. Oh, it works.\""
+    ],
+    [
+     "1:33-1:39",
+     "\"Okay. Let's do it again.\""
+    ],
+    [
+     "1:46-1:50",
+     "\"And then I die. Obviously.\""
+    ],
+    [
+     "1:50-1:54",
+     "**\"Tournament. Knockout round. We need this cashout.\"**"
+    ],
+    [
+     "1:55-2:03",
+     "[your live line plays, say nothing]"
+    ],
+    [
+     "2:07-2:22",
+     "[say nothing, your live lines play]"
+    ],
+    [
+     "2:22-2:38",
+     "[say nothing, your live lines play]"
+    ],
+    [
+     "2:42-2:45",
+     "\"Still no chair. So next best thing.\""
+    ],
+    [
+     "2:49-3:03",
+     "[your live line plays, say nothing]"
+    ],
+    [
+     "3:03-3:06",
+     "\"And then. Finally.\""
+    ],
+    [
+     "3:06-3:19",
+     "[your live line plays, say nothing]"
+    ],
+    [
+     "3:32-3:38",
+     "\"Now this game I haven't shown you yet.\""
+    ],
+    [
+     "3:40-3:52",
+     "\"Nobody even looked at me.\""
+    ],
+    [
+     "3:56-4:01",
+     "[say nothing, let the win land]"
+    ],
+    [
+     "4:02-4:09",
+     "**\"Can I win a game with just a knife and a chair?\"** [pause]"
+    ],
+    [
+     "4:09-4:13",
+     "**\"I turned into a chair and still won.\"** [hard cut]"
+    ]
+   ],
+   "note": "Source: projects/dagger_oct31b/VO_SHEET_mimic.md. Say it your way, never AI voice."
+  },
+  {
+   "id": "dagger_proper",
+   "channel": "hanneburger",
+   "title": "Proper Dagger: how many people can I stab till I'm stopped?",
+   "status": "Ready to record",
+   "length": "~10 min",
+   "sub": "The grey VO cards on the CapCut timeline sit at the same spots. If anything shifts, follow the cards.",
+   "rows": [
+    [
+     "0:00-0:05",
+     "**\"How many people can I stab till I'm stopped?\"**"
+    ],
+    [
+     "0:05-0:43",
+     "[say nothing, music and kills only]"
+    ],
+    [
+     "0:43-0:51",
+     "[say nothing, music cuts dead at the kill]"
+    ],
+    [
+     "0:51-0:54",
+     "\"Fifteen. And then Kaczor.\""
+    ],
+    [
+     "0:54-0:59",
+     "**\"Am I actually a dagger demon, or just a guy with a knife?\"**"
+    ],
+    [
+     "0:59-1:03",
+     "\"Comment what you think. Be honest.\""
+    ],
+    [
+     "1:03-1:09",
+     "[your sub ask, your words] \"please like and subscribe and press that bell icon for the algorithm, please. Thank you!\""
+    ],
+    [
+     "1:09-1:13",
+     "**\"This is what it's like to play dagger.\"**"
+    ],
+    [
+     "1:14-1:21",
+     "\"Seoul. Quick cash. Okay, let's go.\" [then talk it through to picture, the rows below are just the spots not to miss]"
+    ],
+    [
+     "1:44-1:47",
+     "\"First one. Okay. Okay.\""
+    ],
+    [
+     "2:19-2:22",
+     "\"He's dead. He's dead.\""
+    ],
+    [
+     "3:29-3:32",
+     "\"Get him, get him.\""
+    ],
+    [
+     "3:34-3:36",
+     "[you die here, react] \"No, no, no.\""
+    ],
+    [
+     "4:03-4:05",
+     "[you die here, react] \"No, no, no.\""
+    ],
+    [
+     "4:18-4:21",
+     "\"That's crazy.\""
+    ],
+    [
+     "4:56-4:58",
+     "[you die here, react] \"No, no, no.\""
+    ],
+    [
+     "5:54-5:57",
+     "\"Come here.\""
+    ],
+    [
+     "6:51-6:53",
+     "[you die here, react] \"No, no, no.\""
+    ],
+    [
+     "7:19-7:22",
+     "\"Oh, let's go.\""
+    ],
+    [
+     "7:27-7:30",
+     "\"Team wipe. Me. Team wipe.\""
+    ],
+    [
+     "8:03-8:05",
+     "[you die here, react] \"No, no, no.\""
+    ],
+    [
+     "8:55-8:57",
+     "[you die here, react] \"No, no, no.\""
+    ],
+    [
+     "10:02-10:05",
+     "\"Eight kills. Seven deaths. Third place.\""
+    ],
+    [
+     "10:09-10:15",
+     "**\"Am I actually a dagger demon, or just a guy with a knife?\"** [pause]"
+    ],
+    [
+     "10:16-10:19",
+     "**\"Just a guy with a knife. But he's having a great time.\"** [hard cut]"
+    ]
+   ],
+   "note": "Source: projects/dagger_oct31b/VO_SHEET_dagger.md. Say it your way, never AI voice."
+  },
+  {
    "id": "spotlight",
    "channel": "hanneburger",
    "title": "I Took Randoms to the Spotlight Final",
