@@ -14,6 +14,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Nov 3 2026: Magnus OS style guide (graphite + one gold accent). --lime keeps its name so nothing else breaks, it is the gold accent now. */
@@ -362,6 +363,80 @@ h4 .ed,.edhead{font:inherit;color:inherit}
 .logo+span,.rail h4,.clink,.fhint,.dateset em{letter-spacing:.04em}
 :focus-visible{outline:2px solid var(--lime);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}}
+
+/* ===== Nov 4 2026 (Hannes: "the Burger Content Engine needs the full UI treatment"). The Warpsmith kit, the same look as
+   the hub: iron backdrop, green-screen panels in the thin riveted plate edge, steel keys, Cinzel titles, Share Tech Mono
+   text. One look for both themes (the kit is a dark world). Art in img/kit, copied from the hub's kit. ===== */
+:root, :root[data-theme="light"], :root:not([data-theme="dark"]) {
+  --bg:#070806; --bg2:#0b0d09; --grey:#0f1410; --glass:rgba(8,18,10,.86); --glass2:rgba(12,26,14,.9); --well:rgba(4,10,6,.85);
+  --line:rgba(127,227,154,.14); --line2:rgba(127,227,154,.26); --text:#d8f5dc; --dim:#7fbf8f; --faint:#567a5e;
+  --lime:#ffcf5a; --limeD:#8a6a2a; --red:#ff6a4d; --yellow:#ffcf5a;
+  --f-display:Cinzel,Georgia,serif; --f-body:'Share Tech Mono',ui-monospace,monospace; --f-mono:'Share Tech Mono',ui-monospace,monospace;
+  --r:0px; --rs:0px; color-scheme: dark; }
+body { background: linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.72)), url(img/kit/tx_iron.webp) 0 0/320px !important; font-size: 13.5px !important; color: var(--text) !important; }
+body::before { display: none !important; }
+h1, h2, h3 { font-family: Cinzel, Georgia, serif !important; font-weight: 700 !important; letter-spacing: .06em !important; color: #e6bd4c; text-shadow: 0 1px 2px #000; }
+.top h1 { font-size: 26px !important; letter-spacing: .08em !important; text-shadow: 0 0 12px rgba(230,189,76,.3), 0 2px 3px #000; }
+.top p, .fhint, .mini, .legend, .sect>h2 { color: var(--dim) !important; }
+.sect>h2 { font: 400 11px 'Share Tech Mono', monospace !important; letter-spacing: .2em !important; color: #ffcf5a !important; text-transform: uppercase; }
+a { color: #ffcf5a; }
+/* the kit's two framings: green-screen panel (glass + thin riveted plate) and the dark inner well */
+.rail, .panel, .board .col, .night, .vid, .loop > div, .pair {
+  background: #0c1a0e url(img/kit/screen_glass_wide.webp) center/cover no-repeat padding-box !important; border-radius: 0 !important;
+  border-style: solid !important; border-width: 6px 7px 5px 7px !important; border-color: transparent !important;
+  border-image: url(img/kit/f-plate.webp) 95 100 73 100 / 6px 7px 5px 7px round !important; box-shadow: inset 0 0 24px rgba(0,0,0,.7) !important; backdrop-filter: none !important; }
+.rail { background-image: url(img/kit/screen_glass_tall.webp) !important; }
+.tile, .card, .day, .chan, .tbl, .dateset input, .dateset select, .range input[type="date"], .week .night {
+  background: rgba(4,10,6,.72) !important; border-radius: 0 !important; border: 1px solid rgba(127,227,154,.16) !important; box-shadow: inset 0 0 10px rgba(0,0,0,.6) !important; backdrop-filter: none !important; }
+.tile i, .tbl th, .cal .dow, .chan i, .col-h p, .rail h4 { font: 400 10.5px 'Share Tech Mono', monospace !important; letter-spacing: .14em !important; color: #7fbf8f !important; font-style: normal !important; text-transform: uppercase; }
+.tile b, .tbl .num { font-family: 'Share Tech Mono', monospace !important; color: #ffcf5a !important; text-shadow: 0 0 8px rgba(255,190,60,.45); }
+.tile s { text-decoration: none !important; color: #7fbf8f !important; }
+.card h3, .vid h3, .night-b h3, .col-h h2, .ch-head h2, .cal-h h2 { font-family: Cinzel, Georgia, serif !important; color: #e2dcc8 !important; letter-spacing: .04em !important; }
+.card::before, .ev::before { border-radius: 0 !important; }
+.card:hover, .ev:hover, .tbl tbody tr:hover { background: rgba(93,255,154,.08) !important; }
+.day.today { border: 1px solid #ffcf5a !important; box-shadow: inset 0 0 14px rgba(255,190,60,.18), 0 0 10px rgba(255,190,60,.25) !important; }
+.day .dn { font-family: 'Share Tech Mono', monospace !important; color: #7fbf8f !important; } .day.today .dn { color: #ffcf5a !important; }
+.day.out { opacity: .45; }
+/* steel keys: every button, link chip and tag (9-sliced plate, so any width without stretching the rivets) */
+.btn, .railbtn, .clink, .seg button, .nav button, .chip, .ch-head .tag, .dateset .btn {
+  border-radius: 0 !important; background: linear-gradient(rgba(10,10,8,.35), rgba(0,0,0,.6)), url(img/kit/tx_steel.webp) 0 0/160px !important;
+  border-style: solid !important; border-width: 4px 5px 3px 5px !important; border-color: transparent !important;
+  border-image: url(img/kit/f-plate.webp) 95 100 73 100 / 4px 5px 3px 5px round !important; box-shadow: none !important;
+  color: #f0e2b8 !important; text-shadow: 0 1px 2px #000; font-family: Cinzel, Georgia, serif !important; font-weight: 700 !important; letter-spacing: .08em !important; }
+.chip, .ch-head .tag, .clink { font: 700 9.5px 'Share Tech Mono', monospace !important; letter-spacing: .1em !important; padding: 2px 8px !important; }
+.chip.lime, .ch-head .tag { color: #ffcf5a !important; } .chip.red { color: #ff8a6d !important; } .chip.yellow { color: #ffcf5a !important; }
+.btn:hover, .railbtn:hover, .clink:hover, .seg button:hover, .nav button:hover:not([aria-current="true"]) { filter: brightness(1.2); }
+.btn.on, .seg button[aria-selected="true"], .nav button[aria-current="true"], .chan[aria-pressed="true"] {
+  background: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.35)), url(img/kit/screen_glass_wide.webp) center/cover !important; color: #eafbe8 !important; text-shadow: 0 0 6px rgba(93,255,154,.75), 0 1px 1px #000 !important; }
+/* the side rail: channels and views on the green screen */
+.nav button { margin: 3px 0 !important; font: 700 11px Cinzel, Georgia, serif !important; text-align: left; }
+.nav button span.c { font-family: 'Share Tech Mono', monospace !important; color: #ffcf5a !important; background: none !important; }
+.chan { color: #d8f5dc !important; } .chan b { font-family: Cinzel, Georgia, serif !important; color: #e2dcc8 !important; letter-spacing: .04em; }
+.chan .led, .ch-head .led, .dot { box-shadow: 0 0 8px currentColor !important; }
+.logo + span, .rail-top b { font-family: Cinzel, Georgia, serif !important; }
+.rail-foot { border-top: 1px solid rgba(127,227,154,.18) !important; }
+/* tables, forms, legend */
+.tbl th { border-bottom: 1px solid rgba(127,227,154,.22) !important; } .tbl td { border-bottom: 1px solid rgba(127,227,154,.1) !important; color: #d8f5dc !important; }
+.tbl .nm { color: #e2dcc8 !important; font-family: Cinzel, Georgia, serif !important; }
+.dateset input, .dateset select, .range input[type="date"], input, select, textarea { font-family: 'Share Tech Mono', monospace !important; color: #bfeec9 !important; }
+.ev { border-radius: 0 !important; font-family: 'Share Tech Mono', monospace !important; }
+.legend i { border-radius: 0 !important; }
+.seg { border-radius: 0 !important; background: none !important; border: 0 !important; gap: 4px; } .col-h .n, .day .add { border-radius: 0 !important; }
+.col-h .n { font-family: 'Share Tech Mono', monospace !important; color: #ffcf5a !important; background: rgba(0,0,0,.4) !important; border: 1px solid rgba(255,207,90,.35) !important; }
+.day .add { background: rgba(93,255,154,.1) !important; border: 1px solid rgba(127,227,154,.3) !important; color: #8dffb4 !important; }
+.main button:not(.btn):not(.chip):not(.clink) { border-radius: 0 !important; }
+/* phones: the rail is a scroll box, so the page grid squashed it to 2 px and the menu vanished (also on the old look). It
+   now takes its full height on top. Script tabs are steel keys too. */
+@media (max-width:980px) { .rail { overflow: visible !important; } .nav { flex-direction: row !important; flex-wrap: wrap; gap: 4px; } .nav button { flex: 1 1 30%; text-align: center; } }
+.scr-tabs button { border-radius: 0 !important; background: linear-gradient(rgba(10,10,8,.35), rgba(0,0,0,.6)), url(img/kit/tx_steel.webp) 0 0/160px !important;
+  border-style: solid !important; border-width: 4px 5px 3px 5px !important; border-color: transparent !important; border-image: url(img/kit/f-plate.webp) 95 100 73 100 / 4px 5px 3px 5px round !important;
+  color: #f0e2b8 !important; font: 700 11px Cinzel, Georgia, serif !important; letter-spacing: .06em; }
+.scr-tabs button[aria-current="true"] { color: #eafbe8 !important; background: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.35)), url(img/kit/screen_glass_wide.webp) center/cover !important; }
+.scr-head h2 { font-family: Cinzel, Georgia, serif !important; color: #e6bd4c; }
+.scr-row { border-radius: 0 !important; background: rgba(4,10,6,.72) !important; border: 1px solid rgba(127,227,154,.16) !important; }
+.scr-row.nail { box-shadow: inset 3px 0 0 #ffcf5a !important; }
+::-webkit-scrollbar { width: 9px; height: 9px; } ::-webkit-scrollbar-track { background: rgba(0,0,0,.35); }
+::-webkit-scrollbar-thumb { background: linear-gradient(90deg,#5a4520,#a8843c 50%,#5a4520); border: 1px solid #241a08; }
 </style>
 </head>
 <body>
